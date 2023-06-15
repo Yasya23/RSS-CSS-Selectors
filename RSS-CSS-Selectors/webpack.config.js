@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -13,6 +14,8 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+        // test: /\.ts$/i,
+        // use: 'ts-loader',
       },
       {
         test: /\.css$/i,
@@ -28,6 +31,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: 'src/index.html', to: 'index.html' }],
     }),
+    new ESLintPlugin({ extensions: 'ts' }),
   ],
   output: {
     filename: 'bundle.js',

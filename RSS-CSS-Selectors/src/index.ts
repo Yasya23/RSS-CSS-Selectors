@@ -1,7 +1,6 @@
-// import 'tailwindcss/tailwind.css';
 import './styles/style.css';
 
-function app() {
+function app(): void {
   console.log(1);
 }
 
