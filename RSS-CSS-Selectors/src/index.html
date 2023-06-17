@@ -13,48 +13,42 @@
 </head>
 
 
-<body class="bg-gray-800">
+<body class="font-sans bg-gray-800">
   <div class="flex">
     <div class="container mx-auto p-4">
-      <header>
+      <header class="mb-9">
         <h1 class="text-xl text-yellow-400">
           <span class="text-amber-600">CSS </span>Diner
         </h1>
-
       </header>
-      <main class="flex justify-center">
-        <div class="flex w-full flex-col items-center gap-y-9">
 
-          <section>
-            <h2>Select</h2>
+      <main class="flex justify-center mb-9">
+        <div class="flex w-full flex-col items-center">
 
+          <section class="mb-9">
+            <h2 class="sr-only">Desk with elements for choosing</h2>
 
-            <div class="relative w-[32rem] h-32 flex justify-center items-center">
+            <div class="relative w-screen sm:w-[32rem] h-32 flex justify-center items-center">
               <div class="flex z-10">
                 <div
                   class="w-14 h-14 flex justify-center items-center bg-red-600 border-red-700 border-b-8 border-r-4 rounded-full">
-                  <div class="animate-bounce w-6 h-6 bg-red-500 rounded-full"></div>
+                  <div class="w-6 h-6 bg-red-500 rounded-full animate-bounce"></div>
                 </div>
               </div>
 
-              <div class="absolute flex top-0 left-0 justify-center w-[32rem] border-b-8 border-amber-700">
-                <div class="w-96 h-32 skew-x-[-10deg] bg-amber-600 rounded-sm"></div>
+              <div class="absolute flex top-0 left-0 justify-center w-full sm:w-[32rem] border-b-8 border-amber-700">
+                <div class="w-full h-32 skew-x-[-10deg] bg-amber-600 rounded-sm"></div>
                 <div class="w-1/2 h-32 bg-amber-600 absolute"></div>
-                <div class="w-96 h-32 skew-x-[10deg] bg-amber-600 rounded-sm"></div>
+                <div class="w-full h-32 skew-x-[10deg] bg-amber-600 rounded-sm"></div>
               </div>
 
-
             </div>
-
-
-
-
-
           </section>
 
           <section class="w-screen md:w-10/12">
+            <h2 class="sr-only"></h2>
 
-            <div class="bg-slate-900 border-8 border-slate-950">
+            <div class="bg-slate-900 border-8 border-slate-950 rounded shadow-md shadow-slate-900">
               <div class="flex justify-between">
                 <div class="flex justify-between basis-1/2 p-4">
                   <span class="text-slate-300">CSS editor</span>
@@ -68,7 +62,7 @@
 
               <div class="flex">
                 <div class="flex w-2/4 h-full bg-slate-100">
-                  <div class="flex flex-col items-center text-slate-400 w-8	bg-slate-200">
+                  <div class="flex flex-col items-center w-8 p-2 text-slate-400 bg-slate-200 ">
                     <span>1</span>
                     <span>2</span>
                     <span>3</span>
@@ -90,19 +84,22 @@
                     <span>19</span>
                     <span>20</span>
                   </div>
-                  <div class="w-full h-full">
-                    <form class="flex justify-between w-full px-4">
-                      <input class="bg-cyan-100	 outline-0 grow animate-pulse focus:animate-none focus:bg-slate-100"
+                  <div class="flex flex-col gap-1.5 w-full px-2 py-2">
+                    <form class="flex justify-between flex-wrap	w-full">
+                      <input class="bg-cyan-100	outline-0 grow animate-pulse focus:animate-none focus:bg-slate-100"
                         type="text" placeholder="Type your CSS here">
-                      <button>Enter</button>
+                      <button
+                        class="transition ease-in-out bg-stone-300 hover:bg-stone-400 text-stone-600 px-2 rounded-sm ">Enter</button>
                     </form>
-                    <p class="text-slate-300">
-
-                    </p>
+                    <p class="text-slate-300 grow">Click Help</p>
+                    <button
+                      class="transition ease-in-out bg-stone-300 hover:bg-stone-400 text-stone-600 px-2 rounded-sm ">Help,
+                      I'm stuck</button>
                   </div>
                 </div>
-                <div class="flex w-2/4">
-                  <div class="flex flex-col items-center text-slate-600 w-8	bg-slate-800">
+
+                <div class="flex w-2/4 bg-slate-800">
+                  <div class="flex flex-col items-center text-slate-800 w-8	bg-slate-700 p-2">
                     <span>1</span>
                     <span>2</span>
                     <span>3</span>
@@ -124,10 +121,10 @@
                     <span>19</span>
                     <span>20</span>
                   </div>
-                  <div class="w-full flex flex-col">
+                  <div class="w-full flex flex-col pt-2 text-xs md:text-base">
                     <pre class="p-0 m-0"><code class="language-html">&lt;div class="1"&gt;&lt;/div&gt;
 &lt;div class="1"&gt;&lt;/div&gt;
-&lt;div id="1"&gt;HTML viewer&lt;/div&gt;
+&lt;div id="1"&gt;&lt;/div&gt;
                       </code>
                     </pre>
                   </div>
@@ -139,17 +136,21 @@
           </section>
         </div>
       </main>
-      <footer>
-        <a href="">Link</a>
-        <a href="">Logo</a>
+
+      <footer class="flex justify-between text-slate-500">
+        <div>© 2023</div>
+        <a href="https://rs.school/js/"><img class="w-14" src="https://rs.school/images/rs_school_js.svg"
+            alt="RS School logo"></a>
+        <a href="https://github.com/Yasya23">GitHub</a>
       </footer>
+
     </div>
 
-    <nav class="w-3/12 bg-zinc-950 p-4 hidden md:block">
+    <nav class="w-3/12 min-h-full	bg-zinc-950 p-4 shadow-md shadow-slate-900 hidden md:block">
       <div class="w-full select-none">
         <div>
           <div class="flex text-slate-400 mb-3">
-            <p class="text-3xl">Level <span class="text-lime-500">1</span></p>
+            <p class="text-3xl">Levels</p>
           </div>
           <ul class="w-full text-slate-400 mb-5">
             <li class="flex justify-between">
@@ -172,8 +173,9 @@
             </li>
           </ul>
 
-          <button class="w-full text-zinc-400">Reset</button>
-
+          <button
+            class="transition ease-in-out bg-stone-600 hover:bg-stone-500 text-stone-300 p-2 rounded-sm w-full">Reset
+            Progress</button>
         </div>
 
       </div>
