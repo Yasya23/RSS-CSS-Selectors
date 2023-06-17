@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*Change default styles that were in libary Prism.js*/
+pre[class*='language-'],
+code[class*='language-'] {
+  color: #bbbbbb;
+  background: 0 0;
+  padding: 0 0 0 5px;
+  margin: 0;
+  font-size: 1em;
+  text-shadow: none;
+  overflow: hidden;
+  max-height: 100%;
+}
