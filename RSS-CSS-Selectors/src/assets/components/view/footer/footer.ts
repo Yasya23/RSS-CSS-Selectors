@@ -1,32 +1,27 @@
+import { footer } from '../../data/page-elements/footer/footer';
+import { CreateHTMLElement } from '../createHTMLelement';
+
 class Footer {
   private container: HTMLElement;
-  private year: HTMLDivElement;
-  private rsSchoolLink: HTMLAnchorElement;
-  private rsSchoolLogo: HTMLImageElement;
-  private githubLink: HTMLAnchorElement;
+  private year: HTMLElement;
+  private rsSchoolLink: HTMLElement;
+  private rsSchoolLogo: HTMLElement;
+  private githubLink: HTMLElement;
 
   constructor() {
-    this.container = document.createElement('footer');
-    this.container.classList.add('flex', 'justify-between', 'text-slate-500');
+    const { container, year, rsLink, rsLogo, githubLink } = footer;
+    this.container = new CreateHTMLElement(container).getElement();
+    this.year = new CreateHTMLElement(year).getElement();
+    this.rsSchoolLink = new CreateHTMLElement(rsLink).getElement();
+    this.rsSchoolLogo = new CreateHTMLElement(rsLogo).getElement();
+    this.githubLink = new CreateHTMLElement(githubLink).getElement();
 
-    this.year = document.createElement('div');
-    this.year.textContent = '© 2023';
-    this.container.appendChild(this.year);
+    this.rsSchoolLink.append(this.rsSchoolLogo);
+    this.container.append(this.year, this.rsSchoolLink, this.githubLink);
+  }
 
-    this.rsSchoolLink = document.createElement('a');
-    this.rsSchoolLink.href = 'https://rs.school/js/';
-
-    this.rsSchoolLogo = document.createElement('img');
-    this.rsSchoolLogo.classList.add('w-14');
-    this.rsSchoolLogo.src = 'https://rs.school/images/rs_school_js.svg';
-    this.rsSchoolLogo.alt = 'RS School logo';
-    this.rsSchoolLink.appendChild(this.rsSchoolLogo);
-    this.container.appendChild(this.rsSchoolLink);
-
-    this.githubLink = document.createElement('a');
-    this.githubLink.href = 'https://github.com/Yasya23';
-    this.githubLink.textContent = 'GitHub';
-    this.container.appendChild(this.githubLink);
+  getElement() {
+    return this.container;
   }
 }
 
