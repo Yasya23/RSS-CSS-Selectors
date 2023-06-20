@@ -1,4 +1,6 @@
-const footer = {
+import { Data } from '../../../interfaces/data';
+
+const FooterData: Data = {
   container: {
     element: 'footer',
     classes: ['flex', 'justify-between', 'text-slate-500'],
@@ -27,4 +29,4 @@ const footer = {
   },
 };
 
-export { footer };
+export { FooterData };

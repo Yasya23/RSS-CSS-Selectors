@@ -1,4 +1,4 @@
-import { desk } from '../../../../page-elements/main/desk.section/desk';
+import { DeskData } from '../../../data/page-elements/main/desk-section/desk';
 import { CreateHTMLElement } from '../../createHTMLelement';
 
 class Desk {
@@ -7,7 +7,7 @@ class Desk {
   private skewDiv2: HTMLElement;
   private backDiv: HTMLElement;
   constructor() {
-    const { wrapper, skewDiv1, skewDiv2, backDiv } = desk;
+    const { wrapper, skewDiv1, skewDiv2, backDiv } = DeskData;
     this.wrapper = new CreateHTMLElement(wrapper).getElement();
     this.skewDiv1 = new CreateHTMLElement(skewDiv1).getElement();
     this.skewDiv2 = new CreateHTMLElement(skewDiv2).getElement();

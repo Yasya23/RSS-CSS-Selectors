@@ -1,4 +1,6 @@
-const navigation = {
+import { Data } from '../../../interfaces/data';
+
+const NavigationData: Data = {
   nav: {
     element: 'nav',
     classes: [
@@ -14,4 +16,4 @@ const navigation = {
   },
 };
 
-export { navigation };
+export { NavigationData };

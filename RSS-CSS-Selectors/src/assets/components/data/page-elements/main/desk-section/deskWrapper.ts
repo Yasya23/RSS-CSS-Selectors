@@ -1,4 +1,6 @@
-const deskContainer = {
+import { Data } from '../../../../interfaces/data';
+
+const DeskWrapperData: Data = {
   container: {
     element: 'section',
     classes: ['mb-9'],
@@ -22,4 +24,4 @@ const deskContainer = {
   },
 };
 
-export { deskContainer };
+export { DeskWrapperData };

@@ -1,4 +1,6 @@
-const elements = {
+import { Data } from '../../../../interfaces/data';
+
+const ElementsWrapperData: Data = {
   wrapper: {
     element: 'div',
     classes: ['flex', 'z-10'],
@@ -24,4 +26,4 @@ const elements = {
   },
 };
 
-export { elements };
+export { ElementsWrapperData };

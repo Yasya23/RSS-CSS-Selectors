@@ -1,4 +1,4 @@
-import { mainContainer } from '../../../page-elements/main/main';
+import { MainData } from '../../data/page-elements/main/main';
 import { CreateHTMLElement } from '../createHTMLelement';
 import { DeskSection } from './desk-section/desk-section';
 import { EditorSection } from './editor-section/editor';
@@ -10,7 +10,7 @@ class Main {
   private editorSection: HTMLElement;
 
   constructor() {
-    const { main, wrapper } = mainContainer;
+    const { main, wrapper } = MainData;
 
     this.container = new CreateHTMLElement(main).getElement();
     this.wrapper = new CreateHTMLElement(wrapper).getElement();

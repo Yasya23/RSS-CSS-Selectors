@@ -1,4 +1,4 @@
-import { footer } from '../../../page-elements/footer/footer';
+import { FooterData } from '../../data/page-elements/footer/footer';
 import { CreateHTMLElement } from '../createHTMLelement';
 
 class Footer {
@@ -9,7 +9,7 @@ class Footer {
   private githubLink: HTMLElement;
 
   constructor() {
-    const { container, year, rsLink, rsLogo, githubLink } = footer;
+    const { container, year, rsLink, rsLogo, githubLink } = FooterData;
     this.container = new CreateHTMLElement(container).getElement();
     this.year = new CreateHTMLElement(year).getElement();
     this.rsSchoolLink = new CreateHTMLElement(rsLink).getElement();

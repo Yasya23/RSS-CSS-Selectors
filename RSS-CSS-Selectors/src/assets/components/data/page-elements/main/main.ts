@@ -1,4 +1,6 @@
-const mainContainer = {
+import { Data } from '../../../interfaces/data';
+
+const MainData: Data = {
   main: {
     element: 'main',
     classes: ['flex', 'justify-center', 'mb-9'],
@@ -9,4 +11,4 @@ const mainContainer = {
   },
 };
 
-export { mainContainer };
+export { MainData };

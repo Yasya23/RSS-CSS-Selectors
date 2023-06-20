@@ -1,11 +1,11 @@
-import { navigation } from '../../../page-elements/nav/nav';
+import { NavigationData } from '../../data/page-elements/nav/nav';
 import { CreateHTMLElement } from '../createHTMLelement';
 
 class Navigation {
   private navElement: HTMLElement;
 
   constructor() {
-    const { nav } = navigation;
+    const { nav } = NavigationData;
     this.navElement = new CreateHTMLElement(nav).getElement();
   }
 

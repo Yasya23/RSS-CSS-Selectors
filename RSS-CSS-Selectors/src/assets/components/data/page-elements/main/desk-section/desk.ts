@@ -1,4 +1,6 @@
-const desk = {
+import { Data } from '../../../../interfaces/data';
+
+const DeskData: Data = {
   wrapper: {
     element: 'div',
     classes: [
@@ -33,4 +35,4 @@ const desk = {
   },
 };
 
-export { desk };
+export { DeskData };

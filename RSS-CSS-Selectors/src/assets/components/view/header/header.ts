@@ -1,4 +1,4 @@
-import { header } from '../../../page-elements/header/header';
+import { HeaderData } from '../../data/page-elements/header/header';
 import { CreateHTMLElement } from '../createHTMLelement';
 
 class Header {
@@ -6,7 +6,7 @@ class Header {
   private title: HTMLElement;
   private titleSpan: HTMLElement;
   constructor() {
-    const { container, title, titleSpan } = header;
+    const { container, title, titleSpan } = HeaderData;
     this.container = new CreateHTMLElement(container).getElement();
     this.title = new CreateHTMLElement(title).getElement();
     this.titleSpan = new CreateHTMLElement(titleSpan).getElement();
