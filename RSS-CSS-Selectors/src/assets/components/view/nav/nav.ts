@@ -1,18 +1,12 @@
+import { navigation } from '../../data/page-elements/nav/nav';
+import { CreateHTMLElement } from '../createHTMLelement';
+
 class Navigation {
   private navElement: HTMLElement;
 
   constructor() {
-    this.navElement = document.createElement('nav');
-    this.navElement.classList.add(
-      'w-3/12',
-      'min-h-full',
-      'bg-zinc-950',
-      'p-4',
-      'shadow-md',
-      'shadow-slate-900',
-      'hidden',
-      'md:block'
-    );
+    const { nav } = navigation;
+    this.navElement = new CreateHTMLElement(nav).getElement();
   }
 
   getElement() {

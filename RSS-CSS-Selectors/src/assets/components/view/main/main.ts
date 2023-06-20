@@ -1,25 +1,24 @@
-import { DeskSection } from './desk-section/desk';
+import { mainContainer } from '../../data/page-elements/main/main';
+import { CreateHTMLElement } from '../createHTMLelement';
+import { DeskSection } from './desk-section/desk-section';
 import { EditorSection } from './editor-section/editor';
 
 class Main {
   private container: HTMLElement;
   private wrapper: HTMLElement;
-  private deskSection: DeskSection;
-  private editorSection: EditorSection;
+  private deskSection: HTMLElement;
+  private editorSection: HTMLElement;
 
   constructor() {
-    this.container = document.createElement('main');
-    this.container.classList.add('flex', 'justify-center', 'mb-9');
+    const { main, wrapper } = mainContainer;
 
-    this.wrapper = document.createElement('div');
-    this.wrapper.classList.add('flex', 'w-full', 'flex-col', 'items-center');
+    this.container = new CreateHTMLElement(main).getElement();
+    this.wrapper = new CreateHTMLElement(wrapper).getElement();
 
-    this.deskSection = new DeskSection();
-    this.editorSection = new EditorSection();
+    this.deskSection = new DeskSection().getElement();
+    this.editorSection = new EditorSection().getElement();
 
-    this.wrapper.append(this.deskSection.getElement());
-    this.wrapper.append(this.editorSection.getElement());
-
+    this.wrapper.append(this.deskSection, this.editorSection);
     this.container.append(this.wrapper);
   }
 

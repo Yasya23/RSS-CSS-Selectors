@@ -22,13 +22,10 @@ class CreateHTMLElement {
       const anchorElement = this.htmlElement as HTMLAnchorElement;
       anchorElement.href = href;
     }
-    if (element === 'img' && src) {
+    if (element === 'img' && (src || alt)) {
       const imageElement = this.htmlElement as HTMLImageElement;
-      imageElement.src = src;
-    }
-    if (element === 'img' && alt) {
-      const imageElement = this.htmlElement as HTMLImageElement;
-      imageElement.alt = alt;
+      if (src) imageElement.src = src;
+      if (alt) imageElement.alt = alt;
     }
   }
 
