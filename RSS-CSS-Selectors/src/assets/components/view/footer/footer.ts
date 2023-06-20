@@ -1,4 +1,4 @@
-import { footer } from '../../data/page-elements/footer/footer';
+import { footer } from '../../../page-elements/footer/footer';
 import { CreateHTMLElement } from '../createHTMLelement';
 
 class Footer {

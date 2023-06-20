@@ -1,4 +1,4 @@
-import { deskContainer } from '../../../data/page-elements/main/desk.section/deskWrapper';
+import { deskContainer } from '../../../../page-elements/main/desk.section/deskWrapper';
 import { CreateHTMLElement } from '../../createHTMLelement';
 import { Desk } from './desk';
 

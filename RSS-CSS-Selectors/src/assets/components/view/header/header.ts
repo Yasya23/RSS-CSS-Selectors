@@ -1,14 +1,22 @@
+import { header } from '../../../page-elements/header/header';
+import { CreateHTMLElement } from '../createHTMLelement';
+
 class Header {
   private container: HTMLElement;
   private title: HTMLElement;
-
+  private titleSpan: HTMLElement;
   constructor() {
-    this.container = document.createElement('header');
-    this.container.classList.add('mb-9');
-    this.title = document.createElement('h1');
-    this.title.classList.add('text-xl', 'text-yellow-400');
-    this.title.innerHTML = '<span class="text-amber-600">CSS </span>Diner';
-    this.container.appendChild(this.title);
+    const { container, title, titleSpan } = header;
+    this.container = new CreateHTMLElement(container).getElement();
+    this.title = new CreateHTMLElement(title).getElement();
+    this.titleSpan = new CreateHTMLElement(titleSpan).getElement();
+
+    this.title.append(this.titleSpan);
+    this.container.append(this.title);
+  }
+
+  getElement() {
+    return this.container;
   }
 }
 

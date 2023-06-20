@@ -1,4 +1,4 @@
-import { desk } from '../../../data/page-elements/main/desk.section/desk';
+import { desk } from '../../../../page-elements/main/desk.section/desk';
 import { CreateHTMLElement } from '../../createHTMLelement';
 
 class Desk {

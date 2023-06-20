@@ -1,4 +1,4 @@
-import { mainContainer } from '../../data/page-elements/main/main';
+import { mainContainer } from '../../../page-elements/main/main';
 import { CreateHTMLElement } from '../createHTMLelement';
 import { DeskSection } from './desk-section/desk-section';
 import { EditorSection } from './editor-section/editor';

@@ -1,4 +1,4 @@
-import { navigation } from '../../data/page-elements/nav/nav';
+import { navigation } from '../../../page-elements/nav/nav';
 import { CreateHTMLElement } from '../createHTMLelement';
 
 class Navigation {
