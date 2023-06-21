@@ -12,13 +12,11 @@ class EditorSection {
   constructor() {
     const { container, heading, wrapper, menuWrapper, editorWrapper } =
       EditorData;
-    this.container = new CreateHTMLElement(container).getElement();
-    this.wrapper = new CreateHTMLElement(wrapper).getElement();
-
     const header = new CreateHTMLElement(heading).getElement();
 
+    this.container = new CreateHTMLElement(container).getElement();
+    this.wrapper = new CreateHTMLElement(wrapper).getElement();
     this.menuWrapper = new CreateHTMLElement(menuWrapper).getElement();
-
     this.editorWrapper = new CreateHTMLElement(editorWrapper).getElement();
 
     const cssMenu = new EditorCss().getSubmenu();

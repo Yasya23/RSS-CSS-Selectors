@@ -7,7 +7,6 @@ class EditorNotes {
   constructor() {
     const { cssNotes } = CssEditorData;
     this.notes = new CreateHTMLElement(cssNotes).getElement();
-    this.notes.textContent = 'Hi';
   }
 
   getElement() {

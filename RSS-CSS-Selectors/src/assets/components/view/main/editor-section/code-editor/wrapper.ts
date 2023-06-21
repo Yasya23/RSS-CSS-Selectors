@@ -1,6 +1,7 @@
 import { HtmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
 import { EditorNumbersList } from '../create-numbers-list';
+import { Code } from './code';
 
 class EditorCode {
   private menu: HTMLElement;
@@ -20,8 +21,10 @@ class EditorCode {
     const numbersList = EditorNumbersList.getEditorNumbersHTML();
     numbersWrapper.innerHTML = numbersList;
 
+    const codeField = new Code().getElement();
+
     this.menu.append(title, subtitle);
-    this.editorWrapper.append(numbersWrapper);
+    this.editorWrapper.append(numbersWrapper, codeField);
   }
 
   getSubmenu() {
