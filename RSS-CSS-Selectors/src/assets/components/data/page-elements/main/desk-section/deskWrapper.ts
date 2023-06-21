@@ -15,7 +15,8 @@ const DeskWrapperData: Data = {
     classes: [
       'relative',
       'w-screen',
-      'sm:w-[32rem]',
+      'sm:w-[30rem]',
+      'md:w-[32rem]',
       'h-32',
       'flex',
       'justify-center',

@@ -3,7 +3,7 @@ import { Data } from '../../../interfaces/data';
 const MainData: Data = {
   main: {
     element: 'main',
-    classes: ['flex', 'justify-center', 'mb-9'],
+    classes: ['flex', 'justify-center', 'mb-9', 'grow'],
   },
   wrapper: {
     element: 'div',

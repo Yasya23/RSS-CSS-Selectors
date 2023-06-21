@@ -17,7 +17,6 @@ class HelpButton {
 
   handleClick(): void {
     console.log('1');
-    // Add your logic here to handle the click event
   }
 }
 

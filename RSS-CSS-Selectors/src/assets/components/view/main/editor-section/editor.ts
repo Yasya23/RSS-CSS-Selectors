@@ -1,5 +1,6 @@
 import { EditorData } from '../../../data/page-elements/main/editor-section/editor';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
+import { EditorCode } from './code-editor/wrapper';
 import { EditorCss } from './css-editor/wrapper';
 
 class EditorSection {
@@ -23,10 +24,13 @@ class EditorSection {
     const cssMenu = new EditorCss().getSubmenu();
     const cssEditorWrapper = new EditorCss().getEditorWrapper();
 
+    const htmlMenu = new EditorCode().getSubmenu();
+    const htmlEditorWrapper = new EditorCode().getEditorWrapper();
+
     this.container.append(header, this.wrapper);
     this.wrapper.append(this.menuWrapper, this.editorWrapper);
-    this.menuWrapper.append(cssMenu);
-    this.editorWrapper.append(cssEditorWrapper);
+    this.menuWrapper.append(cssMenu, htmlMenu);
+    this.editorWrapper.append(cssEditorWrapper, htmlEditorWrapper);
   }
 
   getElement() {

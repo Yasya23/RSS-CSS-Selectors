@@ -1,6 +1,11 @@
 import { Data } from '../../../../interfaces/data';
 
 const HtmlEditorData: Data = {
+  wrapper: {
+    element: 'div',
+    classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-800'],
+  },
+
   submenu: {
     element: 'div',
     classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],

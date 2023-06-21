@@ -7,7 +7,15 @@ const Body: Data = {
   },
   wrapper: {
     element: 'div',
-    classes: ['container', 'mx-auto', 'p-4'],
+    classes: [
+      'container',
+      'mx-auto',
+      'p-4',
+      'flex',
+      'flex-col',
+      'justify-between',
+      'min-h-screen',
+    ],
   },
 };
 

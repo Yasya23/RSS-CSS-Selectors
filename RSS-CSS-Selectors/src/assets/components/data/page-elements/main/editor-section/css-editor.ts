@@ -3,7 +3,7 @@ import { Data } from '../../../../interfaces/data';
 const CssEditorData: Data = {
   wrapper: {
     element: 'div',
-    classes: ['flex w-2/4 h-full bg-slate-100'],
+    classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-100'],
   },
   submenu: {
     element: 'div',
@@ -24,7 +24,7 @@ const CssEditorData: Data = {
 
   editorWrapper: {
     element: 'div',
-    classes: ['flex', 'w-2/4', 'h-full', 'bg-slate-100'],
+    classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-100'],
   },
 
   editorNumbers: {
@@ -42,7 +42,15 @@ const CssEditorData: Data = {
 
   cssField: {
     element: 'div',
-    classes: ['flex', 'flex-col', 'gap-1.5', 'w-full', 'px-2', 'py-2'],
+    classes: [
+      'flex',
+      'flex-col',
+      'gap-1.5',
+      'grow',
+      'px-2',
+      'py-2',
+      'overflow-hidden',
+    ],
   },
 
   cssEditorForm: {
@@ -97,6 +105,7 @@ const CssEditorData: Data = {
       'text-stone-600',
       'px-2',
       'rounded-sm',
+      'w-full',
     ],
     textContent: "Help, I'm stuck",
   },
