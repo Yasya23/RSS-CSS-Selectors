@@ -4,6 +4,7 @@ import { Main } from './main/main';
 import { Navigation } from './nav/nav';
 import { Footer } from './footer/footer';
 import { CreateHTMLElement } from './createHTMLelement';
+import { AddClassToElement } from './addClass';
 
 class View {
   private container: HTMLElement;
@@ -15,9 +16,7 @@ class View {
 
   constructor() {
     const { container, wrapper } = Body;
-
-    document.body.classList.add('font-sans', 'bg-gray-800');
-
+    AddClassToElement.add(document.body, ['font-sans', 'bg-gray-800']);
     this.container = new CreateHTMLElement(container).getElement();
     this.wrapper = new CreateHTMLElement(wrapper).getElement();
     this.header = new Header().getElement();

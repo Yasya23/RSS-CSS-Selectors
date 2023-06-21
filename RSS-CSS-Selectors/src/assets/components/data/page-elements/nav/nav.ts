@@ -5,7 +5,7 @@ const NavigationData: Data = {
     element: 'nav',
     classes: [
       'w-3/12',
-      'min-h-full',
+      'min-h-screen',
       'bg-zinc-950',
       'p-4',
       'shadow-md',
