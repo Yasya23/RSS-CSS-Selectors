@@ -1,5 +1,5 @@
 import { DeskWrapperData } from '../../../data/page-elements/main/desk-section/deskWrapper';
-import { CreateHTMLElement } from '../../createHTMLelement';
+import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { Desk } from './desk';
 
 class DeskSection {

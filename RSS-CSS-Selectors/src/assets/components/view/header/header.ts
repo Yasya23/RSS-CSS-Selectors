@@ -1,5 +1,5 @@
 import { HeaderData } from '../../data/page-elements/header/header';
-import { CreateHTMLElement } from '../createHTMLelement';
+import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Header {
   private container: HTMLElement;

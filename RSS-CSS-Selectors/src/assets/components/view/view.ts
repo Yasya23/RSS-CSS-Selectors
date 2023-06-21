@@ -3,8 +3,8 @@ import { Header } from './header/header';
 import { Main } from './main/main';
 import { Navigation } from './nav/nav';
 import { Footer } from './footer/footer';
-import { CreateHTMLElement } from './createHTMLelement';
-import { AddClassToElement } from './addClass';
+import { CreateHTMLElement } from './actions/createHTMLelement';
+import { AddClassToElement } from './actions/addClass';
 
 class View {
   private container: HTMLElement;

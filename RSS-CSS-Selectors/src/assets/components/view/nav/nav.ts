@@ -1,5 +1,5 @@
 import { NavigationData } from '../../data/page-elements/nav/nav';
-import { CreateHTMLElement } from '../createHTMLelement';
+import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Navigation {
   private navElement: HTMLElement;

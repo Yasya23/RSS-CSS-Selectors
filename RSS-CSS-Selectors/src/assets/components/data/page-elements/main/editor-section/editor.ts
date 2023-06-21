@@ -27,6 +27,11 @@ const EditorData: Data = {
     element: 'div',
     classes: ['flex', 'justify-between'],
   },
+
+  editorWrapper: {
+    element: 'div',
+    classes: ['flex'],
+  },
 };
 
 export { EditorData };

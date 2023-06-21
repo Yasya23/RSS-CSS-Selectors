@@ -1,6 +1,10 @@
 import { Data } from '../../../../interfaces/data';
 
 const CssEditorData: Data = {
+  wrapper: {
+    element: 'div',
+    classes: ['flex w-2/4 h-full bg-slate-100'],
+  },
   submenu: {
     element: 'div',
     classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],
@@ -20,7 +24,7 @@ const CssEditorData: Data = {
 
   editorWrapper: {
     element: 'div',
-    classes: ['flex'],
+    classes: ['flex', 'w-2/4', 'h-full', 'bg-slate-100'],
   },
 
   editorNumbers: {
@@ -36,8 +40,18 @@ const CssEditorData: Data = {
     ],
   },
 
-  cssEditor: {
+  cssField: {
     element: 'div',
+    classes: ['flex', 'flex-col', 'gap-1.5', 'w-full', 'px-2', 'py-2'],
+  },
+
+  cssEditorForm: {
+    element: 'form',
+    classes: ['flex', 'justify-between', 'flex-wrap', 'w-full'],
+  },
+
+  cssEditorInput: {
+    element: 'input',
     classes: [
       'bg-cyan-100',
       'outline-0',

@@ -1,5 +1,5 @@
 import { DeskData } from '../../../data/page-elements/main/desk-section/desk';
-import { CreateHTMLElement } from '../../createHTMLelement';
+import { CreateHTMLElement } from '../../actions/createHTMLelement';
 
 class Desk {
   private wrapper: HTMLElement;

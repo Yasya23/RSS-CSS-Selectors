@@ -1,5 +1,5 @@
 import { FooterData } from '../../data/page-elements/footer/footer';
-import { CreateHTMLElement } from '../createHTMLelement';
+import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Footer {
   private container: HTMLElement;

@@ -1,5 +1,5 @@
 import { MainData } from '../../data/page-elements/main/main';
-import { CreateHTMLElement } from '../createHTMLelement';
+import { CreateHTMLElement } from '../actions/createHTMLelement';
 import { DeskSection } from './desk-section/desk-section';
 import { EditorSection } from './editor-section/editor';
 
