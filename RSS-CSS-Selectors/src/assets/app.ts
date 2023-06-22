@@ -2,7 +2,7 @@ import { View } from './components/view/view';
 
 class App {
   load() {
-    new View();
+    new View().getElement();
   }
 }
 

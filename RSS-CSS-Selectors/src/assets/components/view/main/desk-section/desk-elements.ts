@@ -1,19 +1,16 @@
-import { DeskData } from '../../../data/desk-elements';
 import { ElementsWrapperData } from '../../../data/page-elements/main/desk-section/elementsOnDeskWrapper';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
+import { Highlight } from '../../actions/highlite';
 
 class DeskElements {
   private elementsWrapper: HTMLElement;
   private elementsArray: HTMLElement[];
 
   constructor() {
-    const { apple } = DeskData;
     const { wrapper } = ElementsWrapperData;
 
     this.elementsWrapper = new CreateHTMLElement(wrapper).getElement();
-    const appleFruitOne = new CreateHTMLElement(apple).getElement();
-    this.elementsArray = [appleFruitOne];
-    console.log(this.elementsArray);
+    this.elementsArray = new Highlight().getElementsArray();
     this.elementsWrapper.append(...this.elementsArray);
   }
 

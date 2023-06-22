@@ -14,7 +14,6 @@ const DeskData: Data = {
       'border-b-8',
       'border-r-4',
       'rounded-full',
-      'hover:ring-4',
       'ring-white',
     ],
   },

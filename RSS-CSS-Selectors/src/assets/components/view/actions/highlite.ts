@@ -1,43 +1,82 @@
-import { DeskElements } from '../main/desk-section/desk-elements';
-import { Code } from '../main/editor-section/code-editor/code';
+import { ElementsCode } from '../../data/elements-code';
+import { CreateHTMLElement } from './createHTMLelement';
+import { DeskData } from '../../data/desk-elements';
 
 class Highlight {
-  private deskElements: Element[];
-  private codeElements: Element[];
+  private codeArray: HTMLElement[];
+  private deskElements: HTMLElement[];
 
   constructor() {
-    this.deskElements = new DeskElements().getElementsArray();
-    this.codeElements = new Code().getCodeArray();
+    const { apple } = ElementsCode;
+    const { apple: appleImg } = DeskData;
 
+    const codeAppleOne = new CreateHTMLElement(apple).getElement();
+    const codeAppleTwo = new CreateHTMLElement(apple).getElement();
+
+    const appleFruitOne = new CreateHTMLElement(appleImg).getElement();
+    const appleFruitTwo = new CreateHTMLElement(appleImg).getElement();
+
+    this.codeArray = [codeAppleOne, codeAppleTwo];
+    this.deskElements = [appleFruitOne, appleFruitTwo];
+
+    this.assignDataIds();
     this.addHoverListeners();
-    this.showArrays();
   }
 
-  private addHoverListeners(): void {
+  private assignDataIds(): void {
+    this.codeArray.forEach((element, index) => {
+      element.dataset.id = `code-${index}`;
+    });
+
     this.deskElements.forEach((element, index) => {
+      element.dataset.id = `desk-${index}`;
+    });
+  }
+
+  public addHoverListeners(): void {
+    this.codeArray.forEach((element, index: number) => {
       element.addEventListener('mouseover', () => {
-        this.highlightElement(index);
+        this.highlightClassToggle(index);
       });
 
       element.addEventListener('mouseleave', () => {
-        this.removeHighlight();
+        this.highlightClassToggle(index);
+      });
+    });
+
+    this.deskElements.forEach((element, index: number) => {
+      element.addEventListener('mouseover', () => {
+        this.highlightClassToggle(index);
+      });
+
+      element.addEventListener('mouseleave', () => {
+        this.highlightClassToggle(index);
       });
     });
   }
 
-  private highlightElement(index: number): void {
-    this.codeElements[index].classList.add('highlight');
+  private highlightClassToggle(index: number): void {
+    const codeElement = this.codeArray[index];
+    const deskElement = this.deskElements[index];
+
+    const codeDataId = codeElement.dataset.id;
+    const deskDataId = deskElement.dataset.id;
+
+    const getDeskElement = document.querySelector(`[data-id="${deskDataId}"]`);
+    const getCodeElement = document.querySelector(`[data-id="${codeDataId}"]`);
+
+    if (getDeskElement && getCodeElement) {
+      getDeskElement.classList.toggle('ring-4');
+      getCodeElement.classList.toggle('text-white');
+    }
   }
 
-  private removeHighlight(): void {
-    this.codeElements.forEach((element) => {
-      element.classList.remove('highlight');
-    });
+  getCodeArray() {
+    return this.codeArray;
   }
 
-  private showArrays(): void {
-    console.log('deskElements:', this.deskElements);
-    console.log('codeElements:', this.codeElements);
+  getElementsArray() {
+    return this.deskElements;
   }
 }
 

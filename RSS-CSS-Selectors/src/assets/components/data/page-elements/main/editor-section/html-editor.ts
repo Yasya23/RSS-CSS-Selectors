@@ -50,12 +50,12 @@ const HtmlEditorData: Data = {
   },
 
   codePre: {
-    element: 'pre',
+    element: 'div',
     classes: ['p-0', 'm-0'],
   },
 
   codeBlock: {
-    element: 'code',
+    element: 'div',
     classes: ['language-html'],
   },
 };
