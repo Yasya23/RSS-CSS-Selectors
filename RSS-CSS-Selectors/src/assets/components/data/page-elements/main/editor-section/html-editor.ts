@@ -38,7 +38,15 @@ const HtmlEditorData: Data = {
 
   htmlViewerCode: {
     element: 'div',
-    classes: ['w-full', 'flex', 'flex-col', 'pt-2', 'text-xs', 'md:text-base'],
+    classes: [
+      'w-full',
+      'flex',
+      'flex-col',
+      'pt-2',
+      'text-xs',
+      'md:text-base',
+      'overflow-hidden',
+    ],
   },
 
   codePre: {

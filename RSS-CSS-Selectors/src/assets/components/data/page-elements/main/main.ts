@@ -7,7 +7,7 @@ const MainData: Data = {
   },
   wrapper: {
     element: 'div',
-    classes: ['flex', 'w-full', 'flex-col', 'items-center'],
+    classes: ['flex', 'w-full', 'flex-col', 'items-center', 'overflow-hidden'],
   },
 };
 

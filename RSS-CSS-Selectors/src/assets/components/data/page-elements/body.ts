@@ -10,7 +10,6 @@ const Body: Data = {
     classes: [
       'container',
       'mx-auto',
-      'p-4',
       'flex',
       'flex-col',
       'justify-between',

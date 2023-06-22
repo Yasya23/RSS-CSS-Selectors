@@ -3,7 +3,7 @@ import { Data } from '../../../interfaces/data';
 const FooterData: Data = {
   container: {
     element: 'footer',
-    classes: ['flex', 'justify-between', 'text-slate-500'],
+    classes: ['flex', 'justify-between', 'text-slate-500', 'p-4'],
   },
   year: {
     element: 'div',

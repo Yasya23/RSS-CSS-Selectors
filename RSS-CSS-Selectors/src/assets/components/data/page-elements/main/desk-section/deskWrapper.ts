@@ -21,6 +21,7 @@ const DeskWrapperData: Data = {
       'flex',
       'justify-center',
       'items-center',
+      'perspective',
     ],
   },
 };

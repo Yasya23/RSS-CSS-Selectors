@@ -3,7 +3,7 @@ import { Data } from '../../../interfaces/data';
 const HeaderData: Data = {
   container: {
     element: 'header',
-    classes: ['mb-9'],
+    classes: ['mb-9', 'p-4'],
   },
   title: {
     element: 'h1',

@@ -3,7 +3,7 @@ import { Data } from '../../../../interfaces/data';
 const EditorData: Data = {
   container: {
     element: 'section',
-    classes: ['w-screen', 'md:w-10/12'],
+    classes: ['w-full', 'md:w-10/12'],
   },
 
   heading: {

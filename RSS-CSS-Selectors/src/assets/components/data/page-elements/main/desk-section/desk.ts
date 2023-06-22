@@ -13,6 +13,7 @@ const DeskData: Data = {
       'sm:w-[32rem]',
       'border-b-8',
       'border-amber-700',
+      'transform',
     ],
   },
   skewDiv1: {
