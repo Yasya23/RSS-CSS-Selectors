@@ -26,8 +26,8 @@ class EditorCss {
     this.editorWrapper = new CreateHTMLElement(editorWrapper).getElement();
     const numbersWrapper = new CreateHTMLElement(editorNumbers).getElement();
 
-    const numbersList = EditorNumbersList.getEditorNumbersHTML();
-    numbersWrapper.innerHTML = numbersList;
+    const numbersList = EditorNumbersList.createEditorNumbers();
+    numbersWrapper.append(...numbersList);
 
     const cssFieldWrapper = new CreateHTMLElement(cssField).getElement();
     const form = new EditorInput().getElement();

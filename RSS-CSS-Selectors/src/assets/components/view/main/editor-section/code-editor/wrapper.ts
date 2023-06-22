@@ -18,8 +18,8 @@ class EditorCode {
     this.editorWrapper = new CreateHTMLElement(wrapper).getElement();
 
     const numbersWrapper = new CreateHTMLElement(editorNumbers).getElement();
-    const numbersList = EditorNumbersList.getEditorNumbersHTML();
-    numbersWrapper.innerHTML = numbersList;
+    const numbersList = EditorNumbersList.createEditorNumbers();
+    numbersWrapper.append(...numbersList);
 
     const codeField = new Code().getElement();
 

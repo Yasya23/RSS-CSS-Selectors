@@ -1,10 +1,12 @@
 class EditorNumbersList {
-  static getEditorNumbersHTML(): string {
-    let numbersHTML = '';
+  static createEditorNumbers(): HTMLSpanElement[] {
+    const numbers = [];
     for (let i = 1; i <= 20; i++) {
-      numbersHTML += `<span>${i}</span>`;
+      const span = document.createElement('span');
+      span.textContent = `${i}`;
+      numbers.push(span);
     }
-    return numbersHTML;
+    return numbers;
   }
 }
 
