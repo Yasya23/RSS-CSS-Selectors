@@ -4,4 +4,8 @@ interface Data {
   [key: string]: ElementStructure;
 }
 
-export { Data };
+interface DataTwo {
+  [key: string]: Data;
+}
+
+export { Data, DataTwo };

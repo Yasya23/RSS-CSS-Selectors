@@ -1,21 +1,22 @@
 import { DeskWrapperData } from '../../../data/page-elements/main/desk-section/deskWrapper';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { Desk } from './desk';
+import { DeskElements } from './desk-elements';
 
 class DeskSection {
   private container: HTMLElement;
-  private heading: HTMLElement;
-  private wrapper: HTMLElement;
-  private desk: HTMLElement;
+  private deskElements: HTMLElement;
+
   constructor() {
     const { container, heading, wrapper } = DeskWrapperData;
     this.container = new CreateHTMLElement(container).getElement();
-    this.heading = new CreateHTMLElement(heading).getElement();
-    this.wrapper = new CreateHTMLElement(wrapper).getElement();
-    this.desk = new Desk().getElement();
+    const title = new CreateHTMLElement(heading).getElement();
+    const deskWrapper = new CreateHTMLElement(wrapper).getElement();
+    const desk = new Desk().getElement();
+    this.deskElements = new DeskElements().getElement();
 
-    this.container.append(this.heading, this.wrapper);
-    this.wrapper.append(this.desk);
+    this.container.append(title, deskWrapper);
+    deskWrapper.append(desk, this.deskElements);
   }
 
   getElement() {
