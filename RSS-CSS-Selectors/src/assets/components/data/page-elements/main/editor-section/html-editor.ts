@@ -43,20 +43,28 @@ const HtmlEditorData: Data = {
       'flex',
       'flex-col',
       'pt-2',
+      'pl-1',
       'text-xs',
       'md:text-base',
       'overflow-hidden',
     ],
   },
 
-  codePre: {
+  codeWrapper: {
     element: 'div',
-    classes: ['p-0', 'm-0'],
+    classes: ['pl-3', 'm-0'],
   },
 
-  codeBlock: {
+  codeOpen: {
     element: 'div',
-    classes: ['language-html'],
+    classes: ['text-slate-500'],
+    textContent: `<div class="table">`,
+  },
+
+  codeClose: {
+    element: 'div',
+    classes: ['text-slate-500'],
+    textContent: `</div>`,
   },
 };
 

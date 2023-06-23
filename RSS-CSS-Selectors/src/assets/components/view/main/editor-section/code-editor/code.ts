@@ -4,19 +4,20 @@ import { Highlight } from '../../../actions/highlite';
 
 class Code {
   private wrapper: HTMLElement;
-  private code: HTMLElement;
   private codeArray: HTMLElement[];
 
   constructor() {
-    const { htmlViewerCode, codePre, codeBlock } = HtmlEditorData;
+    const { htmlViewerCode, codeWrapper, codeOpen, codeClose } = HtmlEditorData;
     this.wrapper = new CreateHTMLElement(htmlViewerCode).getElement();
-    const codeWrapper = new CreateHTMLElement(codePre).getElement();
-    this.code = new CreateHTMLElement(codeBlock).getElement();
-    codeWrapper.append(this.code);
-    this.wrapper.append(codeWrapper);
+    const wrapperCode = new CreateHTMLElement(codeWrapper).getElement();
+    const codeOpenTag = new CreateHTMLElement(codeOpen).getElement();
+    const codeCloseTag = new CreateHTMLElement(codeClose).getElement();
+
+    this.wrapper.append(codeOpenTag, wrapperCode, codeCloseTag);
 
     this.codeArray = new Highlight().getCodeArray();
-    this.code.append(...this.codeArray);
+
+    wrapperCode.append(...this.codeArray);
   }
 
   getElement() {

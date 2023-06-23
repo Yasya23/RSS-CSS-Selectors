@@ -7,19 +7,33 @@ class Highlight {
   private deskElements: HTMLElement[];
 
   constructor() {
-    const { apple } = ElementsCode;
+    const { apple, plateOpen, plateClose } = ElementsCode;
+
     const { apple: appleImg } = DeskData;
 
     const codeAppleOne = new CreateHTMLElement(apple).getElement();
+    const codePlateOneOpen = new CreateHTMLElement(plateOpen).getElement();
     const codeAppleTwo = new CreateHTMLElement(apple).getElement();
-
+    const codePlateOneClose = new CreateHTMLElement(plateClose).getElement();
+    codeAppleTwo.classList.add('pl-2');
     const appleFruitOne = new CreateHTMLElement(appleImg).getElement();
     const appleFruitTwo = new CreateHTMLElement(appleImg).getElement();
 
-    this.codeArray = [codeAppleOne, codeAppleTwo];
-    this.deskElements = [appleFruitOne, appleFruitTwo];
+    this.codeArray = [
+      codeAppleOne,
+      codePlateOneOpen,
+      codeAppleTwo,
+      codePlateOneClose,
+    ];
+    this.deskElements = [
+      appleFruitOne,
+      appleFruitTwo,
+      appleFruitOne,
+      appleFruitTwo,
+    ];
 
     this.assignDataIds();
+
     this.addHoverListeners();
   }
 
@@ -67,7 +81,7 @@ class Highlight {
 
     if (getDeskElement && getCodeElement) {
       getDeskElement.classList.toggle('ring-4');
-      getCodeElement.classList.toggle('text-white');
+      getCodeElement.classList.toggle('text-pink-200');
     }
   }
 
