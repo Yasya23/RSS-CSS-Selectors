@@ -21,7 +21,7 @@ class View {
     this.wrapper = new CreateHTMLElement(wrapper).getElement();
     this.header = new Header().getElement();
     this.main = new Main().getElement();
-    this.footer = new Footer().getElement();
+    this.footer = Footer.initialize();
     this.nav = new Navigation().getElement();
 
     document.body.append(this.container);

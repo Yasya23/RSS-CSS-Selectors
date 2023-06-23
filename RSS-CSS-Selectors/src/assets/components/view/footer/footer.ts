@@ -2,26 +2,19 @@ import { FooterData } from '../../data/page-elements/footer/footer';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Footer {
-  private container: HTMLElement;
-  private year: HTMLElement;
-  private rsSchoolLink: HTMLElement;
-  private rsSchoolLogo: HTMLElement;
-  private githubLink: HTMLElement;
-
-  constructor() {
+  static initialize() {
     const { container, year, rsLink, rsLogo, githubLink } = FooterData;
-    this.container = new CreateHTMLElement(container).getElement();
-    this.year = new CreateHTMLElement(year).getElement();
-    this.rsSchoolLink = new CreateHTMLElement(rsLink).getElement();
-    this.rsSchoolLogo = new CreateHTMLElement(rsLogo).getElement();
-    this.githubLink = new CreateHTMLElement(githubLink).getElement();
+    const createHTMLElement = new CreateHTMLElement(container);
+    const footerContainer = createHTMLElement.getElement();
+    const yearElement = new CreateHTMLElement(year).getElement();
+    const rsSchoolLinkElement = new CreateHTMLElement(rsLink).getElement();
+    const rsSchoolLogoElement = new CreateHTMLElement(rsLogo).getElement();
+    const githubLinkElement = new CreateHTMLElement(githubLink).getElement();
 
-    this.rsSchoolLink.append(this.rsSchoolLogo);
-    this.container.append(this.year, this.rsSchoolLink, this.githubLink);
-  }
+    rsSchoolLinkElement.append(rsSchoolLogoElement);
+    footerContainer.append(yearElement, rsSchoolLinkElement, githubLinkElement);
 
-  getElement() {
-    return this.container;
+    return footerContainer;
   }
 }
 

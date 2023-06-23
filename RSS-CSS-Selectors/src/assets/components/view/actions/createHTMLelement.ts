@@ -36,7 +36,7 @@ class CreateHTMLElement {
     }
   }
 
-  getElement(): HTMLElementType {
+  getElement() {
     return this.htmlElement;
   }
 }
