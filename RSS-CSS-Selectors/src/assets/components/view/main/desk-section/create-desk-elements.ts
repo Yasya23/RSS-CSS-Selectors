@@ -31,6 +31,9 @@ class DeskElements {
 
     appleFruitOne.append(this.tooltip);
     this.elementsArray = [appleFruitOne, appleFruitTwo, appleFruitThree];
+    this.elementsArray.forEach((element, index) => {
+      element.dataset.id = `desk-${index}`;
+    });
   }
 
   getElementsArray() {

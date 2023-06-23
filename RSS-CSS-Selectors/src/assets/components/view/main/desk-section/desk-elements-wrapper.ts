@@ -1,6 +1,6 @@
 import { ElementsWrapperData } from '../../../data/page-elements/main/desk-section/elementsOnDeskWrapper';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
-import { Highlight } from '../../actions/highlite-when-mouseover';
+import { Highlight } from '../highlite-when-mouseover';
 class DeskElementsWrapper {
   private elementsWrapper: HTMLElement;
 
