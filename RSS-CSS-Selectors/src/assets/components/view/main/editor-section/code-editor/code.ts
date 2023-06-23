@@ -1,6 +1,6 @@
 import { HtmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
-import { Highlight } from '../../../actions/highlite';
+import { Highlight } from '../../../actions/highlite-when-mouseover';
 
 class Code {
   private wrapper: HTMLElement;

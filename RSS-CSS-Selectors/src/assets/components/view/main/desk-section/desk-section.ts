@@ -1,7 +1,7 @@
 import { DeskWrapperData } from '../../../data/page-elements/main/desk-section/deskWrapper';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { Desk } from './desk';
-import { DeskElements } from './desk-elements';
+import { DeskElementsWrapper } from './desk-elements-wrapper';
 
 class DeskSection {
   private container: HTMLElement;
@@ -13,7 +13,7 @@ class DeskSection {
     const title = new CreateHTMLElement(heading).getElement();
     const deskWrapper = new CreateHTMLElement(wrapper).getElement();
     const desk = new Desk().getElement();
-    this.deskElements = new DeskElements().getElement();
+    this.deskElements = new DeskElementsWrapper().getElement();
 
     this.container.append(title, deskWrapper);
     deskWrapper.append(desk, this.deskElements);
