@@ -16,4 +16,8 @@ const ElementsCode = {
   },
 };
 
-export { ElementsCode };
+const { apple, plateClose } = ElementsCode;
+
+const levelsCode = [[apple, plateClose]];
+
+export { ElementsCode, levelsCode };
