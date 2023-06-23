@@ -5,6 +5,7 @@ import { DeskData } from '../../data/desk-elements';
 class Highlight {
   private codeArray: HTMLElement[];
   private deskElements: HTMLElement[];
+  private tooltip: HTMLElement;
 
   constructor() {
     const { apple, plateOpen, plateClose } = ElementsCode;
@@ -19,53 +20,63 @@ class Highlight {
     const appleFruitOne = new CreateHTMLElement(appleImg).getElement();
     const appleFruitTwo = new CreateHTMLElement(appleImg).getElement();
 
+    this.tooltip = new CreateHTMLElement(apple).getElement();
+    this.tooltip.classList.add(
+      'invisible',
+      'w-max',
+      'h-max',
+      'p-2',
+      'bg-slate-100',
+      'absolute',
+      'text-center',
+      'align-middle',
+      'rounded-sm',
+      'bottom-14',
+      'drop-shadow-md'
+    );
+
+    appleFruitOne.append(this.tooltip);
+
     this.codeArray = [
       codeAppleOne,
       codePlateOneOpen,
       codeAppleTwo,
       codePlateOneClose,
     ];
-    this.deskElements = [
-      appleFruitOne,
-      appleFruitTwo,
-      appleFruitOne,
-      appleFruitTwo,
-    ];
+    this.deskElements = [appleFruitOne, appleFruitTwo];
 
-    this.assignDataIds();
+    this.assignIds();
 
     this.addHoverListeners();
   }
 
-  private assignDataIds(): void {
+  private assignIds(): void {
     this.codeArray.forEach((element, index) => {
-      element.dataset.id = `code-${index}`;
+      element.id = `code-${index}`;
     });
 
     this.deskElements.forEach((element, index) => {
-      element.dataset.id = `desk-${index}`;
+      element.id = `desk-${index}`;
     });
   }
 
   public addHoverListeners(): void {
     this.codeArray.forEach((element, index: number) => {
-      element.addEventListener('mouseover', () => {
-        this.highlightClassToggle(index);
-      });
-
-      element.addEventListener('mouseleave', () => {
-        this.highlightClassToggle(index);
-      });
+      this.elementMouseActions(element, index);
     });
 
     this.deskElements.forEach((element, index: number) => {
-      element.addEventListener('mouseover', () => {
-        this.highlightClassToggle(index);
-      });
+      this.elementMouseActions(element, index);
+    });
+  }
 
-      element.addEventListener('mouseleave', () => {
-        this.highlightClassToggle(index);
-      });
+  private elementMouseActions(element: HTMLElement, index: number): void {
+    element.addEventListener('mouseover', () => {
+      this.highlightClassToggle(index);
+    });
+
+    element.addEventListener('mouseleave', () => {
+      this.highlightClassToggle(index);
     });
   }
 
@@ -73,15 +84,14 @@ class Highlight {
     const codeElement = this.codeArray[index];
     const deskElement = this.deskElements[index];
 
-    const codeDataId = codeElement.dataset.id;
-    const deskDataId = deskElement.dataset.id;
-
-    const getDeskElement = document.querySelector(`[data-id="${deskDataId}"]`);
-    const getCodeElement = document.querySelector(`[data-id="${codeDataId}"]`);
+    const getDeskElement = document.getElementById(`${deskElement.id}`);
+    const tooltip = getDeskElement?.getElementsByTagName('div')[0];
+    tooltip?.classList.toggle('invisible');
+    const getCodeElement = document.getElementById(`${codeElement.id}`);
 
     if (getDeskElement && getCodeElement) {
       getDeskElement.classList.toggle('ring-4');
-      getCodeElement.classList.toggle('text-pink-200');
+      getCodeElement.classList.toggle('text-white');
     }
   }
 

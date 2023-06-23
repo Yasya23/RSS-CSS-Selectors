@@ -52,7 +52,7 @@ const HtmlEditorData: Data = {
 
   codeWrapper: {
     element: 'div',
-    classes: ['pl-3', 'm-0'],
+    classes: ['pl-3', 'm-0', 'select-none'],
   },
 
   codeOpen: {

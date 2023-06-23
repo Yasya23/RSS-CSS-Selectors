@@ -2,7 +2,7 @@ const ElementsCode = {
   apple: {
     element: 'div',
     classes: ['text-pink-500'],
-    textContent: '<apple />',
+    textContent: '<apple></apple>',
   },
   plateOpen: {
     element: 'div',
