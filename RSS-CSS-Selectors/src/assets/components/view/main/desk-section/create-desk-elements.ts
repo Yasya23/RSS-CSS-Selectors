@@ -1,6 +1,7 @@
 import { DeskData } from '../../../data/desk-elements';
 import { ElementsCode } from '../../../data/elements-code';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
+import { ElementsIds } from '../../actions/addElement-id';
 
 class DeskElements {
   private elementsArray: HTMLElement[];
@@ -31,9 +32,7 @@ class DeskElements {
 
     appleFruitOne.append(this.tooltip);
     this.elementsArray = [appleFruitOne, appleFruitTwo, appleFruitThree];
-    this.elementsArray.forEach((element, index) => {
-      element.dataset.id = `desk-${index}`;
-    });
+    ElementsIds.assignUniqueIds(this.elementsArray, 'desk');
   }
 
   getElementsArray() {

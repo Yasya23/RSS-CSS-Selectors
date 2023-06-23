@@ -1,5 +1,6 @@
 import { ElementsCode } from '../../../../data/elements-code';
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
+import { ElementsIds } from '../../../actions/addElement-id';
 
 class CodeElements {
   private elementsArray: HTMLElement[];
@@ -18,9 +19,8 @@ class CodeElements {
       codeAppleTwo,
       codePlateOneClose,
     ];
-    this.elementsArray.forEach((element, index) => {
-      element.dataset.id = `code-${index}`;
-    });
+
+    ElementsIds.assignUniqueIds(this.elementsArray, 'code');
   }
 
   getElementsArray() {
