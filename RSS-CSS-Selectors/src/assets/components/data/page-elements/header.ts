@@ -1,6 +1,4 @@
-import { Data } from '../../../interfaces/page-elements';
-
-const HeaderData: Data = {
+const headerData = {
   container: {
     element: 'header',
     classes: ['mb-9', 'p-4'],
@@ -17,4 +15,4 @@ const HeaderData: Data = {
   },
 };
 
-export { HeaderData };
+export { headerData };

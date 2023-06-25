@@ -1,6 +1,4 @@
-import { Data } from "../../interfaces/page-elements";
-
-const Body: Data = {
+const body = {
   container: {
     element: 'div',
     classes: ['flex'],
@@ -18,4 +16,4 @@ const Body: Data = {
   },
 };
 
-export { Body };
+export { body };

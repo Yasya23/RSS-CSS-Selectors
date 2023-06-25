@@ -1,6 +1,4 @@
-import { Data } from '../../../interfaces/page-elements';
-
-const FooterData: Data = {
+const footerData = {
   container: {
     element: 'footer',
     classes: ['flex', 'justify-between', 'text-slate-500', 'p-4'],
@@ -29,4 +27,4 @@ const FooterData: Data = {
   },
 };
 
-export { FooterData };
+export { footerData };

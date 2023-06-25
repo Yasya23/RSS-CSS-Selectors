@@ -1,8 +1,5 @@
-import {
-  section,
-  desk,
-  wrapperElements,
-} from '../../../data/page-elements/main/desk-section';
+import { sectionDesk } from '../../../data/page-elements/main/desk-section';
+
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { Highlight } from '../highlite-when-mouseover';
 
@@ -11,6 +8,7 @@ class DeskSection {
   private elementsContainer: HTMLElement;
 
   constructor() {
+    const { section, desk, wrapperElements } = sectionDesk;
     const { container, heading, wrapper } = section;
 
     this.container = new CreateHTMLElement(

@@ -1,4 +1,4 @@
-import { EditorData } from '../../../data/page-elements/main/editor-section/editor';
+import { containerData } from '../../../data/page-elements/main/editor-section/editor';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { EditorCode } from './code-editor/wrapper';
 import { EditorCss } from './css-editor/wrapper';
@@ -11,7 +11,7 @@ class EditorSection {
 
   constructor() {
     const { container, heading, wrapper, menuWrapper, editorWrapper } =
-      EditorData;
+      containerData;
     const header = new CreateHTMLElement(heading).getElement();
 
     this.container = new CreateHTMLElement(container).getElement();

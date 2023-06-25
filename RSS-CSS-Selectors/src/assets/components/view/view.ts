@@ -1,4 +1,4 @@
-import { Body } from '../data/page-elements/body';
+import { body } from '../data/page-elements/body';
 import { Header } from './header/header';
 import { Main } from './main/main';
 import { Navigation } from './nav/nav';
@@ -15,7 +15,7 @@ class View {
   private footer: HTMLElement;
 
   constructor() {
-    const { container, wrapper } = Body;
+    const { container, wrapper } = body;
     AddClassToElement.add(document.body, ['font-sans', 'bg-gray-800']);
     this.container = new CreateHTMLElement(container).getElement();
     this.wrapper = new CreateHTMLElement(wrapper).getElement();
