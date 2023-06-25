@@ -2,21 +2,16 @@ import { HeaderData } from '../../data/page-elements/header/header';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Header {
-  private container: HTMLElement;
-  private title: HTMLElement;
-  private titleSpan: HTMLElement;
-  constructor() {
+  static initialize(): HTMLElement {
     const { container, title, titleSpan } = HeaderData;
-    this.container = new CreateHTMLElement(container).getElement();
-    this.title = new CreateHTMLElement(title).getElement();
-    this.titleSpan = new CreateHTMLElement(titleSpan).getElement();
+    const headerContainer = new CreateHTMLElement(container).getElement();
+    const headerTitle = new CreateHTMLElement(title).getElement();
+    const headerTitleSpan = new CreateHTMLElement(titleSpan).getElement();
 
-    this.title.append(this.titleSpan);
-    this.container.append(this.title);
-  }
+    headerTitle.append(headerTitleSpan);
+    headerContainer.append(headerTitle);
 
-  getElement() {
-    return this.container;
+    return headerContainer;
   }
 }
 

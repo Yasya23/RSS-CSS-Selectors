@@ -5,21 +5,19 @@ import { EditorSection } from './editor-section/editor';
 
 class Main {
   private container: HTMLElement;
-  private wrapper: HTMLElement;
-  private deskSection: HTMLElement;
-  private editorSection: HTMLElement;
+  private mainWrapper: HTMLElement;
 
   constructor() {
     const { main, wrapper } = MainData;
 
     this.container = new CreateHTMLElement(main).getElement();
-    this.wrapper = new CreateHTMLElement(wrapper).getElement();
+    this.mainWrapper = new CreateHTMLElement(wrapper).getElement();
 
-    this.deskSection = new DeskSection().getElement();
-    this.editorSection = new EditorSection().getElement();
+    const mainDeskSection = new DeskSection().getElement();
+    const mainEditorSection = new EditorSection().getElement();
 
-    this.wrapper.append(this.deskSection, this.editorSection);
-    this.container.append(this.wrapper);
+    this.mainWrapper.append(mainDeskSection, mainEditorSection);
+    this.container.append(this.mainWrapper);
   }
 
   getElement() {

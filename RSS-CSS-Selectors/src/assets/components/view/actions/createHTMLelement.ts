@@ -1,39 +1,54 @@
 import { ElementStructure } from '../../interfaces/page-elements';
 
-type HTMLElementType =
-  | HTMLElement
-  | HTMLAnchorElement
-  | HTMLImageElement
-  | HTMLDivElement
-  | HTMLButtonElement;
-
 class CreateHTMLElement {
-  private htmlElement: HTMLElementType;
+  private htmlElement: HTMLElement;
 
-  constructor(object: ElementStructure) {
+  constructor(object: ElementStructure | ElementStructure[]) {
+    if (Array.isArray(object)) {
+      this.htmlElement = this.createParentElement(object);
+    } else {
+      this.htmlElement = this.createElement(object);
+    }
+  }
+
+  private createElement(elementData: ElementStructure) {
     const { element, classes, textContent, href, src, alt, setAttribute } =
-      object;
-    this.htmlElement = document.createElement(element);
+      elementData;
+    const htmlElement = document.createElement(element);
+
     if (classes) {
-      this.htmlElement.classList.add(...classes);
+      htmlElement.classList.add(...classes);
     }
     if (textContent !== undefined) {
-      this.htmlElement.textContent = textContent;
+      htmlElement.textContent = textContent;
     }
     if (element === 'a' && href) {
-      const anchorElement = this.htmlElement as HTMLAnchorElement;
+      const anchorElement = htmlElement as HTMLAnchorElement;
       anchorElement.href = href;
     }
     if (element === 'img' && (src || alt)) {
-      const imageElement = this.htmlElement as HTMLImageElement;
+      const imageElement = htmlElement as HTMLImageElement;
       if (src) imageElement.src = src;
       if (alt) imageElement.alt = alt;
     }
     if (setAttribute) {
       Object.entries(setAttribute).forEach(([attribute, value]) => {
-        this.htmlElement.setAttribute(attribute, value);
+        htmlElement.setAttribute(attribute, value);
       });
     }
+
+    return htmlElement;
+  }
+
+  private createParentElement(elements: ElementStructure[]) {
+    const parentElement = this.createElement(elements[0]);
+
+    elements.slice(1).forEach((childElementData) => {
+      const childElement = this.createElement(childElementData);
+      parentElement.append(childElement);
+    });
+
+    return parentElement;
   }
 
   getElement() {

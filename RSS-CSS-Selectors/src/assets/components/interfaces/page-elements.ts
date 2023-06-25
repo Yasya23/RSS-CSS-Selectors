@@ -13,4 +13,8 @@ interface SetAttribute {
   placeholder?: string;
 }
 
-export { ElementStructure };
+interface Data {
+  [key: string]: ElementStructure;
+}
+
+export { ElementStructure, Data };

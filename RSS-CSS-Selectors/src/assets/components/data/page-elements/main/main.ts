@@ -1,4 +1,4 @@
-import { Data } from '../../../interfaces/data';
+import { Data } from '../../../interfaces/page-elements';
 
 const MainData: Data = {
   main: {

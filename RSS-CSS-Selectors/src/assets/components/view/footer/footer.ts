@@ -2,7 +2,7 @@ import { FooterData } from '../../data/page-elements/footer/footer';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Footer {
-  static initialize() {
+  static initialize(): HTMLElement {
     const { container, year, rsLink, rsLogo, githubLink } = FooterData;
     const createHTMLElement = new CreateHTMLElement(container);
     const footerContainer = createHTMLElement.getElement();

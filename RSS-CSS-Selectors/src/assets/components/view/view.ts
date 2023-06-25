@@ -19,7 +19,7 @@ class View {
     AddClassToElement.add(document.body, ['font-sans', 'bg-gray-800']);
     this.container = new CreateHTMLElement(container).getElement();
     this.wrapper = new CreateHTMLElement(wrapper).getElement();
-    this.header = new Header().getElement();
+    this.header = Header.initialize();
     this.main = new Main().getElement();
     this.footer = Footer.initialize();
     this.nav = new Navigation().getElement();

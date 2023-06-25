@@ -1,26 +1,44 @@
-import { DeskWrapperData } from '../../../data/page-elements/main/desk-section/deskWrapper';
+import {
+  section,
+  desk,
+  wrapperElements,
+} from '../../../data/page-elements/main/desk-section';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
-import { Desk } from './desk';
-import { DeskElementsWrapper } from './desk-elements-wrapper';
+import { Highlight } from '../highlite-when-mouseover';
 
 class DeskSection {
   private container: HTMLElement;
-  private deskElements: HTMLElement;
+  private elementsContainer: HTMLElement;
 
   constructor() {
-    const { container, heading, wrapper } = DeskWrapperData;
-    this.container = new CreateHTMLElement(container).getElement();
-    const title = new CreateHTMLElement(heading).getElement();
-    const deskWrapper = new CreateHTMLElement(wrapper).getElement();
-    const desk = new Desk().getElement();
-    this.deskElements = new DeskElementsWrapper().getElement();
+    const { container, heading, wrapper } = section;
 
-    this.container.append(title, deskWrapper);
-    deskWrapper.append(desk, this.deskElements);
+    this.container = new CreateHTMLElement(
+      Object.values({ container, heading })
+    ).getElement();
+    const elementsWrapper = new CreateHTMLElement(wrapper).getElement();
+
+    const deskElements = new CreateHTMLElement(
+      Object.values(desk)
+    ).getElement();
+
+    this.elementsContainer = new CreateHTMLElement(
+      wrapperElements.wrapper
+    ).getElement();
+
+    const elementsArray = new Highlight().getElementsArray();
+
+    this.container.append(elementsWrapper);
+    elementsWrapper.append(deskElements, this.elementsContainer);
+    this.elementsContainer.append(...elementsArray);
   }
 
   getElement() {
     return this.container;
+  }
+
+  setElements(elements: HTMLElement[]) {
+    this.elementsContainer.append(...elements);
   }
 }
 
