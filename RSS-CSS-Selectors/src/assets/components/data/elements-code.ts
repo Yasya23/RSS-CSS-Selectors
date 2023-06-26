@@ -6,18 +6,23 @@ const ElementsCode = {
   },
   plateOpen: {
     element: 'div',
-    classes: ['text-pink-100'],
+    classes: ['text-yellow-500'],
     textContent: '<plate>',
   },
   plateClose: {
     element: 'div',
-    classes: ['text-pink-100'],
+    classes: ['text-yellow-500'],
     textContent: '</ plate>',
+  },
+  orange: {
+    element: 'div',
+    classes: ['text-pink-400'],
+    textContent: '<apple></apple>',
   },
 };
 
-const { apple, plateClose } = ElementsCode;
+const { plateOpen, apple, plateClose } = ElementsCode;
 
-const levelsCode = [[apple, plateClose]];
+const levelsCode = [[plateOpen, apple, plateClose]];
 
 export { ElementsCode, levelsCode };

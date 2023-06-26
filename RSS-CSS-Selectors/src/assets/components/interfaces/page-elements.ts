@@ -6,6 +6,7 @@ interface ElementStructure {
   src?: string;
   alt?: string;
   setAttribute?: SetAttribute;
+  id?: string;
 }
 
 interface SetAttribute {

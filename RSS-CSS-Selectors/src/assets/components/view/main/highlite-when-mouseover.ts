@@ -1,6 +1,6 @@
 import { CodeElements } from './editor-section/code-editor/create-code-elements';
 import { DeskElements } from './desk-section/create-desk-elements';
-import { Levels } from '../../data/desk-elements';
+import { Levels } from '../../data/desk-elements-levels';
 import { levelsCode } from '../../data/elements-code';
 
 class Highlight {
@@ -45,7 +45,7 @@ class Highlight {
 
     if (getDeskElement && getCodeElement) {
       getDeskElement.classList.toggle('ring-4');
-      getCodeElement.classList.toggle('text-white');
+      getCodeElement.classList.toggle('mix-blend-hard-light');
     }
   }
 

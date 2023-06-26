@@ -16,9 +16,7 @@ class DeskSection {
     ).getElement();
     const elementsWrapper = new CreateHTMLElement(wrapper).getElement();
 
-    const deskElements = new CreateHTMLElement(
-      Object.values(desk)
-    ).getElement();
+    const deskElements = new CreateHTMLElement(desk).getElement();
 
     this.elementsContainer = new CreateHTMLElement(
       wrapperElements.wrapper

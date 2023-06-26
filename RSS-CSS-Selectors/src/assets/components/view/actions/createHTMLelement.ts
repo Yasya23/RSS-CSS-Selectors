@@ -19,6 +19,9 @@ class CreateHTMLElement {
     if (classes) {
       htmlElement.classList.add(...classes);
     }
+    // if (id) {
+    //   htmlElement.setAttribute('data-id', id);
+    // }
     if (textContent !== undefined) {
       htmlElement.textContent = textContent;
     }

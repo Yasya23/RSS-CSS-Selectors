@@ -8,10 +8,16 @@ class DeskElements {
   private elementsArray: HTMLElement[];
 
   constructor(elementNames: ElementStructure[]) {
-    this.elementsArray = elementNames.map((elementName) => {
-      return new CreateHTMLElement(elementName).getElement();
-    });
+    this.elementsArray = [];
 
+    if (Array.isArray(elementNames)) {
+      this.elementsArray = elementNames.map(
+        (elementName: ElementStructure): HTMLElement => {
+          return new CreateHTMLElement(elementName).getElement();
+        }
+      );
+    }
+    console.log(this.elementsArray);
     ElementsIds.assignUniqueIds(this.elementsArray, 'desk');
   }
 
