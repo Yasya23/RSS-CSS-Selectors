@@ -1,16 +1,14 @@
-import { Data } from "../../../../interfaces/page-elements";
-
-const CssEditorData: Data = {
+const cssEditorData = {
   wrapper: {
     element: 'div',
     classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-100'],
   },
-  submenu: {
+  menuCss: {
     element: 'div',
     classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],
   },
 
-  submenuTitleCss: {
+  titleCss: {
     element: 'span',
     classes: ['text-slate-300'],
     textContent: 'CSS editor',
@@ -22,12 +20,12 @@ const CssEditorData: Data = {
     textContent: 'style.css',
   },
 
-  editorWrapper: {
+  cssEditorContainer: {
     element: 'div',
     classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-100'],
   },
 
-  editorNumbers: {
+  editorNumbersCss: {
     element: 'div',
     classes: [
       'flex',
@@ -72,6 +70,7 @@ const CssEditorData: Data = {
     setAttribute: {
       type: 'text',
       placeholder: 'Type your CSS here',
+      value: 'h',
     },
   },
 
@@ -111,4 +110,4 @@ const CssEditorData: Data = {
   },
 };
 
-export { CssEditorData };
+export { cssEditorData };

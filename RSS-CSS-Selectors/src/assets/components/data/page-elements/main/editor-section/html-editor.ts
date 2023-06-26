@@ -1,17 +1,15 @@
-import { Data } from '../../../../interfaces/page-elements';
-
-const HtmlEditorData: Data = {
-  wrapper: {
+const htmlEditorData = {
+  wrapperHTML: {
     element: 'div',
     classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-800'],
   },
 
-  submenu: {
+  menuHTML: {
     element: 'div',
     classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],
   },
 
-  submenuTitleHtml: {
+  titleHtml: {
     element: 'span',
     classes: ['text-slate-300'],
     textContent: 'HTML viewer',
@@ -23,7 +21,7 @@ const HtmlEditorData: Data = {
     textContent: 'table.html',
   },
 
-  editorNumbers: {
+  editorNumbersHTML: {
     element: 'div',
     classes: [
       'flex',
@@ -68,4 +66,4 @@ const HtmlEditorData: Data = {
   },
 };
 
-export { HtmlEditorData };
+export { htmlEditorData };

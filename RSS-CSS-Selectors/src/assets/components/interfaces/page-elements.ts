@@ -11,6 +11,7 @@ interface ElementStructure {
 interface SetAttribute {
   type?: string;
   placeholder?: string;
+  value?: string;
 }
 
 interface Data {

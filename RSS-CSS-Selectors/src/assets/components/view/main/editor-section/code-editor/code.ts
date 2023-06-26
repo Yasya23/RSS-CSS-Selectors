@@ -1,4 +1,4 @@
-import { HtmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
+import { htmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
 import { Highlight } from '../../highlite-when-mouseover';
 
@@ -7,10 +7,10 @@ class Code {
   private codeArray: HTMLElement[];
 
   constructor() {
-    const { htmlViewerCode, codeWrapper, codeOpen, codeClose } = HtmlEditorData;
+    const { htmlViewerCode, codeWrapper, codeOpen, codeClose } = htmlEditorData;
     this.wrapper = new CreateHTMLElement(htmlViewerCode).getElement();
-    const wrapperCode = new CreateHTMLElement(codeWrapper).getElement();
     const codeOpenTag = new CreateHTMLElement(codeOpen).getElement();
+    const wrapperCode = new CreateHTMLElement(codeWrapper).getElement();
     const codeCloseTag = new CreateHTMLElement(codeClose).getElement();
 
     this.wrapper.append(codeOpenTag, wrapperCode, codeCloseTag);
