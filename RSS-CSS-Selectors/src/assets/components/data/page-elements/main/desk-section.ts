@@ -68,7 +68,14 @@ const sectionDesk = {
   wrapperElements: {
     wrapper: {
       element: 'div',
-      classes: ['flex', 'z-10', 'transform'],
+      classes: [
+        'flex',
+        'z-10',
+        'transform',
+        'gap-5',
+        'justify-center',
+        'items-center',
+      ],
     },
   },
 };

@@ -1,5 +1,5 @@
-import { cssEditorData } from '../../../../data/page-elements/main/editor-section/css-editor';
-import { CreateHTMLElement } from '../../../actions/createHTMLelement';
+import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
+import { CreateHTMLElement } from '../../actions/createHTMLelement';
 
 class EditorCss {
   private field: HTMLElement;

@@ -1,6 +1,6 @@
 import { containerData } from '../../../data/page-elements/main/editor-section/editor';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
-import { EditorCss } from './css-editor/editor-field';
+import { EditorCss } from './css-editor-field';
 import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
 import { htmlEditorData } from '../../../data/page-elements/main/editor-section/html-editor';
 import { Code } from './code-editor/code';
