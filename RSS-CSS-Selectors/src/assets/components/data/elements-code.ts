@@ -4,6 +4,11 @@ const ElementsCode = {
     classes: ['text-pink-500'],
     textContent: '<apple></apple>',
   },
+  plate: {
+    element: 'div',
+    classes: ['text-yellow-300'],
+    textContent: '<plate>',
+  },
   plateOpen: {
     element: 'div',
     classes: ['text-yellow-500'],
@@ -19,16 +24,30 @@ const ElementsCode = {
     classes: ['text-pink-400'],
     textContent: '<apple></apple>',
   },
+  napkinOpen: {
+    element: 'div',
+    classes: ['text-cyan-400'],
+    textContent: '<napkin>',
+  },
+  napkinClose: {
+    element: 'div',
+    classes: ['text-cyan-400'],
+    textContent: '</napkin>',
+  },
 };
 
-const { plateOpen, apple, plateClose } = ElementsCode;
+const { plateOpen, orange, plateClose, napkinOpen, napkinClose, plate } =
+  ElementsCode;
 
 const levelsCode = [
-  [plateOpen, apple, plateClose, apple, plateOpen, plateClose],
+  [plate, plate],
+  [plateOpen, plateClose, napkinOpen, orange, napkinClose],
+  [plateOpen, plateClose, plateOpen, plateClose],
 ];
 
 const levelsCodeIds = [
-  ['plate1', 'apple1', 'plate1', 'apple2', 'plate2', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate', 'plate', 'napkin', 'orange', 'napkin'],
 ];
 
 export { levelsCode, levelsCodeIds };

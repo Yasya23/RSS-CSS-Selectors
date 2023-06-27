@@ -131,17 +131,6 @@ const positionElements = {
 
 const { orangeRight, appleLeft } = positionElements;
 
-const animated = {
-  appleAn: {
-    element: 'div',
-    classes: [...apple.classes, 'animate-topSkew'],
-  },
-  appleLeftAn: {
-    element: 'div',
-    classes: [...appleLeft.classes, 'animate-topSkew'],
-  },
-};
+[appleGreen, orange, plate, plateTwo, napkin, orangeRight, appleLeft];
 
-[appleGreen, orange, plate, plateTwo, napkin, orangeRight];
-
-export { elements, positionElements, animated };
+export { elements, positionElements };

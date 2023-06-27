@@ -1,6 +1,6 @@
 import { CodeElements } from './editor-section/code-editor/create-code-elements';
 import { DeskElements } from './desk-section/create-desk-elements';
-import { Levels } from '../../data/elements-levels';
+import { levels } from '../../data/elements-levels-data';
 import { levelsCode } from '../../data/elements-code';
 
 class Highlight {
@@ -9,7 +9,7 @@ class Highlight {
   private array: HTMLElement[];
 
   constructor() {
-    this.deskElements = new DeskElements(Levels[0]).getElementsArray();
+    this.deskElements = new DeskElements(levels[0]).getElementsArray();
     this.codeArray = new CodeElements(levelsCode[0]).getElementsArray();
     this.array = [...this.codeArray, ...this.deskElements];
 
