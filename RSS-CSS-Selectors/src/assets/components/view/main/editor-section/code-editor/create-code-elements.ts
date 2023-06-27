@@ -2,6 +2,7 @@
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
 import { ElementsIds } from '../../../actions/addElement-id';
 import { ElementStructure } from '../../../../interfaces/page-elements';
+import { levelsCodeIds } from '../../../../data/elements-code';
 
 class CodeElements {
   private elementsArray: HTMLElement[];
@@ -11,7 +12,7 @@ class CodeElements {
       return new CreateHTMLElement(elementName).getElement();
     });
 
-    ElementsIds.assignUniqueIds(this.elementsArray, 'code');
+    ElementsIds.assignUniqueIds(this.elementsArray, levelsCodeIds[0], 'code');
   }
 
   getElementsArray() {

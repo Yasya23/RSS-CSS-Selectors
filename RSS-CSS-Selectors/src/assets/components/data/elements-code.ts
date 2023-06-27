@@ -23,6 +23,12 @@ const ElementsCode = {
 
 const { plateOpen, apple, plateClose } = ElementsCode;
 
-const levelsCode = [[plateOpen, apple, plateClose]];
+const levelsCode = [
+  [plateOpen, apple, plateClose, apple, plateOpen, plateClose],
+];
 
-export { ElementsCode, levelsCode };
+const levelsCodeIds = [
+  ['plate1', 'apple1', 'plate1', 'apple2', 'plate2', 'plate2'],
+];
+
+export { levelsCode, levelsCodeIds };

@@ -3,6 +3,11 @@
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { ElementsIds } from '../../actions/addElement-id';
 import { ElementStructure } from '../../../interfaces/page-elements';
+import { deskIds } from '../../../data/elements-levels';
+import {
+  tooltip,
+  tooltipTextcontent,
+} from '../../../data/tooltip-desk-elemets';
 
 class DeskElements {
   private elementsArray: HTMLElement[];
@@ -12,13 +17,18 @@ class DeskElements {
 
     if (Array.isArray(elementNames)) {
       this.elementsArray = elementNames.map(
-        (elementName: ElementStructure): HTMLElement => {
-          return new CreateHTMLElement(elementName).getElement();
+        (elementName: ElementStructure, index: number): HTMLElement => {
+          // return new CreateHTMLElement(elementName).getElement();
+          const element = new CreateHTMLElement(elementName).getElement();
+          const tooltipElement = new CreateHTMLElement(tooltip).getElement();
+          tooltipElement.textContent = tooltipTextcontent[0][index];
+          element.append(tooltipElement);
+          return element;
         }
       );
     }
-    console.log(this.elementsArray);
-    ElementsIds.assignUniqueIds(this.elementsArray, 'desk');
+
+    ElementsIds.assignUniqueIds(this.elementsArray, deskIds[0], 'desk');
   }
 
   getElementsArray() {

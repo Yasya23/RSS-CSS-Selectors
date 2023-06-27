@@ -14,7 +14,7 @@ const elements = {
       'border-t-[3px]',
       'border-l-[3px]',
       'rounded-full',
-      'ring-white/[.65]',
+      'ring-rose-300/[.65]',
       'shadow-sm',
       'shadow-[0px_2px_3px_2px_rgba(0,0,0,0.25)]',
     ],
@@ -34,7 +34,7 @@ const elements = {
       'border-t-[3px]',
       'border-l-[3px]',
       'rounded-full',
-      'ring-white/[.65]',
+      'ring-rose-300/[.65]',
       'shadow-sm',
       'shadow-[0px_2px_3px_2px_rgba(0,0,0,0.25)]',
     ],
@@ -54,7 +54,7 @@ const elements = {
       'border-t-[3px]',
       'border-l-[3px]',
       'rounded-full',
-      'ring-white/[.65]',
+      'ring-rose-300/[.65]',
       'shadow-sm',
       'shadow-[0px_2px_2px_2px_rgba(0,0,0,0.25)]',
     ],
@@ -72,7 +72,7 @@ const elements = {
       'border-slate-150',
       'border-[20px]',
       'rounded-full',
-      'ring-white/[.65]',
+      'ring-rose-300/[.65]',
       'shadow-[0px_2px_2px_2px_rgba(0,0,0,0.30)]',
     ],
   },
@@ -88,7 +88,7 @@ const elements = {
       'border-yellow-300',
       'border-[10px]',
       'rounded-full',
-      'ring-white/[.65]',
+      'ring-rose-300/[.65]',
       'shadow-[0px_2px_2px_1px_rgba(0,0,0,0.30)]',
     ],
   },
@@ -106,7 +106,7 @@ const elements = {
       'border-t-[15px]',
       'border-b-[15px]',
       'border-double',
-      'ring-white/[.65]',
+      'ring-rose-300/[.65]',
       'shadow-[0px_2px_2px_1px_rgba(0,0,0,0.30)]',
     ],
   },
@@ -125,13 +125,7 @@ const positionElements = {
   },
   appleLeft: {
     element: 'div',
-    classes: [
-      ...apple.classes,
-      'absolute',
-      'left-5',
-      'ring-gray-400',
-      'animate-topSkew',
-    ],
+    classes: [...apple.classes, 'absolute', 'left-5', 'z-[3]'],
   },
 };
 
@@ -148,14 +142,6 @@ const animated = {
   },
 };
 
-const { appleAn, appleLeftAn } = animated;
+[appleGreen, orange, plate, plateTwo, napkin, orangeRight];
 
-const Levels = [
-  [plate, appleLeftAn, appleAn, plate],
-  [plate, plateTwo, orangeRight],
-  [napkin, plateTwo, napkin, plateTwo],
-  [apple, plate, orange, plateTwo, apple],
-  [plate, appleGreen, plate, plateTwo],
-];
-
-export { Levels };
+export { elements, positionElements, animated };
