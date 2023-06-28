@@ -1,7 +1,7 @@
 import { CodeElements } from './editor-section/code-editor/create-code-elements';
 import { DeskElements } from './desk-section/create-desk-elements';
-import { levels } from '../../data/elements-levels-data';
-import { levelsCode } from '../../data/elements-code';
+import { levels } from '../../data/dynamic-data/elements-levels-data';
+import { levelsCode } from '../../data/dynamic-data/elements-code';
 
 class Highlight {
   private codeArray: HTMLElement[];

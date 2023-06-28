@@ -1,4 +1,4 @@
-import { ElementStructure } from '../../types/page-elements';
+import { ElementStructure } from '../../types/page-elements-structure';
 
 class CreateHTMLElement {
   private htmlElement: HTMLElement;
@@ -19,9 +19,7 @@ class CreateHTMLElement {
     if (classes) {
       htmlElement.classList.add(...classes);
     }
-    // if (id) {
-    //   htmlElement.setAttribute('data-id', id);
-    // }
+
     if (textContent !== undefined) {
       htmlElement.textContent = textContent;
     }

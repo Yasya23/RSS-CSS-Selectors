@@ -1,11 +1,14 @@
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
-import { ElementsIds } from '../../actions/addElement-id';
-import { ElementStructure } from '../../../types/page-elements';
-import { deskIds, animatedElements } from '../../../data/elements-levels-data';
+import { ElementsIds } from '../../actions/add-data-id';
+import { ElementStructure } from '../../../types/page-elements-structure';
+import {
+  deskIds,
+  animatedElements,
+} from '../../../data/dynamic-data/elements-levels-data';
 import {
   tooltip,
   tooltipTextcontent,
-} from '../../../data/tooltip-desk-elemets';
+} from '../../../data/dynamic-data/tooltip-desk-elemets';
 
 class DeskElements {
   private elementsArray: HTMLElement[];

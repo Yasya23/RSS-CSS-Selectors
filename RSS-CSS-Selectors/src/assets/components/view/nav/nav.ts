@@ -2,7 +2,7 @@ import {
   navigationData,
   // levelsDescription,
 } from '../../data/page-elements/nav';
-import { ElementStructure } from '../../types/page-elements';
+import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 
 class Navigation {
