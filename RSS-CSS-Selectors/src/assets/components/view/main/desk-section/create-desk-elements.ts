@@ -13,7 +13,7 @@ import {
 class DeskElements {
   private elementsArray: HTMLElement[];
 
-  constructor(elementNames: ElementStructure[]) {
+  constructor(level: number, elementNames: ElementStructure[]) {
     this.elementsArray = [];
 
     if (Array.isArray(elementNames)) {
@@ -22,7 +22,7 @@ class DeskElements {
           const element = new CreateHTMLElement(elementName).getElement();
           element.classList.add(animatedElements[0][index]);
           const tooltipElement = new CreateHTMLElement(tooltip).getElement();
-          tooltipElement.textContent = tooltipTextcontent[0][index];
+          tooltipElement.textContent = tooltipTextcontent[level][index];
           element.append(tooltipElement);
           return element;
         }
