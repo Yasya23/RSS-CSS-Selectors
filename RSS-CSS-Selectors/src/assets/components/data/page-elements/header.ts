@@ -1,7 +1,7 @@
 const headerData = {
   container: {
     element: 'header',
-    classes: ['mb-9', 'p-4'],
+    classes: ['mb-1', 'p-4'],
   },
   title: {
     element: 'h1',

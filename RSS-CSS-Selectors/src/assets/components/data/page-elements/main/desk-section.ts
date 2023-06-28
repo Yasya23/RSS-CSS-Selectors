@@ -2,7 +2,14 @@ const sectionDesk = {
   section: {
     container: {
       element: 'section',
-      classes: ['mb-9'],
+      classes: [
+        'mb-9',
+        'w-full',
+        'sm:w-[30rem]',
+        'md:w-[32rem]',
+        'h-40',
+        'py-3',
+      ],
     },
     heading: {
       element: 'h2',
@@ -13,10 +20,7 @@ const sectionDesk = {
       element: 'div',
       classes: [
         'relative',
-        'w-screen',
-        'sm:w-[30rem]',
-        'md:w-[32rem]',
-        'h-40',
+        'h-full',
         'flex',
         'justify-center',
         'items-center',
@@ -34,7 +38,6 @@ const sectionDesk = {
       'justify-center',
       'items-center',
       'w-full',
-      'sm:w-[32rem]',
       'h-full',
       'bg-amber-600',
       'border-b-[4px]',
@@ -49,9 +52,9 @@ const sectionDesk = {
         'flex',
         'z-10',
         'transform',
-        'gap-5',
-        'pt-3',
-        'justify-between',
+        'gap-3',
+        'md:gap-5',
+        'justify-around',
         'items-center',
         'relative',
       ],

@@ -41,7 +41,7 @@ const cssEditor: Data = {
   },
   submenu: {
     element: 'div',
-    classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],
+    classes: ['flex', 'justify-between', 'basis-1/2', 'md:p-4'],
   },
 
   submenuTitleCss: {
@@ -67,8 +67,6 @@ const cssEditor: Data = {
       'flex',
       'flex-col',
       'items-center',
-      'w-8',
-      'p-2',
       'text-slate-400',
       'bg-slate-200',
     ],

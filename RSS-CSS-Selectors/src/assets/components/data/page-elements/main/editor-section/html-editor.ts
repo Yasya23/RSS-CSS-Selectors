@@ -6,7 +6,15 @@ const htmlEditorData = {
 
   menuHTML: {
     element: 'div',
-    classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],
+    classes: [
+      'flex',
+      'justify-between',
+      'basis-1/2',
+      'flex-wrap',
+      'p-4',
+      'text-xs',
+      'sm:text-base',
+    ],
   },
 
   titleHtml: {
@@ -28,9 +36,12 @@ const htmlEditorData = {
       'flex-col',
       'items-center',
       'text-slate-800',
-      'w-8',
       'bg-slate-700',
+      'w-4',
+      'sm:w-8',
       'p-2',
+      'text-xs',
+      'sm:text-base',
     ],
   },
 
@@ -43,7 +54,7 @@ const htmlEditorData = {
       'pt-2',
       'pl-1',
       'text-xs',
-      'md:text-base',
+      'sm:text-base',
       'overflow-hidden',
     ],
   },

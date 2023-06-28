@@ -2,14 +2,16 @@ const navigationData = {
   nav: {
     element: 'nav',
     classes: [
-      'w-3/12',
+      'w-2/6',
+      'sm:w-3/12',
       'min-h-screen',
       'bg-zinc-950',
-      'p-4',
+      'p-2',
+      'sm:p-4',
       'shadow-md',
       'shadow-slate-900',
-      'hidden',
-      'md:block',
+      'text-xs',
+      'sm:text-base',
     ],
   },
   wrapper: {
@@ -18,7 +20,7 @@ const navigationData = {
   },
   title: {
     element: 'p',
-    classes: ['text-2xl', 'text-slate-400', 'mb-5'],
+    classes: ['sm:text-2xl', 'text-slate-400', 'mb-5'],
     textContent: 'Levels',
   },
   list: {
@@ -70,6 +72,8 @@ const navigationData = {
       'p-2',
       'rounded-sm',
       'w-full',
+      'text-xs',
+      'md:text-base',
     ],
     textContent: 'Reset Progress',
   },

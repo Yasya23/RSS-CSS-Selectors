@@ -1,7 +1,7 @@
 const body = {
   container: {
     element: 'div',
-    classes: ['flex'],
+    classes: ['flex', 'w-screen'],
   },
   wrapper: {
     element: 'div',
@@ -12,6 +12,7 @@ const body = {
       'flex-col',
       'justify-between',
       'min-h-screen',
+      'overflow-hidden',
     ],
   },
 };

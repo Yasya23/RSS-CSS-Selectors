@@ -5,7 +5,15 @@ const cssEditorData = {
   },
   menuCss: {
     element: 'div',
-    classes: ['flex', 'justify-between', 'basis-1/2', 'p-4'],
+    classes: [
+      'flex',
+      'justify-between',
+      'basis-1/2',
+      'flex-wrap',
+      'p-4',
+      'text-xs',
+      'sm:text-base',
+    ],
   },
 
   titleCss: {
@@ -31,10 +39,13 @@ const cssEditorData = {
       'flex',
       'flex-col',
       'items-center',
-      'w-8',
-      'p-2',
       'text-slate-400',
       'bg-slate-200',
+      'w-4',
+      'sm:w-8',
+      'p-2',
+      'text-xs',
+      'sm:text-base',
     ],
   },
 
@@ -53,7 +64,14 @@ const cssEditorData = {
 
   cssEditorForm: {
     element: 'form',
-    classes: ['flex', 'justify-between', 'flex-wrap', 'w-full'],
+    classes: [
+      'flex',
+      'justify-between',
+      'flex-wrap',
+      'w-full',
+      'text-xs',
+      'sm:text-base',
+    ],
   },
 
   cssEditorInput: {
@@ -90,7 +108,7 @@ const cssEditorData = {
 
   cssNotes: {
     element: 'p',
-    classes: ['text-slate-300', 'grow'],
+    classes: ['text-slate-300', 'grow', 'text-xs', 'sm:text-base'],
     textContent: 'Click Help',
   },
 
@@ -105,6 +123,8 @@ const cssEditorData = {
       'px-2',
       'rounded-sm',
       'w-full',
+      'text-xs',
+      'sm:text-base',
     ],
     textContent: "Help, I'm stuck",
   },

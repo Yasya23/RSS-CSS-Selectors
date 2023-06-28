@@ -2,8 +2,10 @@ const elements = {
   apple: {
     element: 'div',
     classes: [
-      'w-14',
-      'h-14',
+      'w-10',
+      'h-10',
+      'sm:w-14',
+      'sm:h-14',
       'flex',
       'justify-center',
       'items-center',
@@ -22,8 +24,10 @@ const elements = {
   appleGreen: {
     element: 'div',
     classes: [
-      'w-12',
-      'h-12',
+      'w-10',
+      'h-10',
+      'sm:w-12',
+      'sm:h-12',
       'flex',
       'justify-center',
       'items-center',
@@ -42,8 +46,10 @@ const elements = {
   orange: {
     element: 'div',
     classes: [
-      'w-12',
-      'h-12',
+      'w-10',
+      'h-10',
+      'sm:w-12',
+      'sm:h-12',
       'flex',
       'justify-center',
       'items-center',
@@ -63,14 +69,17 @@ const elements = {
     element: 'div',
     classes: [
       'relative',
-      'w-24',
-      'h-24',
+      'w-16',
+      'h-16',
+      'sm:w-24',
+      'sm:h-24',
       'flex',
       'justify-center',
       'items-center',
       'bg-white',
       'border-slate-150',
-      'border-[20px]',
+      'border-[10px]',
+      'sm:border-[15px]',
       'rounded-full',
       'ring-rose-300/[.65]',
       'shadow-[0px_2px_2px_2px_rgba(0,0,0,0.30)]',
@@ -95,8 +104,10 @@ const elements = {
   napkin: {
     element: 'div',
     classes: [
-      'w-28',
-      'h-28',
+      'w-16',
+      'h-16',
+      'sm:w-28',
+      'sm:h-28',
       'flex',
       'justify-center',
       'items-center',

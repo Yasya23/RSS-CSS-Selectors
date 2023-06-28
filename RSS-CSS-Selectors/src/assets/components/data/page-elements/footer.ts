@@ -1,7 +1,15 @@
 const footerData = {
   container: {
     element: 'footer',
-    classes: ['flex', 'justify-between', 'text-slate-500', 'p-4'],
+    classes: [
+      'flex',
+      'justify-between',
+      'text-slate-500',
+      'py-3',
+      'px-4',
+      'text-xs',
+      'sm:text-base',
+    ],
   },
   year: {
     element: 'div',
@@ -15,7 +23,7 @@ const footerData = {
 
   rsLogo: {
     element: 'img',
-    classes: ['w-14'],
+    classes: ['w-8', 'sm:w-14'],
     src: 'https://rs.school/images/rs_school_js.svg',
     alt: 'RS School logo',
   },

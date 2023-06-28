@@ -7,7 +7,7 @@ const { orangeRight, appleLeft } = positionElements;
 // const { appleAn, appleLeftAn } = animated;
 
 const levels = [
-  [plate, plate],
+  [plate, plate, napkin, napkin],
   [plate, napkin, orangeRight],
   [napkin, plateTwo, napkin, plateTwo],
   [apple, plate, orange, plateTwo, apple],

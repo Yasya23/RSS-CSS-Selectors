@@ -64,7 +64,7 @@ class EditorSection {
   private createEditorMenuNumbers(wrapper: ElementStructure): HTMLElement {
     const element = new CreateHTMLElement(wrapper).getElement();
     const numbers = [];
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 15; i++) {
       const span = document.createElement('span');
       span.textContent = `${i}`;
       numbers.push(span);
