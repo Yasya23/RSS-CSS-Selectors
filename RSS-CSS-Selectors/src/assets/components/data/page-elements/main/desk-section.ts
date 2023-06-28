@@ -58,6 +58,7 @@ const sectionDesk = {
         'items-center',
         'relative',
       ],
+      id: 'desk-wrapper',
     },
   },
 };

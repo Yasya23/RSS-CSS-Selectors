@@ -5,7 +5,7 @@ import {
 import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 import { EventEmitter } from '../eventEmitter';
-import { Highlight } from '../main/highlite-when-mouseover';
+// import { Highlight } from '../main/highlite-when-mouseover';
 
 class Navigation {
   private wrapper: HTMLElement;
@@ -27,7 +27,7 @@ class Navigation {
     } = navigationData;
 
     this.eventEmitter = new EventEmitter();
-    new Highlight(this.eventEmitter);
+    // new Highlight(this.eventEmitter);
 
     this.wrapper = new CreateHTMLElement(
       Object.values({ nav, wrapper, title })

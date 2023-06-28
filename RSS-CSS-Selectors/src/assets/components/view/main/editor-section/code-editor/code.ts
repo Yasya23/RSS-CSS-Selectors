@@ -1,14 +1,16 @@
 import { htmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
-import { Highlight } from '../../highlite-when-mouseover';
-import { EventEmitter } from '../../../eventEmitter';
+// import { Highlight } from '../../highlite-when-mouseover';
+// import { EventEmitter } from '../../../eventEmitter';
+// import { CodeElements } from './create-code-elements';
+// import { levelsCode } from '../../../../data/dynamic-data/elements-code';
 
 class Code {
   private wrapper: HTMLElement;
   private codeArray: HTMLElement[];
-
-  constructor() {
-    const eventEmitter = new EventEmitter();
+  constructor(codeArray: HTMLElement[]) {
+    this.codeArray = codeArray;
+    // const eventEmitter = new EventEmitter();
 
     const { htmlViewerCode, codeWrapper, codeOpen, codeClose } = htmlEditorData;
     this.wrapper = new CreateHTMLElement(htmlViewerCode).getElement();
@@ -17,8 +19,6 @@ class Code {
     const codeCloseTag = new CreateHTMLElement(codeClose).getElement();
 
     this.wrapper.append(codeOpenTag, wrapperCode, codeCloseTag);
-
-    this.codeArray = new Highlight(eventEmitter).getCodeArray();
 
     wrapperCode.append(...this.codeArray);
   }

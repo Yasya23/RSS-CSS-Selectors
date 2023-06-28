@@ -2,6 +2,7 @@ const cssEditorData = {
   wrapper: {
     element: 'div',
     classes: ['flex', 'w-1/2', 'h-full', 'bg-slate-100'],
+    id: 'code-wrapper',
   },
   menuCss: {
     element: 'div',

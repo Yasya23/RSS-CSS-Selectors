@@ -12,12 +12,15 @@ class CreateHTMLElement {
   }
 
   private createElement(elementData: ElementStructure) {
-    const { element, classes, textContent, href, src, alt, setAttribute } =
+    const { element, classes, textContent, href, src, alt, setAttribute, id } =
       elementData;
     const htmlElement = document.createElement(element);
 
     if (classes) {
       htmlElement.classList.add(...classes);
+    }
+    if (id) {
+      htmlElement.id = id;
     }
 
     if (textContent !== undefined) {

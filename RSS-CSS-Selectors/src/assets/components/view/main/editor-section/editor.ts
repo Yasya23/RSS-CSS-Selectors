@@ -8,8 +8,11 @@ import { ElementStructure } from '../../../types/page-elements-structure';
 
 class EditorSection {
   private container: HTMLElement;
+  private codeArray: HTMLElement[];
 
-  constructor() {
+  constructor(codeArray: HTMLElement[]) {
+    this.codeArray = codeArray;
+
     const { container, heading, wrapper, menuWrapper, editorWrapper } =
       containerData;
     const {
@@ -48,7 +51,7 @@ class EditorSection {
       Object.values({ menuHTML, titleHtml, subtitleHtml })
     ).getElement();
     const numbersWrapperHTML = this.createEditorMenuNumbers(editorNumbersHTML);
-    const codeField = new Code().getElement();
+    const codeField = new Code(this.codeArray).getElement();
     htmlWrapper.append(numbersWrapperHTML, codeField);
 
     wrapperMenu.append(cssMenu, htmlMenu);
