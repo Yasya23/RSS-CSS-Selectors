@@ -1,4 +1,4 @@
-import { ElementStructure } from '../../interfaces/page-elements';
+import { ElementStructure } from '../../types/page-elements';
 
 class CreateHTMLElement {
   private htmlElement: HTMLElement;

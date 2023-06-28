@@ -4,7 +4,7 @@ import { EditorCss } from './css-editor-field';
 import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
 import { htmlEditorData } from '../../../data/page-elements/main/editor-section/html-editor';
 import { Code } from './code-editor/code';
-import { ElementStructure } from '../../../interfaces/page-elements';
+import { ElementStructure } from '../../../types/page-elements';
 
 class EditorSection {
   private container: HTMLElement;

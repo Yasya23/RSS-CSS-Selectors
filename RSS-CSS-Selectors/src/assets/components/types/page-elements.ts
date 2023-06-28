@@ -1,4 +1,4 @@
-interface ElementStructure {
+type ElementStructure = {
   element: string;
   classes?: Array<string>;
   textContent?: string;
@@ -7,16 +7,12 @@ interface ElementStructure {
   alt?: string;
   setAttribute?: SetAttribute;
   id?: string;
-}
+};
 
-interface SetAttribute {
+type SetAttribute = {
   type?: string;
   placeholder?: string;
   value?: string;
-}
+};
 
-interface Data {
-  [key: string]: ElementStructure;
-}
-
-export { ElementStructure, Data };
+export { ElementStructure };

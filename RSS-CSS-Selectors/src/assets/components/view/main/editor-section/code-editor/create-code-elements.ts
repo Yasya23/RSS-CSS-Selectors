@@ -1,7 +1,7 @@
 // import { ElementsCode } from '../../../../data/elements-code';
 import { CreateHTMLElement } from '../../../actions/createHTMLelement';
 import { ElementsIds } from '../../../actions/addElement-id';
-import { ElementStructure } from '../../../../interfaces/page-elements';
+import { ElementStructure } from '../../../../types/page-elements';
 import { levelsCodeIds } from '../../../../data/elements-code';
 
 class CodeElements {

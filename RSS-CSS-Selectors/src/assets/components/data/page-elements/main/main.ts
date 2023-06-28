@@ -1,6 +1,4 @@
-import { Data } from '../../../interfaces/page-elements';
-
-const MainData: Data = {
+const MainData = {
   main: {
     element: 'main',
     classes: ['flex', 'justify-center', 'mb-2', 'grow', 'w-full'],

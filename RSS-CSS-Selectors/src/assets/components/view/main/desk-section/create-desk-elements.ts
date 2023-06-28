@@ -1,6 +1,6 @@
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 import { ElementsIds } from '../../actions/addElement-id';
-import { ElementStructure } from '../../../interfaces/page-elements';
+import { ElementStructure } from '../../../types/page-elements';
 import { deskIds, animatedElements } from '../../../data/elements-levels-data';
 import {
   tooltip,
