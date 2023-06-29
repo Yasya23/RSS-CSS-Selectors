@@ -24,9 +24,27 @@ module.exports = {
           transformOrigin: 'bottom',
         },
       },
+      pulse: {
+        '0%, 100%': {
+          opacity: '1',
+        },
+        '50%': {
+          opacity: '0.3',
+        },
+      },
+      none: {
+        '0%': {
+          opacity: '1',
+        },
+        '100%': {
+          opacity: '1',
+        },
+      },
     },
     animation: {
       topSkew: 'topSkew 1s infinite',
+      pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      none: 'none 1s',
     },
   },
   variants: {

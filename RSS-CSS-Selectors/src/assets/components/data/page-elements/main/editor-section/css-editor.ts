@@ -78,18 +78,18 @@ const cssEditorData = {
   cssEditorInput: {
     element: 'input',
     classes: [
-      'bg-cyan-100',
+      'bg-yellow-100',
       'outline-0',
       'grow',
       'animate-pulse',
       'focus:animate-none',
       'focus:bg-slate-100',
+      'text-yellow-600',
     ],
 
     setAttribute: {
       type: 'text',
       placeholder: 'Type your CSS here',
-      value: 'h',
     },
   },
 
