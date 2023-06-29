@@ -6,6 +6,7 @@ import { Footer } from './footer/footer';
 import { CreateHTMLElement } from './actions/createHTMLelement';
 import { EventManager } from './event-emitter/event-manager';
 import { EventEmitter } from './event-emitter/event-emitter';
+import { NavClassName } from './nav/nav-active-color';
 
 class View {
   private container: HTMLElement;
@@ -16,12 +17,19 @@ class View {
   private footer: HTMLElement;
   private level: number;
   private eventEmitter: EventEmitter;
+  private navInstance: NavClassName;
 
   constructor() {
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
+    const savedLevel = localStorage.getItem('levelActive');
 
-    this.level = 0;
+    if (savedLevel) {
+      this.level = JSON.parse(savedLevel);
+    } else {
+      this.level = 0;
+    }
+
     const { container, wrapper } = body;
     document.body.classList.add('font-sans', 'bg-gray-800');
     this.container = new CreateHTMLElement(container).getElement();
@@ -35,6 +43,9 @@ class View {
     this.wrapper.append(this.header, this.main, this.footer);
     this.container.append(this.wrapper, this.nav);
     this.handleLevelChange();
+
+    this.navInstance = new NavClassName();
+    this.navInstance.colorActiveElement(this.level);
   }
 
   getElement() {
@@ -44,18 +55,17 @@ class View {
   private handleLevelChange(): void {
     if (this.eventEmitter) {
       this.eventEmitter.addEventListener('levelChanged', (level: string) => {
-        console.log(1);
         this.level = parseInt(level, 10);
         this.updateMainElement();
+        localStorage.setItem('levelActive', JSON.stringify(level));
+        this.navInstance.colorActiveElement(this.level);
       });
     }
   }
 
   private updateMainElement(): void {
     this.main = new Main(this.level).getElement();
-    // this.nav = new Navigation().getElement();
     this.wrapper.replaceChild(this.main, this.wrapper.children[1]);
-    // this.container.replaceChild(this.nav, this.container.children[1]);
   }
 }
 

@@ -1,16 +1,16 @@
 import { navigationData } from '../../data/page-elements/nav';
-import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 import { EventEmitter } from '../event-emitter/event-emitter';
-import { NavClassName } from './nav-active-color';
+// import { NavClassName } from './nav-active-color';
 
 import { EventManager } from '../event-emitter/event-manager';
+import { NavList } from './nav-list';
 class Navigation {
   private wrapper: HTMLElement;
   private list: HTMLElement;
   private resetButton: HTMLElement;
   private eventEmitter: EventEmitter;
-  private navInstance: NavClassName;
+  // private navInstance: NavClassName;
 
   constructor() {
     const {
@@ -28,7 +28,7 @@ class Navigation {
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
 
-    this.navInstance = new NavClassName();
+    // this.navInstance = new NavClassName();
 
     this.wrapper = new CreateHTMLElement(
       Object.values({ nav, wrapper, title })
@@ -36,12 +36,12 @@ class Navigation {
 
     this.list = new CreateHTMLElement(list).getElement();
 
-    const listElements = this.createLevelsList(
+    const listElements = new NavList(
       listElement,
       elementWrapper,
       elementSign,
       elementLevelNumber
-    );
+    ).getElementsArray();
 
     this.resetButton = new CreateHTMLElement(resetButton).getElement();
 
@@ -49,28 +49,6 @@ class Navigation {
     this.wrapper.append(this.list, this.resetButton);
 
     this.list.addEventListener('click', this.handleLevelClick.bind(this));
-  }
-
-  private createLevelsList(
-    listElement: ElementStructure,
-    elementWrapper: ElementStructure,
-    elementSign: ElementStructure,
-    elementLevelNumber: ElementStructure
-  ): HTMLElement[] {
-    const array = Array.from({ length: 10 }, (_, index) => {
-      const level = index + 1;
-      const element = new CreateHTMLElement(listElement).getElement();
-      element.id = `level-${level}`;
-      const wrapper = new CreateHTMLElement(
-        Object.values({ elementWrapper, elementSign })
-      ).getElement();
-      const number = new CreateHTMLElement(elementLevelNumber).getElement();
-      number.textContent = `${level}`;
-      wrapper.append(number);
-      element.append(wrapper);
-      return element;
-    });
-    return array;
   }
 
   getElement() {
@@ -82,9 +60,10 @@ class Navigation {
     const el = element.closest('[id]');
 
     if (el) {
-      const level = Number(el.id.split('-')[1]) - 1;
-      this.navInstance.colorActiveElement(el);
+      const level = Number(el.id.split('-')[1]);
+      // this.navInstance.colorActiveElement(level);
       this.eventEmitter.emit('levelChanged', `${level}`);
+      // localStorage.setItem('levelActive', JSON.stringify(level));
     }
   }
 }
