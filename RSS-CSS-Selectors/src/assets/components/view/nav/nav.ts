@@ -2,6 +2,7 @@ import { navigationData } from '../../data/page-elements/nav';
 import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 import { EventEmitter } from '../event-emitter/event-emitter';
+import { NavClassName } from './nav-active-color';
 
 import { EventManager } from '../event-emitter/event-manager';
 class Navigation {
@@ -9,6 +10,7 @@ class Navigation {
   private list: HTMLElement;
   private resetButton: HTMLElement;
   private eventEmitter: EventEmitter;
+  private navInstance: NavClassName;
 
   constructor() {
     const {
@@ -25,6 +27,8 @@ class Navigation {
 
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
+
+    this.navInstance = new NavClassName();
 
     this.wrapper = new CreateHTMLElement(
       Object.values({ nav, wrapper, title })
@@ -76,9 +80,10 @@ class Navigation {
   handleLevelClick(e: Event) {
     const element = e.target as HTMLElement;
     const el = element.closest('[id]');
-    el?.classList.add('text-white');
+
     if (el) {
       const level = Number(el.id.split('-')[1]) - 1;
+      this.navInstance.colorActiveElement(el);
       this.eventEmitter.emit('levelChanged', `${level}`);
     }
   }

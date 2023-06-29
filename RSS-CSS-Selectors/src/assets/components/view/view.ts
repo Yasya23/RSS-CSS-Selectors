@@ -53,7 +53,9 @@ class View {
 
   private updateMainElement(): void {
     this.main = new Main(this.level).getElement();
+    // this.nav = new Navigation().getElement();
     this.wrapper.replaceChild(this.main, this.wrapper.children[1]);
+    // this.container.replaceChild(this.nav, this.container.children[1]);
   }
 }
 
