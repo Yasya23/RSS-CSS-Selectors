@@ -45,8 +45,22 @@ class EditorCss {
     this.setValue('fnjgn');
   }
 
-  private setValue(arg: string): void {
-    (this.inputField as HTMLInputElement).value = arg;
+  private setValue(answer: string): void {
+    const input = this.inputField as HTMLInputElement;
+    const value = answer;
+    let index = 0;
+    input.focus();
+    const typeEffect = setInterval(() => {
+      if (index >= value.length) {
+        clearInterval(typeEffect);
+        return;
+      }
+
+      const currentInputValue = input.value;
+      const nextChar = value.charAt(index);
+      input.value = currentInputValue + nextChar;
+      index++;
+    }, 200);
   }
 }
 
