@@ -9,6 +9,7 @@ const { orangeRight, appleLeft } = positionElements;
 const levels = [
   [plate, plate],
   [plate, napkin, orangeRight],
+  [plate, plate],
   [napkin, plateTwo, napkin, plateTwo],
   [apple, plate, orange, plateTwo, apple],
   [plate, appleGreen, plate, plateTwo, appleLeft],
@@ -16,7 +17,8 @@ const levels = [
 
 const deskIds = [
   ['plate1', 'plate2'],
-  ['plate', 'napkin', 'orange'],
+  ['plate1', 'napkin1', 'orange1'],
+  ['plate1', 'plate2'],
 ];
 
 const animatedElements = [

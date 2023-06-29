@@ -12,15 +12,17 @@ import {
 
 class DeskElements {
   private elementsArray: HTMLElement[];
+  private level: number;
 
   constructor(level: number, elementNames: ElementStructure[]) {
+    this.level = level;
     this.elementsArray = [];
 
     if (Array.isArray(elementNames)) {
       this.elementsArray = elementNames.map(
         (elementName: ElementStructure, index: number): HTMLElement => {
           const element = new CreateHTMLElement(elementName).getElement();
-          element.classList.add(animatedElements[0][index]);
+          element.classList.add(animatedElements[this.level][index]);
           const tooltipElement = new CreateHTMLElement(tooltip).getElement();
           tooltipElement.textContent = tooltipTextcontent[level][index];
           element.append(tooltipElement);
@@ -29,7 +31,11 @@ class DeskElements {
       );
     }
 
-    ElementsIds.assignUniqueIds(this.elementsArray, deskIds[0], 'desk');
+    ElementsIds.assignUniqueIds(
+      this.elementsArray,
+      deskIds[this.level],
+      'desk'
+    );
   }
 
   getElementsArray() {

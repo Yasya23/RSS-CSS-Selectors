@@ -7,7 +7,7 @@ const ElementsCode = {
   plate: {
     element: 'div',
     classes: ['text-yellow-300'],
-    textContent: '<plate>',
+    textContent: '<plate></plate>',
   },
   plateOpen: {
     element: 'div',
@@ -22,7 +22,7 @@ const ElementsCode = {
   orange: {
     element: 'div',
     classes: ['text-pink-400'],
-    textContent: '<apple></apple>',
+    textContent: '<orange></orange>',
   },
   napkinOpen: {
     element: 'div',
@@ -41,13 +41,14 @@ const { plateOpen, orange, plateClose, napkinOpen, napkinClose, plate } =
 
 const levelsCode = [
   [plate, plate],
-  [plateOpen, plateClose, napkinOpen, orange, napkinClose],
+  [plate, napkinOpen, orange, napkinClose],
   [plateOpen, plateClose, plateOpen, plateClose],
 ];
 
 const levelsCodeIds = [
   ['plate1', 'plate2'],
-  ['plate', 'plate', 'napkin', 'orange', 'napkin'],
+  ['plate1', 'napkin1', 'orange1', 'napkin1'],
+  ['plate1', 'plate1', 'plate2', 'plate2'],
 ];
 
 export { levelsCode, levelsCodeIds };

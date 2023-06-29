@@ -1,12 +1,9 @@
-import {
-  navigationData,
-  // levelsDescription,
-} from '../../data/page-elements/nav';
+import { navigationData } from '../../data/page-elements/nav';
 import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
-import { EventEmitter } from '../eventEmitter';
-// import { Highlight } from '../main/highlite-when-mouseover';
+import { EventEmitter } from '../event-emitter/event-emitter';
 
+import { EventManager } from '../event-emitter/event-manager';
 class Navigation {
   private wrapper: HTMLElement;
   private list: HTMLElement;
@@ -26,8 +23,8 @@ class Navigation {
       resetButton,
     } = navigationData;
 
-    this.eventEmitter = new EventEmitter();
-    // new Highlight(this.eventEmitter);
+    const eventManager = EventManager.getInstance();
+    this.eventEmitter = eventManager.getEventEmitter();
 
     this.wrapper = new CreateHTMLElement(
       Object.values({ nav, wrapper, title })
@@ -79,6 +76,7 @@ class Navigation {
   handleLevelClick(e: Event) {
     const element = e.target as HTMLElement;
     const el = element.closest('[id]');
+    el?.classList.add('text-white');
     if (el) {
       const level = Number(el.id.split('-')[1]) - 1;
       this.eventEmitter.emit('levelChanged', `${level}`);

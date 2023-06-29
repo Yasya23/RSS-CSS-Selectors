@@ -20,11 +20,11 @@ const tooltipTextcontent = [
   ['<plate></plate>', '<plate></plate>'],
   [
     '<plate></plate>',
-    '<plate></plate>',
     '<napkin></napkin>',
-    '<orange></orange>',
+    '<apple</apple>',
     '<napkin></napkin>',
   ],
+  ['<plate></plate>', '<plate></plate>'],
 ];
 
 export { tooltip, tooltipTextcontent };

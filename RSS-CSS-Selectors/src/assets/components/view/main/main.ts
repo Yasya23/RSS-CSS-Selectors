@@ -12,15 +12,23 @@ import { levelsCode } from '../../data/dynamic-data/elements-code';
 class Main {
   private container: HTMLElement;
   private mainWrapper: HTMLElement;
+  private level: number;
 
-  constructor() {
+  constructor(level: number) {
+    this.level = level;
     const { main, wrapper } = MainData;
 
     this.container = new CreateHTMLElement(main).getElement();
     this.mainWrapper = new CreateHTMLElement(wrapper).getElement();
-
-    const elementsDesk = new DeskElements(1, levels[1]).getElementsArray();
-    const codeArray = new CodeElements(0, levelsCode[0]).getElementsArray();
+    console.log(this.level);
+    const elementsDesk = new DeskElements(
+      level,
+      levels[level]
+    ).getElementsArray();
+    const codeArray = new CodeElements(
+      level,
+      levelsCode[level]
+    ).getElementsArray();
     const array = [...elementsDesk, ...codeArray];
     new Highlight(array);
 
@@ -28,7 +36,6 @@ class Main {
 
     const editorSection = new EditorSection(codeArray).getElement();
 
-    // editorSection.append(deskElements, codeElements);
     this.mainWrapper.append(mainDeskSection, editorSection);
 
     this.container.append(this.mainWrapper);

@@ -128,11 +128,11 @@ const { apple, appleGreen, orange, plate, plateTwo, napkin } = elements;
 const positionElements = {
   orangeRight: {
     element: 'div',
-    classes: [...orange.classes, 'absolute', 'right-6', 'animate-topSkew'],
+    classes: [...orange.classes, 'absolute', 'right-6'],
   },
   orangeLeft: {
     element: 'div',
-    classes: [...orange.classes, 'absolute', 'left-6', 'animate-topSkew'],
+    classes: [...orange.classes, 'absolute', 'left-6'],
   },
   appleLeft: {
     element: 'div',
