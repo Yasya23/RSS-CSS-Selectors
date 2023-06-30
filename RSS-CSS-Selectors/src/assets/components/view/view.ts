@@ -43,7 +43,6 @@ class View {
     this.wrapper.append(this.header, this.main, this.footer);
     this.container.append(this.wrapper, this.nav);
     this.handleLevelChange();
-
     this.navInstance = new NavClassName();
     this.navInstance.colorActiveElement(this.level);
   }

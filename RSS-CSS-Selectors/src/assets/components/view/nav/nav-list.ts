@@ -12,9 +12,17 @@ class NavList {
     elementLevelNumber: ElementStructure
   ) {
     const array = Array.from({ length: 10 }, (_, index) => {
+      // const savedLevel = localStorage.getItem('levelActive');
+      // let active;
+      // if (savedLevel) {
+      //   active = JSON.parse(savedLevel);
+      // } else {
+      //   active = 0;
+      // }
       const level = index + 1;
       const element = new CreateHTMLElement(listElement).getElement();
       element.id = `level-${index}`;
+      // if (index === active) element.classList.add('text-orange-400');
       const wrapper = new CreateHTMLElement(
         Object.values({ elementWrapper, elementSign })
       ).getElement();
