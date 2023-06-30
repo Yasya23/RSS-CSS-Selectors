@@ -3,12 +3,13 @@ class NavClassName {
 
   colorActiveElement(level: number): void {
     const element = document.getElementById(`level-${level}`);
+    const elementClass = 'text-orange-400';
 
     if (this.previousActiveElement !== null) {
-      this.previousActiveElement.classList.remove('text-orange-300');
+      this.previousActiveElement.classList.remove(elementClass);
     }
     if (element) {
-      element.classList.add('text-orange-300');
+      element.classList.add(elementClass);
     }
     this.previousActiveElement = element;
   }
