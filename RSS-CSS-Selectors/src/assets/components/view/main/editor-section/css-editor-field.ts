@@ -1,14 +1,18 @@
 import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 
+import { description } from '../../../data/dynamic-data/elements-levels-data';
+
 class EditorCss {
   private field: HTMLElement;
   private helpButton: HTMLElement;
   private form: HTMLElement;
   private inputField: HTMLElement;
   private enterButton: HTMLElement;
+  private level: number;
 
-  constructor() {
+  constructor(level: number) {
+    this.level = level;
     const {
       cssField,
       cssNotes,
@@ -28,6 +32,7 @@ class EditorCss {
     this.form.append(this.inputField, this.enterButton);
 
     const notes = new CreateHTMLElement(cssNotes).getElement();
+    notes.textContent += description[this.level];
 
     this.field.append(this.form, notes, this.helpButton);
 

@@ -34,7 +34,7 @@ class Main {
 
     const mainDeskSection = new DeskSection(elementsDesk).getElement();
 
-    const editorSection = new EditorSection(codeArray).getElement();
+    const editorSection = new EditorSection(this.level, codeArray).getElement();
 
     this.mainWrapper.append(mainDeskSection, editorSection);
 

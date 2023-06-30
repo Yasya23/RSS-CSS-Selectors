@@ -53,12 +53,7 @@ const navigationData = {
 
   elementLevelNumber: {
     element: 'span',
-    classes: ['font-bold'],
-  },
-
-  elementDescription: {
-    element: 'p',
-    classes: ['text-sm'],
+    classes: ['font-medium'],
   },
 
   resetButton: {
@@ -80,16 +75,16 @@ const navigationData = {
 };
 
 const levelsDescription = [
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
-  'Find all id elements',
+  '(:first-child)',
+  '(:last-child)',
+  '(:only-child)',
+  '(:first-child)',
+  '(:first-child)',
+  '(:last-child)',
+  '(:only-child)',
+  '(:first-child)',
+  '(:only-child)',
+  '(:first-child)',
 ];
 
 export { navigationData, levelsDescription };

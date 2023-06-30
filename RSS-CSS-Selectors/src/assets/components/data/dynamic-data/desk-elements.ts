@@ -40,7 +40,7 @@ const elements = {
       'rounded-full',
       'ring-rose-300/[.65]',
       'shadow-sm',
-      'shadow-[0px_2px_3px_2px_rgba(0,0,0,0.25)]',
+      'shadow-[0px_2px_3px_2px_rgba(0,0,0,0.30)]',
     ],
   },
   orange: {

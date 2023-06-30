@@ -18,12 +18,7 @@ const tooltip = {
 
 const tooltipTextcontent = [
   ['<plate></plate>', '<plate></plate>'],
-  [
-    '<plate></plate>',
-    '<napkin></napkin>',
-    '<apple</apple>',
-    '<napkin></napkin>',
-  ],
+  ['<apple></apple>', '<plate></plate>', '<apple></apple>', '<plate></plate>'],
   ['<plate></plate>', '<plate></plate>'],
 ];
 

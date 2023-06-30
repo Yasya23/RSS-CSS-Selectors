@@ -1,7 +1,6 @@
 import { navigationData } from '../../data/page-elements/nav';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
 import { EventEmitter } from '../event-emitter/event-emitter';
-// import { NavClassName } from './nav-active-color';
 
 import { EventManager } from '../event-emitter/event-manager';
 import { NavList } from './nav-list';
@@ -10,7 +9,6 @@ class Navigation {
   private list: HTMLElement;
   private resetButton: HTMLElement;
   private eventEmitter: EventEmitter;
-  // private navInstance: NavClassName;
 
   constructor() {
     const {
@@ -27,8 +25,6 @@ class Navigation {
 
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
-
-    // this.navInstance = new NavClassName();
 
     this.wrapper = new CreateHTMLElement(
       Object.values({ nav, wrapper, title })
@@ -61,9 +57,7 @@ class Navigation {
 
     if (el) {
       const level = Number(el.id.split('-')[1]);
-      // this.navInstance.colorActiveElement(level);
       this.eventEmitter.emit('levelChanged', `${level}`);
-      // localStorage.setItem('levelActive', JSON.stringify(level));
     }
   }
 }

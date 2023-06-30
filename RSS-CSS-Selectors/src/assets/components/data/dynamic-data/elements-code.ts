@@ -4,6 +4,11 @@ const ElementsCode = {
     classes: ['text-pink-500'],
     textContent: '<apple></apple>',
   },
+  appleGreen: {
+    element: 'div',
+    classes: ['text-emerald-400'],
+    textContent: '<apple></apple>',
+  },
   plate: {
     element: 'div',
     classes: ['text-yellow-300'],
@@ -11,13 +16,18 @@ const ElementsCode = {
   },
   plateOpen: {
     element: 'div',
-    classes: ['text-yellow-500'],
+    classes: ['text-fuchsia-500'],
     textContent: '<plate>',
   },
   plateClose: {
     element: 'div',
-    classes: ['text-yellow-500'],
+    classes: ['text-fuchsia-500'],
     textContent: '</ plate>',
+  },
+  plateTwo: {
+    element: 'div',
+    classes: ['text-red-400'],
+    textContent: '<plate></plate>',
   },
   orange: {
     element: 'div',
@@ -36,18 +46,36 @@ const ElementsCode = {
   },
 };
 
-const { plateOpen, orange, plateClose, napkinOpen, napkinClose, plate } =
-  ElementsCode;
+const {
+  plateOpen,
+  orange,
+  plateClose,
+  napkinOpen,
+  napkinClose,
+  plate,
+  appleGreen,
+  apple,
+  plateTwo,
+} = ElementsCode;
 
 const levelsCode = [
   [plate, plate],
-  [plate, napkinOpen, orange, napkinClose],
-  [plateOpen, plateClose, plateOpen, plateClose],
+  [apple, plate, appleGreen, plateTwo],
+  [plate, napkinOpen, orange, napkinClose, plateClose, plateOpen],
 ];
+
+// const answers = [['plate:first-child']];
+
+// const description = [
+//   ':first-child styles applied to the first element among a group of sibling elements',
+//   ':first-child styles applied to the first element among a group of sibling elements',
+//   ':first-child styles applied to the first element among a group of sibling elements',
+//   ':first-child styles applied to the first element among a group of sibling elements',
+// ];
 
 const levelsCodeIds = [
   ['plate1', 'plate2'],
-  ['plate1', 'napkin1', 'orange1', 'napkin1'],
+  ['apple1', 'plate1', 'apple2', 'plate2'],
   ['plate1', 'plate1', 'plate2', 'plate2'],
 ];
 

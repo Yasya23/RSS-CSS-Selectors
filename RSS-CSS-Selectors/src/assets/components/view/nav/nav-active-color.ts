@@ -6,10 +6,10 @@ class NavClassName {
     const element = document.getElementById(`level-${level}`);
 
     if (this.previousActiveElement !== null) {
-      this.previousActiveElement.classList.remove('text-orange-500');
+      this.previousActiveElement.classList.remove('text-orange-300');
     }
     if (element) {
-      element.classList.add('text-orange-500');
+      element.classList.add('text-orange-300');
     }
     this.previousActiveElement = element;
     console.log(this.previousActiveElement);

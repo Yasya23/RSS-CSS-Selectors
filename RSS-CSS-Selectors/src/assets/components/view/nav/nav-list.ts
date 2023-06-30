@@ -1,5 +1,6 @@
 import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../actions/createHTMLelement';
+import { levelsDescription } from '../../data/page-elements/nav';
 
 class NavList {
   private array: HTMLElement[];
@@ -18,7 +19,7 @@ class NavList {
         Object.values({ elementWrapper, elementSign })
       ).getElement();
       const number = new CreateHTMLElement(elementLevelNumber).getElement();
-      number.textContent = `${level}`;
+      number.textContent = `${level} ${levelsDescription[index]}`;
       wrapper.append(number);
       element.append(wrapper);
       return element;

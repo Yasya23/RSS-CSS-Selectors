@@ -9,9 +9,11 @@ import { ElementStructure } from '../../../types/page-elements-structure';
 class EditorSection {
   private container: HTMLElement;
   private codeArray: HTMLElement[];
+  private level: number;
 
-  constructor(codeArray: HTMLElement[]) {
+  constructor(level: number, codeArray: HTMLElement[]) {
     this.codeArray = codeArray;
+    this.level = level;
 
     const { container, heading, wrapper, menuWrapper, editorWrapper } =
       containerData;
@@ -42,7 +44,7 @@ class EditorSection {
     ).getElement();
     const cssWrapper = new CreateHTMLElement(cssEditorContainer).getElement();
     const numbersWrapperCss = this.createEditorMenuNumbers(editorNumbersCss);
-    const field = new EditorCss().getEditorField();
+    const field = new EditorCss(this.level).getEditorField();
 
     cssWrapper.append(numbersWrapperCss, field);
 
