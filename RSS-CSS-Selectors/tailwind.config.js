@@ -32,6 +32,20 @@ module.exports = {
           opacity: '0.3',
         },
       },
+      moveContainer: {
+        '0%': {
+          transform: 'translateX(-1%)',
+          'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
+        },
+        '50%': {
+          transform: 'translateX(0)',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+        },
+        '100%': {
+          transform: 'translateX(1%)',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+        },
+      },
       none: {
         '0%': {
           opacity: '1',
@@ -44,6 +58,7 @@ module.exports = {
     animation: {
       topSkew: 'topSkew 1s infinite',
       pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      moveContainer: 'moveContainer 0.1s infinite',
       none: 'none 1s',
     },
   },

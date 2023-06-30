@@ -1,3 +1,3 @@
-const answers = [['apple:first-child'], ['plate:last-child']];
+const answers = [['plate:first-child'], ['plate:last-child']];
 
 export { answers };

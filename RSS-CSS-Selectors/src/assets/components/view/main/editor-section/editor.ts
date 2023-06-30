@@ -5,15 +5,20 @@ import { cssEditorData } from '../../../data/page-elements/main/editor-section/c
 import { htmlEditorData } from '../../../data/page-elements/main/editor-section/html-editor';
 import { Code } from './code-editor/code';
 import { ElementStructure } from '../../../types/page-elements-structure';
-
+import { EventManager } from '../../event-emitter/event-manager';
+import { EventEmitter } from '../../event-emitter/event-emitter';
 class EditorSection {
   private container: HTMLElement;
   private codeArray: HTMLElement[];
   private level: number;
+  private eventEmitter: EventEmitter;
 
   constructor(level: number, codeArray: HTMLElement[]) {
     this.codeArray = codeArray;
     this.level = level;
+
+    const eventManager = EventManager.getInstance();
+    this.eventEmitter = eventManager.getEventEmitter();
 
     const { container, heading, wrapper, menuWrapper, editorWrapper } =
       containerData;
@@ -60,6 +65,8 @@ class EditorSection {
     wrapperEditor.append(cssWrapper, htmlWrapper);
     wrapperSection.append(wrapperMenu, wrapperEditor);
     this.container.append(header, wrapperSection);
+
+    this.handleWrongAnswer();
   }
 
   getElement() {
@@ -76,6 +83,16 @@ class EditorSection {
     }
     element.append(...numbers);
     return element;
+  }
+
+  private handleWrongAnswer(): void {
+    if (this.eventEmitter) {
+      this.eventEmitter.addEventListener('wrongAnswer', (classAdd: string) => {
+        console.log(classAdd);
+        this.container.classList.add(classAdd);
+        setTimeout(() => this.container.classList.remove(classAdd), 500);
+      });
+    }
   }
 }
 

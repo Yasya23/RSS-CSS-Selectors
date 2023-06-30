@@ -20,7 +20,7 @@ class Main {
 
     this.container = new CreateHTMLElement(main).getElement();
     this.mainWrapper = new CreateHTMLElement(wrapper).getElement();
-    console.log(this.level);
+
     const elementsDesk = new DeskElements(
       level,
       levels[level]

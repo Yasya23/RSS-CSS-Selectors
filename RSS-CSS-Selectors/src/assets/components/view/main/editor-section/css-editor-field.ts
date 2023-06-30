@@ -2,6 +2,9 @@ import { cssEditorData } from '../../../data/page-elements/main/editor-section/c
 import { CreateHTMLElement } from '../../actions/createHTMLelement';
 
 import { description } from '../../../data/dynamic-data/elements-levels-data';
+import { answers } from '../../../data/dynamic-data/input-answers';
+import { EventEmitter } from '../../event-emitter/event-emitter';
+import { EventManager } from '../../event-emitter/event-manager';
 
 class EditorCss {
   private field: HTMLElement;
@@ -10,6 +13,7 @@ class EditorCss {
   private inputField: HTMLElement;
   private enterButton: HTMLElement;
   private level: number;
+  private eventEmitter: EventEmitter;
 
   constructor(level: number) {
     this.level = level;
@@ -21,6 +25,9 @@ class EditorCss {
       cssEditorInput,
       cssEnterButton,
     } = cssEditorData;
+
+    const eventManager = EventManager.getInstance();
+    this.eventEmitter = eventManager.getEventEmitter();
 
     this.field = new CreateHTMLElement(cssField).getElement();
     this.helpButton = new CreateHTMLElement(cssHelpButton).getElement();
@@ -40,6 +47,9 @@ class EditorCss {
       'click',
       this.handleHelpButtonClick.bind(this)
     );
+
+    this.form.addEventListener('submit', this.handleSubmitForm.bind(this));
+    this.handleWrongAnswer();
   }
 
   public getEditorField(): HTMLElement {
@@ -47,7 +57,26 @@ class EditorCss {
   }
 
   private handleHelpButtonClick(): void {
-    this.setValue('fnjgn');
+    const answer = answers[this.level][0];
+    this.setValue(answer);
+  }
+
+  private handleSubmitForm(e: Event): void {
+    e.preventDefault();
+    const input = this.inputField as HTMLInputElement;
+    const value = input.value.trim();
+    if (value.length > 0) input.focus();
+    const answer = answers[this.level];
+    console.log(answer);
+    if (answer.includes(value)) {
+      console.log(1);
+    } else {
+      this.handleWrongAnswer();
+    }
+  }
+
+  handleWrongAnswer() {
+    this.eventEmitter.emit('wrongAnswer', 'animate-moveContainer');
   }
 
   private setValue(answer: string): void {
