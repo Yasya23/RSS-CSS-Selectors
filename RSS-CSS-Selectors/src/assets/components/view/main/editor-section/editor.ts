@@ -1,9 +1,9 @@
 import { containerData } from '../../../data/page-elements/main/editor-section/editor';
-import { CreateHTMLElement } from '../../actions/createHTMLelement';
-import { EditorCss } from './css-editor-field';
+import { CreateHTMLElement } from '../../elements-actions/createHTMLelement';
+import { EditorCss } from './css-editor/css-editor-field';
 import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
 import { htmlEditorData } from '../../../data/page-elements/main/editor-section/html-editor';
-import { Code } from './code-editor/code';
+import { Code } from './html-viewer/code';
 import { ElementStructure } from '../../../types/page-elements-structure';
 import { EventManager } from '../../event-emitter/event-manager';
 import { EventEmitter } from '../../event-emitter/event-emitter';

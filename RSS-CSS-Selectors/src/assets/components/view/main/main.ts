@@ -1,11 +1,11 @@
 import { levels } from '../../data/dynamic-data/elements-levels-data';
 import { MainData } from '../../data/page-elements/main/main';
-import { CreateHTMLElement } from '../actions/createHTMLelement';
+import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 import { DeskElements } from './desk-section/create-desk-elements';
 import { DeskSection } from './desk-section/desk-section';
 import { EditorSection } from './editor-section/editor';
 import { Highlight } from './highlite-when-mouseover';
-import { CodeElements } from './editor-section/code-editor/create-code-elements';
+import { CodeElements } from './editor-section/html-viewer/create-code-elements';
 import { levelsCode } from '../../data/dynamic-data/elements-code';
 // import { Code } from './editor-section/code-editor/code';
 

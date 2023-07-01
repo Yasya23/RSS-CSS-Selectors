@@ -1,5 +1,5 @@
 import { htmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
-import { CreateHTMLElement } from '../../../actions/createHTMLelement';
+import { CreateHTMLElement } from '../../../elements-actions/createHTMLelement';
 
 class Code {
   private wrapper: HTMLElement;

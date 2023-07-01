@@ -1,6 +1,6 @@
 import { sectionDesk } from '../../../data/page-elements/main/desk-section';
 
-import { CreateHTMLElement } from '../../actions/createHTMLelement';
+import { CreateHTMLElement } from '../../elements-actions/createHTMLelement';
 
 class DeskSection {
   private container: HTMLElement;

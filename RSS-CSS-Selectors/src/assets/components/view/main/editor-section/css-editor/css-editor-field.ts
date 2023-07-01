@@ -1,10 +1,11 @@
-import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
-import { CreateHTMLElement } from '../../actions/createHTMLelement';
+import { cssEditorData } from '../../../../data/page-elements/main/editor-section/css-editor';
+import { CreateHTMLElement } from '../../../elements-actions/createHTMLelement';
 
-import { description } from '../../../data/dynamic-data/elements-levels-data';
-import { answers } from '../../../data/dynamic-data/input-answers';
-import { EventEmitter } from '../../event-emitter/event-emitter';
-import { EventManager } from '../../event-emitter/event-manager';
+import { description } from '../../../../data/dynamic-data/elements-levels-data';
+import { answers } from '../../../../data/dynamic-data/input-answers';
+import { EventEmitter } from '../../../event-emitter/event-emitter';
+import { EventManager } from '../../../event-emitter/event-manager';
+import { SetValue } from './set-value-to-input';
 
 class EditorCss {
   private field: HTMLElement;
@@ -58,7 +59,7 @@ class EditorCss {
 
   private handleHelpButtonClick(): void {
     const answer = answers[this.level][0];
-    this.setValue(answer);
+    new SetValue().set(this.inputField, answer);
   }
 
   private handleSubmitForm(e: Event): void {
@@ -77,24 +78,6 @@ class EditorCss {
 
   handleWrongAnswer() {
     this.eventEmitter.emit('wrongAnswer', 'animate-moveContainer');
-  }
-
-  private setValue(answer: string): void {
-    const input = this.inputField as HTMLInputElement;
-    const value = answer;
-    let index = 0;
-    input.focus();
-    const typeEffect = setInterval(() => {
-      if (index >= value.length) {
-        clearInterval(typeEffect);
-        return;
-      }
-
-      const currentInputValue = input.value;
-      const nextChar = value.charAt(index);
-      input.value = currentInputValue + nextChar;
-      index++;
-    }, 200);
   }
 }
 

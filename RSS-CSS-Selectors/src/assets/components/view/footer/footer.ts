@@ -1,5 +1,5 @@
 import { footerData } from '../../data/page-elements/footer';
-import { CreateHTMLElement } from '../actions/createHTMLelement';
+import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 
 class Footer {
   static initialize(): HTMLElement {

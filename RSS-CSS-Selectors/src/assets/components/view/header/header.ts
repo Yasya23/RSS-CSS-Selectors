@@ -1,5 +1,5 @@
 import { headerData } from '../../data/page-elements/header';
-import { CreateHTMLElement } from '../actions/createHTMLelement';
+import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 
 class Header {
   static initialize(): HTMLElement {
