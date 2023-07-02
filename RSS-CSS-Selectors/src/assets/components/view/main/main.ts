@@ -24,7 +24,7 @@ class Main {
       level,
       levels[level]
     ).getElementsArray();
-    console.log(levelsCode[1]);
+
     const codeArray = new CodeElements(
       level,
       levelsCode[level]

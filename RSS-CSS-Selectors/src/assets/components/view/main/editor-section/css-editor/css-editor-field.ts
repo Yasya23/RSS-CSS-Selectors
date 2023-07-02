@@ -1,11 +1,11 @@
 import { cssEditorData } from '../../../../data/page-elements/main/editor-section/css-editor';
 import { CreateHTMLElement } from '../../../elements-actions/createHTMLelement';
-
 import { description } from '../../../../data/dynamic-data/elements-levels-data';
 import { answers } from '../../../../data/dynamic-data/input-answers';
 import { EventEmitter } from '../../../event-emitter/event-emitter';
 import { EventManager } from '../../../event-emitter/event-manager';
-import { SetValue } from './set-value-to-input';
+// import { SetValue } from './set-value-to-input';
+import { HelpButton } from './help-button';
 
 class EditorCss {
   private field: HTMLElement;
@@ -37,34 +37,22 @@ class EditorCss {
     this.inputField = new CreateHTMLElement(cssEditorInput).getElement();
     this.enterButton = new CreateHTMLElement(cssEnterButton).getElement();
 
-    this.form.append(this.inputField, this.enterButton);
-
     const notes = new CreateHTMLElement(cssNotes).getElement();
     notes.textContent += description[this.level];
 
+    this.form.append(this.inputField, this.enterButton);
     this.field.append(this.form, notes, this.helpButton);
 
     this.helpButton.addEventListener(
       'click',
-      this.handleHelpButtonClick.bind(this)
+      () => new HelpButton(this.level, this.inputField, this.eventEmitter)
     );
 
     this.form.addEventListener('submit', this.handleSubmitForm.bind(this));
-    this.handleWrongAnswer();
   }
 
   public getEditorField(): HTMLElement {
     return this.field;
-  }
-
-  private handleHelpButtonClick(): void {
-    const answer = answers[this.level][0];
-    new SetValue().set(this.inputField, answer);
-    const timeToStart = answer.length * 220;
-    setTimeout(
-      () => this.eventEmitter.emit('moveToNextLevel', 'help'),
-      timeToStart
-    );
   }
 
   private handleSubmitForm(e: Event): void {
@@ -73,14 +61,16 @@ class EditorCss {
     const value = input.value.trim();
     if (value.length > 0) input.focus();
     const answer = answers[this.level];
-    if (answer.includes(value)) {
-      setTimeout(() => this.eventEmitter.emit('moveToNextLevel', 'win'), 300);
-    } else {
-      this.handleWrongAnswer();
-    }
+    answer.includes(value)
+      ? this.handleCorrectAnswer()
+      : this.handleWrongAnswer();
   }
 
-  handleWrongAnswer() {
+  handleCorrectAnswer(): void {
+    setTimeout(() => this.eventEmitter.emit('moveToNextLevel', 'win'), 300);
+  }
+
+  handleWrongAnswer(): void {
     this.eventEmitter.emit('wrongAnswer', 'animate-moveContainer');
   }
 }

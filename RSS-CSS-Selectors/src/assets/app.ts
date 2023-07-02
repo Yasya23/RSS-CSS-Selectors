@@ -1,7 +1,7 @@
 import { View } from './components/view/view';
 
 class App {
-  load() {
+  load(): void {
     new View().getElement();
   }
 }

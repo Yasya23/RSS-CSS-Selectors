@@ -1,6 +1,7 @@
 class SetValue {
   set(inputField: HTMLElement, answer: string): void {
     const input = inputField as HTMLInputElement;
+    input.value = '';
     const value = answer;
     let index = 0;
     input.focus();

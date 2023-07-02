@@ -60,6 +60,15 @@ const {
 
 const levelsCode = [
   [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
+  [plate, plate],
   [apple, plate, appleGreen, plateTwo],
   [plate, napkinOpen, orange, napkinClose, plateClose, plateOpen],
 ];
@@ -74,6 +83,15 @@ const levelsCode = [
 // ];
 
 const levelsCodeIds = [
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
+  ['plate1', 'plate2'],
   ['plate1', 'plate2'],
   ['apple1', 'plate1', 'apple2', 'plate2'],
   ['plate1', 'plate1', 'plate2', 'plate2'],

@@ -51,14 +51,14 @@ class EditorSection {
     const numbersWrapperCss = this.createEditorMenuNumbers(editorNumbersCss);
     const field = new EditorCss(this.level).getEditorField();
 
-    cssWrapper.append(numbersWrapperCss, field);
-
     const htmlWrapper = new CreateHTMLElement(wrapperHTML).getElement();
     const htmlMenu = new CreateHTMLElement(
       Object.values({ menuHTML, titleHtml, subtitleHtml })
     ).getElement();
     const numbersWrapperHTML = this.createEditorMenuNumbers(editorNumbersHTML);
     const codeField = new Code(this.codeArray).getElement();
+
+    cssWrapper.append(numbersWrapperCss, field);
     htmlWrapper.append(numbersWrapperHTML, codeField);
 
     wrapperMenu.append(cssMenu, htmlMenu);
@@ -66,7 +66,7 @@ class EditorSection {
     wrapperSection.append(wrapperMenu, wrapperEditor);
     this.container.append(header, wrapperSection);
 
-    this.handleWrongAnswer();
+    this.animationWhenWrongAnswer();
   }
 
   getElement() {
@@ -85,7 +85,7 @@ class EditorSection {
     return element;
   }
 
-  private handleWrongAnswer(): void {
+  private animationWhenWrongAnswer(): void {
     if (this.eventEmitter) {
       this.eventEmitter.addEventListener('wrongAnswer', (classAdd: string) => {
         console.log(classAdd);

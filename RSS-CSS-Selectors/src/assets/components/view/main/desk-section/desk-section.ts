@@ -40,11 +40,12 @@ class DeskSection {
       this.eventEmitter.addEventListener(
         'moveToNextLevel',
         (result: string) => {
-          console.log(result);
+          console.log(result, 105);
           this.elementsContainer.classList.add('animate-moveUpElements');
         }
       );
     }
   }
 }
+
 export { DeskSection };
