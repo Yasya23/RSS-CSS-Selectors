@@ -80,16 +80,12 @@ class Navigation {
     };
 
     this.eventEmitter.addEventListener('moveToNextLevel', listener);
-
-    // setTimeout(
-    //   () => this.eventEmitter.removeEventListener('moveToNextLevel', listener),
-    //   8000
-    // );
   }
 
   private moveToNextLevel(level: number): void {
     if (this.passedLevels.checkLevels()) {
-      return this.winMessage();
+      this.winMessage();
+      return;
     }
     const nextLevel = this.passedLevels.nextLevel(level);
     console.log(nextLevel);

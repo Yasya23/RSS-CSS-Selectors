@@ -7,7 +7,6 @@ import { CreateHTMLElement } from './elements-actions/createHTMLelement';
 import { EventManager } from './event-emitter/event-manager';
 import { EventEmitter } from './event-emitter/event-emitter';
 import { NavClassName } from './nav/nav-color-elements';
-// import { PassedLevels } from './nav/passed-levels';
 
 class View {
   private container: HTMLElement;

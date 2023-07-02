@@ -10,21 +10,7 @@ class EventEmitter {
       this.events.set(event, []);
     }
     this.events.get(event)?.push(listener);
-    console.log(this.events);
   }
-
-  // removeEventListener(event: string, listener: (...args: string[]) => void) {
-  //   const listeners = this.events.get(event);
-  //   if (listeners) {
-  //     const index = listeners.indexOf(listener);
-  //     if (index !== -1) {
-  //       listeners.splice(index, 1);
-  //     }
-  //     if (listeners.length === 0) {
-  //       this.events.delete(event);
-  //     }
-  //   }
-  // }
 
   removeAllListeners() {
     this.events.clear();
