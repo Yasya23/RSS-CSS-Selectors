@@ -19,12 +19,12 @@ class View {
   private level: number;
   private eventEmitter: EventEmitter;
   private navInstance: NavClassName;
-  // private passedLevels: PassedLevels;
 
   constructor() {
     const eventManager = EventManager.getInstance();
-    // this.passedLevels = new PassedLevels();
     this.eventEmitter = eventManager.getEventEmitter();
+    this.eventEmitter.removeAllListeners();
+
     const savedLevel = localStorage.getItem('levelActive');
 
     this.level = savedLevel ? +JSON.parse(savedLevel) : 0;

@@ -71,13 +71,20 @@ class Navigation {
   }
 
   private handleMoveToNextLevel(): void {
-    this.eventEmitter.addEventListener('moveToNextLevel', (action: string) => {
+    const listener = (action: string) => {
       const level = new View().getLevel();
       action === 'help'
         ? this.colorHelpUsedElement(level)
         : this.colorCorrectAnswerElement(level);
       this.moveToNextLevel(level);
-    });
+    };
+
+    this.eventEmitter.addEventListener('moveToNextLevel', listener);
+
+    // setTimeout(
+    //   () => this.eventEmitter.removeEventListener('moveToNextLevel', listener),
+    //   8000
+    // );
   }
 
   private moveToNextLevel(level: number): void {

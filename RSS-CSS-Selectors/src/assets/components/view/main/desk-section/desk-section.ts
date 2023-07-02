@@ -34,16 +34,13 @@ class DeskSection {
   getElement() {
     return this.container;
   }
-
   private handleAnswer(): void {
     if (this.eventEmitter) {
-      this.eventEmitter.addEventListener(
-        'moveToNextLevel',
-        (result: string) => {
-          console.log(result, 105);
-          this.elementsContainer.classList.add('animate-moveUpElements');
-        }
-      );
+      const listener = () => {
+        this.elementsContainer.classList.add('animate-moveUpElements');
+      };
+
+      this.eventEmitter.addEventListener('moveToNextLevel', listener);
     }
   }
 }

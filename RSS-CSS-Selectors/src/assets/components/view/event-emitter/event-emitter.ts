@@ -10,6 +10,7 @@ class EventEmitter {
       this.events.set(event, []);
     }
     this.events.get(event)?.push(listener);
+    console.log(this.events);
   }
 
   // removeEventListener(event: string, listener: (...args: string[]) => void) {
@@ -24,6 +25,10 @@ class EventEmitter {
   //     }
   //   }
   // }
+
+  removeAllListeners() {
+    this.events.clear();
+  }
 
   emit(event: string, ...args: string[]) {
     const listeners = this.events.get(event);
