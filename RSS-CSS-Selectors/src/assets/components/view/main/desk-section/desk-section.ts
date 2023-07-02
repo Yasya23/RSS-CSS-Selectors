@@ -2,12 +2,18 @@ import { sectionDesk } from '../../../data/page-elements/main/desk-section';
 
 import { CreateHTMLElement } from '../../elements-actions/createHTMLelement';
 
+import { EventEmitter } from '../../event-emitter/event-emitter';
+import { EventManager } from '../../event-emitter/event-manager';
+
 class DeskSection {
   private container: HTMLElement;
   private elementsContainer: HTMLElement;
   private array: HTMLElement[];
+  private eventEmitter: EventEmitter;
 
   constructor(array: HTMLElement[]) {
+    const eventManager = EventManager.getInstance();
+    this.eventEmitter = eventManager.getEventEmitter();
     this.array = array;
     const { section, desk, wrapperElements } = sectionDesk;
     const { container, heading, wrapper } = section;
@@ -22,11 +28,23 @@ class DeskSection {
     this.elementsContainer.append(...this.array);
     this.container.append(elementsWrapper);
     elementsWrapper.append(deskElement, this.elementsContainer);
+    this.handleAnswer();
   }
 
   getElement() {
     return this.container;
   }
-}
 
+  private handleAnswer(): void {
+    if (this.eventEmitter) {
+      this.eventEmitter.addEventListener(
+        'moveToNextLevel',
+        (result: string) => {
+          console.log(result);
+          this.elementsContainer.classList.add('animate-moveUpElements');
+        }
+      );
+    }
+  }
+}
 export { DeskSection };

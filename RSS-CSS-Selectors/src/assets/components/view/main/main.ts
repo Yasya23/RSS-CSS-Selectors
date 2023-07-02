@@ -7,7 +7,6 @@ import { EditorSection } from './editor-section/editor';
 import { Highlight } from './highlite-when-mouseover';
 import { CodeElements } from './editor-section/html-viewer/create-code-elements';
 import { levelsCode } from '../../data/dynamic-data/elements-code';
-// import { Code } from './editor-section/code-editor/code';
 
 class Main {
   private container: HTMLElement;
@@ -25,6 +24,7 @@ class Main {
       level,
       levels[level]
     ).getElementsArray();
+    console.log(levelsCode[1]);
     const codeArray = new CodeElements(
       level,
       levelsCode[level]

@@ -46,6 +46,11 @@ module.exports = {
           'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
         },
       },
+      moveUpElements: {
+        '100%': {
+          transform: 'translateY(-200%)',
+        },
+      },
       none: {
         '0%': {
           opacity: '1',
@@ -59,6 +64,7 @@ module.exports = {
       topSkew: 'topSkew 1s infinite',
       pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       moveContainer: 'moveContainer 0.1s infinite',
+      moveUpElements: 'moveUpElements 0.5s forwards',
       none: 'none 1s',
     },
   },

@@ -60,6 +60,11 @@ class EditorCss {
   private handleHelpButtonClick(): void {
     const answer = answers[this.level][0];
     new SetValue().set(this.inputField, answer);
+    const timeToStart = answer.length * 220;
+    setTimeout(
+      () => this.eventEmitter.emit('moveToNextLevel', 'help'),
+      timeToStart
+    );
   }
 
   private handleSubmitForm(e: Event): void {
@@ -68,9 +73,8 @@ class EditorCss {
     const value = input.value.trim();
     if (value.length > 0) input.focus();
     const answer = answers[this.level];
-    console.log(answer);
     if (answer.includes(value)) {
-      console.log(1);
+      setTimeout(() => this.eventEmitter.emit('moveToNextLevel', 'win'), 300);
     } else {
       this.handleWrongAnswer();
     }
