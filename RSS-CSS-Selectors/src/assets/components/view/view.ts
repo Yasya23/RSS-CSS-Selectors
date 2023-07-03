@@ -60,16 +60,19 @@ class View {
   private updateLevel(level: string) {
     this.level = parseInt(level, 10);
     localStorage.setItem('levelActive', JSON.stringify(this.level));
-    this.updateMainElement();
+    this.updateElements();
     this.navInstance.colorActiveElement(this.level);
   }
 
-  private updateMainElement(): void {
-    this.main = new Main(this.level).getElement();
-    console.log(this.wrapper.children[1]);
-    this.wrapper.replaceChild(this.main, this.wrapper.children[1]);
+  private updateElements(): void {
+    const newMain = new Main(this.level).getElement();
+    const newNav = new Navigation().getElement();
 
-    console.log(1);
+    this.wrapper.replaceChild(newMain, this.wrapper.children[1]);
+    this.container.replaceChild(newNav, this.nav);
+
+    this.main = newMain;
+    this.nav = newNav;
   }
 
   getLevel(): number {

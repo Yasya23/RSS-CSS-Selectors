@@ -61,6 +61,7 @@ class Navigation {
     }
 
     this.list.addEventListener('click', this.handleLevelClick.bind(this));
+    this.resetButton.addEventListener('click', () => this.resetLevels());
     this.handleMoveToNextLevel();
   }
 
@@ -119,6 +120,14 @@ class Navigation {
 
   private winMessage() {
     this.wrapper.append(this.winningMessage);
+  }
+
+  private resetLevels() {
+    localStorage.removeItem('history');
+
+    setTimeout(() => {
+      this.eventEmitter.emit('levelChanged', `0`);
+    }, 500);
   }
 }
 
