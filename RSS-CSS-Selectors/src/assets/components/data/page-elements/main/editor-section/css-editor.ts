@@ -110,7 +110,8 @@ const cssEditorData = {
   cssNotes: {
     element: 'p',
     classes: ['text-slate-300', 'grow', 'text-xs', 'sm:text-base'],
-    textContent: 'Click Help',
+    textContent:
+      'Please write your answer in the input field following the rules of the current level',
   },
 
   cssHelpButton: {

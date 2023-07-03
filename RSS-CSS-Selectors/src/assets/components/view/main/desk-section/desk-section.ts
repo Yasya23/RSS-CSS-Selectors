@@ -36,11 +36,9 @@ class DeskSection {
   }
   private handleAnswer(): void {
     if (this.eventEmitter) {
-      const listener = () => {
+      this.eventEmitter.addEventListener('moveToNextLevel', () => {
         this.elementsContainer.classList.add('animate-moveUpElements');
-      };
-
-      this.eventEmitter.addEventListener('moveToNextLevel', listener);
+      });
     }
   }
 }

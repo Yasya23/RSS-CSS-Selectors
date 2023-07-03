@@ -88,7 +88,6 @@ class EditorSection {
   private animationWhenWrongAnswer(): void {
     if (this.eventEmitter) {
       this.eventEmitter.addEventListener('wrongAnswer', (classAdd: string) => {
-        console.log(classAdd);
         this.container.classList.add(classAdd);
         setTimeout(() => this.container.classList.remove(classAdd), 500);
       });

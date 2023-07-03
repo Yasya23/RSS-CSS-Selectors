@@ -81,16 +81,14 @@ class Navigation {
   }
 
   private handleMoveToNextLevel(): void {
-    const listener = (action: string) => {
+    this.eventEmitter.addEventListener('moveToNextLevel', (action: string) => {
       const level = new View().getLevel();
       this.moveToNextLevel(level);
 
       action === 'help'
         ? this.colorHelpUsedElement(level)
         : this.colorCorrectAnswerElement(level);
-    };
-
-    this.eventEmitter.addEventListener('moveToNextLevel', listener);
+    });
   }
 
   private moveToNextLevel(level: number): void {
@@ -99,6 +97,7 @@ class Navigation {
       return;
     }
     const nextLevel = this.passedLevels.nextLevel(level);
+
     setTimeout(() => {
       this.eventEmitter.emit('levelChanged', `${nextLevel}`);
     }, 500);
@@ -126,7 +125,7 @@ class Navigation {
     this.passedLevels.removeFromLocalStorage();
 
     setTimeout(() => {
-      this.eventEmitter.emit('levelChanged', `0`);
+      this.eventEmitter.emit('levelChanged', 'reset');
     }, 500);
   }
 }

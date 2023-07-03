@@ -1,6 +1,5 @@
 import { cssEditorData } from '../../../../data/page-elements/main/editor-section/css-editor';
 import { CreateHTMLElement } from '../../../elements-actions/createHTMLelement';
-import { description } from '../../../../data/dynamic-data/elements-levels-data';
 import { answers } from '../../../../data/dynamic-data/input-answers';
 import { EventEmitter } from '../../../event-emitter/event-emitter';
 import { EventManager } from '../../../event-emitter/event-manager';
@@ -37,7 +36,6 @@ class EditorCss {
     this.enterButton = new CreateHTMLElement(cssEnterButton).getElement();
 
     const notes = new CreateHTMLElement(cssNotes).getElement();
-    notes.textContent += description[this.level];
 
     this.form.append(this.inputField, this.enterButton);
     this.field.append(this.form, notes, this.helpButton);

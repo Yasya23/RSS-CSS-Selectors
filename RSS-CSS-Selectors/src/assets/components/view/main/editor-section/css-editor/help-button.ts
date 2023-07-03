@@ -16,8 +16,10 @@ class HelpButton {
     this.inputField = inputField as HTMLInputElement;
     this.eventEmitter = eventEmitter;
     const answer = answers[this.level][0];
+    console.log(answer);
     new SetValue().set(this.inputField, answer);
-    const timeToStart = answer.length * 220;
+    const timeToStart = answer.length * 230;
+
     setTimeout(
       () => this.eventEmitter.emit('moveToNextLevel', 'help'),
       timeToStart

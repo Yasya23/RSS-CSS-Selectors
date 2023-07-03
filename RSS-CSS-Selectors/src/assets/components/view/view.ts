@@ -57,20 +57,22 @@ class View {
   }
 
   private updateLevel(level: string) {
-    this.level = parseInt(level, 10);
+    if (level === 'reset') this.updateNav(0);
+    this.level = parseInt(level, 10) || 0;
     localStorage.setItem('levelActive', JSON.stringify(this.level));
-    this.updateElements();
     this.navInstance.colorActiveElement(this.level);
+    this.updateMainElements();
   }
 
-  private updateElements(): void {
+  private updateMainElements(): void {
     const newMain = new Main(this.level).getElement();
-    const newNav = new Navigation(this.level).getElement();
-
     this.wrapper.replaceChild(newMain, this.wrapper.children[1]);
-    this.container.replaceChild(newNav, this.nav);
-
     this.main = newMain;
+  }
+
+  private updateNav(level: number) {
+    const newNav = new Navigation(level).getElement();
+    this.container.replaceChild(newNav, this.nav);
     this.nav = newNav;
   }
 

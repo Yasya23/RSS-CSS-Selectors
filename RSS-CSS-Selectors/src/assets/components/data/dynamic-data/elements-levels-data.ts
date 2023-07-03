@@ -43,17 +43,4 @@ const animatedElements = [
   ['no', 'animate-topSkew', 'animate-topSkew'],
 ];
 
-const description = [
-  'Choose elements using tag example: orange',
-  '2:first-child styles applied to the first element among a group of sibling elements',
-  '3:first-child styles applied to the first element among a group of sibling elements',
-  '4:first-child styles applied to the first element among a group of sibling elements',
-  '5:first-child styles applied to the first element among a group of sibling elements',
-  '6:first-child styles applied to the first element among a group of sibling elements',
-  '7:first-child styles applied to the first element among a group of sibling elements',
-  '8:first-child styles applied to the first element among a group of sibling elements',
-  '9:first-child styles applied to the first element among a group of sibling elements',
-  '10:first-child styles applied to the first element among a group of sibling elements',
-];
-
-export { levels, deskIds, animatedElements, description };
+export { levels, deskIds, animatedElements };
