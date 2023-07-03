@@ -123,7 +123,7 @@ class Navigation {
   }
 
   private resetLevels() {
-    localStorage.removeItem('history');
+    this.passedLevels.removeFromLocalStorage();
 
     setTimeout(() => {
       this.eventEmitter.emit('levelChanged', `0`);
