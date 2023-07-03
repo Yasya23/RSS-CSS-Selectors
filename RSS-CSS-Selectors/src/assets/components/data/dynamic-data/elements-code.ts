@@ -4,6 +4,11 @@ const ElementsCode = {
     classes: ['text-pink-500'],
     textContent: '<apple></apple>',
   },
+  appleClass: {
+    element: 'div',
+    classes: ['text-pink-500'],
+    textContent: '<apple class="red-apple"></apple>',
+  },
   appleGreen: {
     element: 'div',
     classes: ['text-emerald-400'],
@@ -13,6 +18,11 @@ const ElementsCode = {
     element: 'div',
     classes: ['text-yellow-300'],
     textContent: '<plate></plate>',
+  },
+  plateClass: {
+    element: 'div',
+    classes: ['text-yellow-300'],
+    textContent: '<plate class="plate"></plate>',
   },
   plateOpen: {
     element: 'div',
@@ -31,8 +41,18 @@ const ElementsCode = {
   },
   orange: {
     element: 'div',
-    classes: ['text-pink-400'],
+    classes: ['text-orange-500'],
     textContent: '<orange></orange>',
+  },
+  orangeId: {
+    element: 'div',
+    classes: ['text-orange-500'],
+    textContent: '<orange id="orange"></orange>',
+  },
+  napkin: {
+    element: 'div',
+    classes: ['text-cyan-400'],
+    textContent: '<napkin></napkin>',
   },
   napkinOpen: {
     element: 'div',
@@ -47,54 +67,45 @@ const ElementsCode = {
 };
 
 const {
+  plate,
   plateOpen,
-  orange,
   plateClose,
+  plateClass,
+  plateTwo,
+  orange,
+  orangeId,
+  napkin,
   napkinOpen,
   napkinClose,
-  plate,
   appleGreen,
   apple,
-  plateTwo,
+  appleClass,
 } = ElementsCode;
 
 const levelsCode = [
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [plate, plate],
-  [apple, plate, appleGreen, plateTwo],
-  [plate, napkinOpen, orange, napkinClose, plateClose, plateOpen],
+  [plate, plateTwo],
+  [plate, appleClass, plate],
+  [napkin, orangeId, appleGreen],
+  [plateTwo, plate],
+  [napkin, orange, napkin],
+  [plate, plateTwo, plate, plateTwo],
+  [appleGreen, apple, appleGreen, apple, appleGreen],
+  [plateOpen, apple, plateClose, plate],
+  [plateClass, plateOpen, orange, plateClose],
+  [napkin, napkinOpen, orange, napkinClose],
 ];
-
-// const answers = [['plate:first-child']];
-
-// const description = [
-//   ':first-child styles applied to the first element among a group of sibling elements',
-//   ':first-child styles applied to the first element among a group of sibling elements',
-//   ':first-child styles applied to the first element among a group of sibling elements',
-//   ':first-child styles applied to the first element among a group of sibling elements',
-// ];
 
 const levelsCodeIds = [
   ['plate1', 'plate2'],
+  ['plate1', 'apple', 'plate2'],
+  ['napkin', 'orange', 'appleGreen'],
   ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['plate1', 'plate2'],
-  ['apple1', 'plate1', 'apple2', 'plate2'],
-  ['plate1', 'plate1', 'plate2', 'plate2'],
+  ['napkin1', 'orange', 'napkin2'],
+  ['plate1', 'plate2', 'plate3', 'plate4'],
+  ['apple1', 'apple2', 'apple3', 'apple4', 'apple5'],
+  ['plate1', 'apple', 'plate1', 'plate2'],
+  ['plate1', 'plate2', 'orange', 'plate2'],
+  ['napkin1', 'napkin2', 'orange', 'napkin2'],
 ];
 
 export { levelsCode, levelsCodeIds };

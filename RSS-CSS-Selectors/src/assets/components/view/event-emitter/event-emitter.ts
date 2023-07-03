@@ -28,7 +28,6 @@ class EventEmitter {
       listeners.forEach((listener) => {
         listener(...args);
       });
-      console.log(this.events);
     }
   }
 }

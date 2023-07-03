@@ -20,7 +20,6 @@ class View {
   private navInstance: NavClassName;
 
   constructor() {
-    console.log('view');
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
 
@@ -35,14 +34,14 @@ class View {
     this.header = Header.initialize();
     this.main = new Main(this.level).getElement();
     this.footer = Footer.initialize();
-    this.nav = new Navigation().getElement();
+    this.nav = new Navigation(this.level).getElement();
 
     this.wrapper.append(this.header, this.main, this.footer);
     this.container.append(this.wrapper, this.nav);
 
-    this.handleLevelChange();
     this.navInstance = new NavClassName();
     this.navInstance.colorActiveElement(this.level);
+    this.handleLevelChange();
   }
 
   getElement() {
@@ -66,7 +65,7 @@ class View {
 
   private updateElements(): void {
     const newMain = new Main(this.level).getElement();
-    const newNav = new Navigation().getElement();
+    const newNav = new Navigation(this.level).getElement();
 
     this.wrapper.replaceChild(newMain, this.wrapper.children[1]);
     this.container.replaceChild(newNav, this.nav);

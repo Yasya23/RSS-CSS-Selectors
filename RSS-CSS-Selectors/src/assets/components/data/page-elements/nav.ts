@@ -82,16 +82,16 @@ const navigationData = {
 };
 
 const levelsDescription = [
+  '(tag)',
+  '(.class)',
+  '(#id)',
   '(:first-child)',
   '(:last-child)',
+  '(:nth-child)',
+  '(:nth-of-type)',
   '(:only-child)',
-  '(:first-child)',
-  '(:first-child)',
-  '(:last-child)',
-  '(:only-child)',
-  '(:first-child)',
-  '(:only-child)',
-  '(:first-child)',
+  '(:empty)',
+  '(:has)',
 ];
 
 export { navigationData, levelsDescription };

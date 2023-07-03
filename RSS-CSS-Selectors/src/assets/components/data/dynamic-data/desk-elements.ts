@@ -123,12 +123,12 @@ const elements = {
   },
 };
 
-const { apple, appleGreen, orange, plate, plateTwo, napkin } = elements;
+const { apple, orange } = elements;
 
 const positionElements = {
   orangeRight: {
     element: 'div',
-    classes: [...orange.classes, 'absolute', 'right-6'],
+    classes: [...orange.classes, 'absolute', 'right-7'],
   },
   orangeLeft: {
     element: 'div',
@@ -139,9 +139,5 @@ const positionElements = {
     classes: [...apple.classes, 'absolute', 'left-5', 'z-[3]'],
   },
 };
-
-const { orangeRight, appleLeft } = positionElements;
-
-[appleGreen, orange, plate, plateTwo, napkin, orangeRight, appleLeft];
 
 export { elements, positionElements };

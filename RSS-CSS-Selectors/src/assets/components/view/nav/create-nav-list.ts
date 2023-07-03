@@ -10,8 +10,11 @@ class NavList {
     listElement: ElementStructure,
     elementWrapper: ElementStructure,
     elementSign: ElementStructure,
-    elementLevelNumber: ElementStructure
+    elementLevelNumber: ElementStructure,
+    level: number
   ) {
+    const activeLevel = level;
+
     const array = Array.from({ length: 10 }, (_, index) => {
       const level = index + 1;
       const element = new CreateHTMLElement(listElement).getElement();
@@ -20,13 +23,13 @@ class NavList {
       const sign = new CreateHTMLElement(elementSign).getElement();
       const number = new CreateHTMLElement(elementLevelNumber).getElement();
       number.textContent = `${level} ${levelsDescription[index]}`;
-
       const historyArray = new PassedLevels().getLevels();
       if (historyArray) {
         element.classList.add(historyArray[index]);
       }
       const usedHelpClass = '!text-red-300';
       if (historyArray[index] === usedHelpClass) sign.textContent = '?';
+      if (index === activeLevel) element.classList.add('!text-orange-300');
 
       wrapper.append(sign, number);
       element.append(wrapper);

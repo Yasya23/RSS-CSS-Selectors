@@ -29,7 +29,6 @@ class PassedLevels {
 
   nextLevel(currentLevel: number): number {
     const arr = this.levels.slice(currentLevel + 1);
-    console.log(arr);
     const index = arr.indexOf('no');
     if (index !== -1) {
       return index + currentLevel + 1;

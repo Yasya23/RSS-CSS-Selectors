@@ -17,7 +17,7 @@ class Navigation {
   private passedLevels: PassedLevels;
   private winningMessage: HTMLElement;
 
-  constructor() {
+  constructor(level: number) {
     const {
       nav,
       wrapper,
@@ -46,7 +46,8 @@ class Navigation {
       listElement,
       elementWrapper,
       elementSign,
-      elementLevelNumber
+      elementLevelNumber,
+      level
     ).getElementsArray();
 
     this.winningMessage = new CreateHTMLElement(messageWin).getElement();
@@ -81,7 +82,6 @@ class Navigation {
 
   private handleMoveToNextLevel(): void {
     const listener = (action: string) => {
-      console.log(action);
       const level = new View().getLevel();
       this.moveToNextLevel(level);
 
