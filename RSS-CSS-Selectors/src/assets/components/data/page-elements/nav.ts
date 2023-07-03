@@ -6,10 +6,11 @@ const navigationData = {
       'sm:w-3/12',
       'min-h-screen',
       'bg-zinc-950',
-      'p-2',
+      'p-1',
       'sm:p-4',
       'shadow-md',
       'shadow-slate-900',
+      'text-[10px]',
       'text-xs',
       'sm:text-base',
     ],
@@ -20,12 +21,12 @@ const navigationData = {
   },
   title: {
     element: 'p',
-    classes: ['sm:text-2xl', 'text-slate-400', 'mb-5'],
+    classes: ['sm:text-2xl', 'text-slate-400', 'mb-2', 'sm:mb-5'],
     textContent: 'Levels',
   },
   list: {
     element: 'ul',
-    classes: ['w-full', 'text-slate-400', 'mb-5'],
+    classes: ['w-full', 'text-slate-400', 'mb-2', 'sm:mb-5'],
   },
   listElement: {
     element: 'li',
@@ -33,7 +34,8 @@ const navigationData = {
       'flex',
       'flex-col',
       'justify-between',
-      'pb-3',
+      'pb-1',
+      'sm:pb-3',
       'select-none',
       'text-zinc-400',
     ],
@@ -47,7 +49,7 @@ const navigationData = {
 
   elementSign: {
     element: 'span',
-    classes: ['mr-3'],
+    classes: ['mr-1', 'sm:mr-3'],
     textContent: '✓',
   },
 
@@ -71,6 +73,11 @@ const navigationData = {
       'md:text-base',
     ],
     textContent: 'Reset Progress',
+  },
+  messageWin: {
+    element: 'p',
+    classes: ['text-green-300', 'text-center', 'py-2'],
+    textContent: 'You passed all levels 🥳',
   },
 };
 

@@ -9,7 +9,13 @@ class EventEmitter {
     if (!this.events.has(event)) {
       this.events.set(event, []);
     }
-    this.events.get(event)?.push(listener);
+    const listeners = this.events.get(event);
+
+    if (listeners && listeners.length >= 5) {
+      listeners.pop();
+    }
+
+    listeners?.unshift(listener);
   }
 
   removeAllListeners() {
@@ -22,6 +28,7 @@ class EventEmitter {
       listeners.forEach((listener) => {
         listener(...args);
       });
+      console.log(this.events);
     }
   }
 }

@@ -12,7 +12,6 @@ class HelpButton {
     inputField: HTMLElement,
     eventEmitter: EventEmitter
   ) {
-    console.log(100);
     this.level = level;
     this.inputField = inputField as HTMLInputElement;
     this.eventEmitter = eventEmitter;

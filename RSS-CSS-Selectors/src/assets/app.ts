@@ -2,7 +2,8 @@ import { View } from './components/view/view';
 
 class App {
   load(): void {
-    new View().getElement();
+    const view = new View();
+    document.body.appendChild(view.getElement());
   }
 }
 

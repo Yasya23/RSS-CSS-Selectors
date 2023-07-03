@@ -20,9 +20,9 @@ class View {
   private navInstance: NavClassName;
 
   constructor() {
+    console.log('view');
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
-    this.eventEmitter.removeAllListeners();
 
     const savedLevel = localStorage.getItem('levelActive');
 
@@ -37,9 +37,9 @@ class View {
     this.footer = Footer.initialize();
     this.nav = new Navigation().getElement();
 
-    document.body.append(this.container);
     this.wrapper.append(this.header, this.main, this.footer);
     this.container.append(this.wrapper, this.nav);
+
     this.handleLevelChange();
     this.navInstance = new NavClassName();
     this.navInstance.colorActiveElement(this.level);
@@ -52,17 +52,24 @@ class View {
   private handleLevelChange(): void {
     if (this.eventEmitter) {
       this.eventEmitter.addEventListener('levelChanged', (level: string) => {
-        this.level = parseInt(level, 10);
-        this.updateMainElement();
-        localStorage.setItem('levelActive', JSON.stringify(this.level));
-        this.navInstance.colorActiveElement(this.level);
+        this.updateLevel(level);
       });
     }
   }
 
+  private updateLevel(level: string) {
+    this.level = parseInt(level, 10);
+    localStorage.setItem('levelActive', JSON.stringify(this.level));
+    this.updateMainElement();
+    this.navInstance.colorActiveElement(this.level);
+  }
+
   private updateMainElement(): void {
     this.main = new Main(this.level).getElement();
+    console.log(this.wrapper.children[1]);
     this.wrapper.replaceChild(this.main, this.wrapper.children[1]);
+
+    console.log(1);
   }
 
   getLevel(): number {

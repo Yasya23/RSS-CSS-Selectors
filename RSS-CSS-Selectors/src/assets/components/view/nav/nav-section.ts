@@ -15,6 +15,7 @@ class Navigation {
   private eventEmitter: EventEmitter;
   private navInstance: NavClassName;
   private passedLevels: PassedLevels;
+  private winningMessage: HTMLElement;
 
   constructor() {
     const {
@@ -27,6 +28,7 @@ class Navigation {
       elementSign,
       elementLevelNumber,
       resetButton,
+      messageWin,
     } = navigationData;
 
     const eventManager = EventManager.getInstance();
@@ -47,10 +49,16 @@ class Navigation {
       elementLevelNumber
     ).getElementsArray();
 
+    this.winningMessage = new CreateHTMLElement(messageWin).getElement();
+
     this.resetButton = new CreateHTMLElement(resetButton).getElement();
 
     this.list.append(...listElements);
     this.wrapper.append(this.list, this.resetButton);
+
+    if (this.passedLevels.checkLevels()) {
+      this.winMessage();
+    }
 
     this.list.addEventListener('click', this.handleLevelClick.bind(this));
     this.handleMoveToNextLevel();
@@ -72,11 +80,13 @@ class Navigation {
 
   private handleMoveToNextLevel(): void {
     const listener = (action: string) => {
+      console.log(action);
       const level = new View().getLevel();
+      this.moveToNextLevel(level);
+
       action === 'help'
         ? this.colorHelpUsedElement(level)
         : this.colorCorrectAnswerElement(level);
-      this.moveToNextLevel(level);
     };
 
     this.eventEmitter.addEventListener('moveToNextLevel', listener);
@@ -88,7 +98,6 @@ class Navigation {
       return;
     }
     const nextLevel = this.passedLevels.nextLevel(level);
-    console.log(nextLevel);
     setTimeout(() => {
       this.eventEmitter.emit('levelChanged', `${nextLevel}`);
     }, 500);
@@ -109,7 +118,7 @@ class Navigation {
   }
 
   private winMessage() {
-    console.log('Ololo');
+    this.wrapper.append(this.winningMessage);
   }
 }
 

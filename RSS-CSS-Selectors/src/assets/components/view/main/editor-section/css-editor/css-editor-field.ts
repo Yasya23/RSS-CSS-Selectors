@@ -4,7 +4,6 @@ import { description } from '../../../../data/dynamic-data/elements-levels-data'
 import { answers } from '../../../../data/dynamic-data/input-answers';
 import { EventEmitter } from '../../../event-emitter/event-emitter';
 import { EventManager } from '../../../event-emitter/event-manager';
-// import { SetValue } from './set-value-to-input';
 import { HelpButton } from './help-button';
 
 class EditorCss {
@@ -43,10 +42,10 @@ class EditorCss {
     this.form.append(this.inputField, this.enterButton);
     this.field.append(this.form, notes, this.helpButton);
 
-    this.helpButton.addEventListener(
-      'click',
-      () => new HelpButton(this.level, this.inputField, this.eventEmitter)
-    );
+    this.helpButton.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      new HelpButton(this.level, this.inputField, this.eventEmitter);
+    });
 
     this.form.addEventListener('submit', this.handleSubmitForm.bind(this));
   }
