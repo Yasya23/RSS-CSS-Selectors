@@ -1,7 +1,7 @@
 import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 import { levelsDescription } from '../../data/page-elements/nav';
-import { PassedLevels } from './passed-levels';
+import { History } from './game-history';
 
 class NavList {
   private array: HTMLElement[];
@@ -23,7 +23,7 @@ class NavList {
       const sign = new CreateHTMLElement(elementSign).getElement();
       const number = new CreateHTMLElement(elementLevelNumber).getElement();
       number.textContent = `${level} ${levelsDescription[index]}`;
-      const historyArray = new PassedLevels().getLevels();
+      const historyArray = History.getArray();
       if (historyArray) {
         element.classList.add(historyArray[index]);
         const usedHelpClass = '!text-red-300';

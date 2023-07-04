@@ -1,28 +1,22 @@
 class PassedLevels {
   private levels: string[];
 
-  constructor() {
-    const gameHistory = localStorage.getItem('history');
-    // console.log(gameHistory);
-    if (gameHistory) {
-      this.levels = JSON.parse(gameHistory);
-    } else {
-      this.levels = new Array(10).fill('no');
-    }
+  constructor(history: string[]) {
+    this.levels = history;
   }
 
   addLevel(level: number, value: string): void {
-    this.levels[level] = value;
-    localStorage.setItem('history', JSON.stringify(this.levels));
+    // console.log(value, this.levels[level], level, this.levels);
+    // this.levels[level] = value;
+    this.levels.push(value);
+    // console.log(this.levels[level]); //Ok
+    console.log(this.levels); ///array is a meth
+
     this.addToLocalStorage();
   }
 
-  setLevels(levels: string[]): void {
-    this.levels = levels;
-  }
-
-  getLevels(): string[] {
-    return this.levels;
+  setArray(array: string[]): void {
+    this.levels = array;
   }
 
   checkLevels(): boolean {
@@ -44,6 +38,7 @@ class PassedLevels {
   }
 
   removeFromLocalStorage() {
+    // console.log('remove');
     localStorage.removeItem('history');
   }
 }

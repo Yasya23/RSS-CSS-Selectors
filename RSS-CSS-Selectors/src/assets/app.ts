@@ -2,7 +2,8 @@ import { View } from './components/view/view';
 
 class App {
   load(): void {
-    new View();
+    const view = new View();
+    document.body.append(view.getArray());
   }
 }
 

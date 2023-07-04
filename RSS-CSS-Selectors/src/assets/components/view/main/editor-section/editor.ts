@@ -90,12 +90,7 @@ class EditorSection {
       this.container.classList.add(classAdd);
       setTimeout(() => this.container.classList.remove(classAdd), 500);
     };
-    // if (this.eventEmitter) {
-    //   this.eventEmitter.addEventListener('wrongAnswer', (classAdd: string) => {
-    //     this.container.classList.add(classAdd);
-    //     setTimeout(() => this.container.classList.remove(classAdd), 500);
-    //   });
-    // }
+
     this.eventEmitter.removeListeners('wrongAnswer', listener);
     this.eventEmitter.addEventListener('wrongAnswer', listener);
   }

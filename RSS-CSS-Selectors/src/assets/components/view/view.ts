@@ -7,7 +7,6 @@ import { CreateHTMLElement } from './elements-actions/createHTMLelement';
 import { EventManager } from './event-emitter/event-manager';
 import { EventEmitter } from './event-emitter/event-emitter';
 import { NavClassName } from './nav/nav-color-elements';
-
 class View {
   private container: HTMLElement;
   private wrapper: HTMLElement;
@@ -26,24 +25,26 @@ class View {
     const savedLevel = localStorage.getItem('levelActive');
 
     this.level = savedLevel ? +JSON.parse(savedLevel) : 0;
-    console.log(this.level);
 
     const { container, wrapper } = body;
     document.body.classList.add('font-sans', 'bg-gray-800');
     this.container = new CreateHTMLElement(container).getElement();
     this.wrapper = new CreateHTMLElement(wrapper).getElement();
     this.header = Header.initialize();
+    this.nav = new Navigation(this.level).getElement();
     this.main = new Main(this.level).getElement();
     this.footer = Footer.initialize();
-    this.nav = new Navigation(this.level).getElement();
 
     this.wrapper.append(this.header, this.main, this.footer);
     this.container.append(this.wrapper, this.nav);
-    document.body.append(this.container);
 
     this.navInstance = new NavClassName();
     this.navInstance.colorActiveElement(this.level);
     this.handleLevelChange();
+  }
+
+  getArray() {
+    return this.container;
   }
 
   private handleLevelChange(): void {

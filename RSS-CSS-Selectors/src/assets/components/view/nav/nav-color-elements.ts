@@ -11,7 +11,6 @@ class NavClassName {
     if (element) {
       element.classList.add(elementClass);
     }
-    console.log(level, element, this.previousActiveElement);
     this.previousActiveElement = element;
   }
 

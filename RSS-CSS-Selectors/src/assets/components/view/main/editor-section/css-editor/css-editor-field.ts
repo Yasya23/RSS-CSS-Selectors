@@ -64,7 +64,7 @@ class EditorCss {
   }
 
   handleCorrectAnswer(): void {
-    setTimeout(() => this.eventEmitter.emit('moveToNextLevel', 'win'), 300);
+    this.eventEmitter.emit('moveToNextLevel', 'win');
   }
 
   handleWrongAnswer(): void {

@@ -7,6 +7,7 @@ import { NavList } from './create-nav-list';
 import { NavClassName } from './nav-color-elements';
 import { PassedLevels } from './passed-levels';
 import { View } from '../view';
+import { History } from './game-history';
 
 class Navigation {
   private wrapper: HTMLElement;
@@ -16,6 +17,7 @@ class Navigation {
   private navInstance: NavClassName;
   private passedLevels: PassedLevels;
   private winningMessage: HTMLElement;
+  private level: number;
 
   constructor(level: number) {
     const {
@@ -30,7 +32,9 @@ class Navigation {
       resetButton,
       messageWin,
     } = navigationData;
-    this.passedLevels = new PassedLevels();
+    const history = History.getArray();
+    this.passedLevels = new PassedLevels(history);
+    this.level = level;
 
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
@@ -47,7 +51,7 @@ class Navigation {
       elementWrapper,
       elementSign,
       elementLevelNumber,
-      level
+      this.level
     ).getElementsArray();
 
     this.winningMessage = new CreateHTMLElement(messageWin).getElement();
@@ -80,18 +84,25 @@ class Navigation {
   }
 
   private handleMoveToNextLevel(): void {
-    const listenerNav = (action: string) => {
-      const level = new View().getLevel();
-      console.log(level);
-      if (action === 'help') this.colorAndSaveElement(level, '!text-red-300');
-      if (action === 'win') this.colorAndSaveElement(level, '!text-green-300');
-    };
-    this.eventEmitter.addEventListener('moveToNextLevel', listenerNav);
+    if (EventEmitter) {
+      const listenerNav = (action: string) => {
+        this.level = new View().getLevel();
+        if (action === 'help') {
+          this.saveElement(this.level, '!text-red-300');
+          this.colorHelpElement(this.level);
+        }
+        if (action === 'win') {
+          this.saveElement(this.level, '!text-green-300');
+          this.colorWinElement(this.level);
+        }
+      };
+      this.eventEmitter.addEventListener('moveToNextLevel', listenerNav);
 
-    setTimeout(
-      () => this.eventEmitter.removeListeners('moveToNextLevel', listenerNav),
-      300
-    );
+      setTimeout(
+        () => this.eventEmitter.removeListeners('moveToNextLevel', listenerNav),
+        300
+      );
+    }
   }
 
   private moveToNextLevel(level: number): void {
@@ -103,13 +114,25 @@ class Navigation {
     }
   }
 
-  private colorAndSaveElement(level: number, classColor: string): void {
-    this.navInstance.colorHelpElement(level);
-    this.passedLevels.addLevel(level, classColor);
-    setTimeout(() => this.moveToNextLevel(level), 300);
-    if (this.passedLevels.checkLevels()) {
+  private saveElement(level: number, classColor: string): void {
+    const history = History.getArray();
+    history[level] = classColor;
+    // console.log(history, level);
+    localStorage.setItem('history', JSON.stringify(history));
+    this.passedLevels.setArray(history);
+    if (!history.includes('no')) {
+      // console.log(1);
       this.winMessage();
     }
+    setTimeout(() => this.moveToNextLevel(level), 500);
+  }
+
+  private colorHelpElement(level: number) {
+    this.navInstance.colorHelpElement(level);
+  }
+
+  private colorWinElement(level: number) {
+    this.navInstance.colorWinElement(level);
   }
 
   private winMessage() {
