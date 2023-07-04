@@ -59,6 +59,9 @@ class View {
 
   private updateLevel(level: string) {
     if (level === 'reset') this.updateNav(0);
+    if (level === 'levelsPassed') {
+      this.updateNav(this.level);
+    }
     this.level = parseInt(level, 10) || 0;
     this.updateMainElements();
     localStorage.setItem('levelActive', JSON.stringify(this.level));

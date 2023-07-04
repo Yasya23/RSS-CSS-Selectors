@@ -18,6 +18,7 @@ class Navigation {
   private passedLevels: PassedLevels;
   private winningMessage: HTMLElement;
   private level: number;
+  private history: string[];
 
   constructor(level: number) {
     const {
@@ -32,8 +33,8 @@ class Navigation {
       resetButton,
       messageWin,
     } = navigationData;
-    const history = History.getArray();
-    this.passedLevels = new PassedLevels(history);
+    this.history = History.getArray();
+    this.passedLevels = new PassedLevels(this.history);
     this.level = level;
 
     const eventManager = EventManager.getInstance();
@@ -110,20 +111,18 @@ class Navigation {
       const nextLevel = this.passedLevels.nextLevel(level);
       this.eventEmitter.emit('levelChanged', `${nextLevel}`);
     } else {
-      this.winMessage();
+      this.eventEmitter.emit('levelChanged', `levelsPassed`);
     }
   }
 
   private saveElement(level: number, classColor: string): void {
     const history = History.getArray();
     history[level] = classColor;
-    // console.log(history, level);
-    localStorage.setItem('history', JSON.stringify(history));
-    this.passedLevels.setArray(history);
-    if (!history.includes('no')) {
-      // console.log(1);
-      this.winMessage();
-    }
+    this.history = history;
+
+    this.passedLevels.setArray(this.history);
+    this.passedLevels.addToLocalStorage();
+
     setTimeout(() => this.moveToNextLevel(level), 500);
   }
 
