@@ -26,6 +26,7 @@ class View {
     const savedLevel = localStorage.getItem('levelActive');
 
     this.level = savedLevel ? +JSON.parse(savedLevel) : 0;
+    console.log(this.level);
 
     const { container, wrapper } = body;
     document.body.classList.add('font-sans', 'bg-gray-800');
@@ -38,14 +39,11 @@ class View {
 
     this.wrapper.append(this.header, this.main, this.footer);
     this.container.append(this.wrapper, this.nav);
+    document.body.append(this.container);
 
     this.navInstance = new NavClassName();
     this.navInstance.colorActiveElement(this.level);
     this.handleLevelChange();
-  }
-
-  getElement() {
-    return this.container;
   }
 
   private handleLevelChange(): void {

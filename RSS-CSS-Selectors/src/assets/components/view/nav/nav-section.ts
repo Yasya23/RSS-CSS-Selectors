@@ -30,12 +30,11 @@ class Navigation {
       resetButton,
       messageWin,
     } = navigationData;
+    this.passedLevels = new PassedLevels();
 
     const eventManager = EventManager.getInstance();
-
     this.eventEmitter = eventManager.getEventEmitter();
     this.navInstance = new NavClassName();
-    this.passedLevels = new PassedLevels();
 
     this.wrapper = new CreateHTMLElement(
       Object.values({ nav, wrapper, title })
@@ -52,15 +51,13 @@ class Navigation {
     ).getElementsArray();
 
     this.winningMessage = new CreateHTMLElement(messageWin).getElement();
-
     this.resetButton = new CreateHTMLElement(resetButton).getElement();
 
     this.list.append(...listElements);
-    this.wrapper.append(this.list, this.resetButton);
+    this.wrapper.append(this.list, this.resetButton, this.winningMessage);
 
     if (this.passedLevels.checkLevels()) {
-      this.wrapper.append(this.winningMessage);
-      this.winningMessage.classList.add('!block');
+      this.winMessage();
     }
 
     this.list.addEventListener('click', this.handleLevelClick.bind(this));
@@ -85,61 +82,44 @@ class Navigation {
   private handleMoveToNextLevel(): void {
     const listenerNav = (action: string) => {
       const level = new View().getLevel();
-
-      if (action === 'help') this.colorHelpUsedElement(level);
-      if (action === 'win') {
-        this.colorCorrectAnswerElement(level);
-      }
-
-      this.moveToNextLevel(level);
+      console.log(level);
+      if (action === 'help') this.colorAndSaveElement(level, '!text-red-300');
+      if (action === 'win') this.colorAndSaveElement(level, '!text-green-300');
     };
-    this.eventEmitter.removeListeners('moveToNextLevel', listenerNav);
+    this.eventEmitter.addEventListener('moveToNextLevel', listenerNav);
+
     setTimeout(
-      () => this.eventEmitter.addEventListener('moveToNextLevel', listenerNav),
-      500
+      () => this.eventEmitter.removeListeners('moveToNextLevel', listenerNav),
+      300
     );
   }
 
   private moveToNextLevel(level: number): void {
-    if (this.passedLevels.checkLevels()) {
-      this.winMessage();
-      // return;
-    }
-    const nextLevel = this.passedLevels.nextLevel(level);
-    setTimeout(() => {
+    if (!this.passedLevels.checkLevels()) {
+      const nextLevel = this.passedLevels.nextLevel(level);
       this.eventEmitter.emit('levelChanged', `${nextLevel}`);
-    }, 500);
+    } else {
+      this.winMessage();
+    }
   }
 
-  private colorHelpUsedElement(level: number): void {
+  private colorAndSaveElement(level: number, classColor: string): void {
     this.navInstance.colorHelpElement(level);
-    this.saveElementToPassed('!text-red-300', level);
-  }
-
-  private colorCorrectAnswerElement(level: number): void {
-    this.navInstance.colorWinElement(level);
-    this.saveElementToPassed('!text-green-300', level);
-  }
-
-  private saveElementToPassed(colorClass: string, level: number) {
-    this.passedLevels.addLevel(level, colorClass);
+    this.passedLevels.addLevel(level, classColor);
+    setTimeout(() => this.moveToNextLevel(level), 300);
     if (this.passedLevels.checkLevels()) {
       this.winMessage();
     }
   }
 
   private winMessage() {
-    // this.wrapper.append(this.winningMessage);
-    this.wrapper.append(this.winningMessage);
-    this.winningMessage.classList.add('!block');
+    this.winningMessage.textContent = 'You passed all levels 🥳';
   }
 
   private resetLevels() {
+    this.winningMessage.textContent = '';
     this.passedLevels.removeFromLocalStorage();
-    this.winningMessage.classList.remove('!block');
-    setTimeout(() => {
-      this.eventEmitter.emit('levelChanged', 'reset');
-    }, 500);
+    this.eventEmitter.emit('levelChanged', 'reset');
   }
 }
 

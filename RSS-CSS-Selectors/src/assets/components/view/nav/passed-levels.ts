@@ -3,6 +3,7 @@ class PassedLevels {
 
   constructor() {
     const gameHistory = localStorage.getItem('history');
+    // console.log(gameHistory);
     if (gameHistory) {
       this.levels = JSON.parse(gameHistory);
     } else {
@@ -12,8 +13,7 @@ class PassedLevels {
 
   addLevel(level: number, value: string): void {
     this.levels[level] = value;
-    console.log(level);
-    console.log(this.levels);
+    localStorage.setItem('history', JSON.stringify(this.levels));
     this.addToLocalStorage();
   }
 
@@ -34,10 +34,8 @@ class PassedLevels {
     const index = arr.indexOf('no');
     if (index !== -1) {
       return index + currentLevel + 1;
-    } else if (this.levels.includes('no')) {
-      return this.levels.indexOf('no');
     } else {
-      return currentLevel;
+      return this.levels.indexOf('no');
     }
   }
 

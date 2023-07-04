@@ -19,7 +19,7 @@ class EventEmitter {
     }
 
     listeners?.unshift(listener);
-    // console.log(this.events);
+    console.log(this.events);
   }
 
   removeListeners(event: string, listener: (...args: string[]) => void) {

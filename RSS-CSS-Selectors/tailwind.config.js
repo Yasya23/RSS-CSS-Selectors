@@ -64,7 +64,7 @@ module.exports = {
       topSkew: 'topSkew 1s infinite',
       pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       moveContainer: 'moveContainer 0.1s infinite',
-      moveUpElements: 'moveUpElements 0.5s forwards',
+      moveUpElements: 'moveUpElements 1s forwards',
       none: 'none 1s',
     },
   },
