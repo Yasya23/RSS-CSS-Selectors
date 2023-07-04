@@ -39,11 +39,13 @@ class View {
     this.container.append(this.wrapper, this.nav);
 
     this.navInstance = new NavClassName();
-    this.navInstance.colorActiveElement(this.level);
+    window.addEventListener('DOMContentLoaded', () => {
+      this.navInstance.colorActiveElement(this.level);
+    });
     this.handleLevelChange();
   }
 
-  getArray() {
+  getContainer() {
     return this.container;
   }
 
