@@ -32,6 +32,7 @@ class Navigation {
     } = navigationData;
 
     const eventManager = EventManager.getInstance();
+
     this.eventEmitter = eventManager.getEventEmitter();
     this.navInstance = new NavClassName();
     this.passedLevels = new PassedLevels();
@@ -58,7 +59,8 @@ class Navigation {
     this.wrapper.append(this.list, this.resetButton);
 
     if (this.passedLevels.checkLevels()) {
-      this.winMessage();
+      this.wrapper.append(this.winningMessage);
+      this.winningMessage.classList.add('!block');
     }
 
     this.list.addEventListener('click', this.handleLevelClick.bind(this));
@@ -81,23 +83,29 @@ class Navigation {
   }
 
   private handleMoveToNextLevel(): void {
-    this.eventEmitter.addEventListener('moveToNextLevel', (action: string) => {
+    const listenerNav = (action: string) => {
       const level = new View().getLevel();
-      this.moveToNextLevel(level);
 
-      action === 'help'
-        ? this.colorHelpUsedElement(level)
-        : this.colorCorrectAnswerElement(level);
-    });
+      if (action === 'help') this.colorHelpUsedElement(level);
+      if (action === 'win') {
+        this.colorCorrectAnswerElement(level);
+      }
+
+      this.moveToNextLevel(level);
+    };
+    this.eventEmitter.removeListeners('moveToNextLevel', listenerNav);
+    setTimeout(
+      () => this.eventEmitter.addEventListener('moveToNextLevel', listenerNav),
+      500
+    );
   }
 
   private moveToNextLevel(level: number): void {
     if (this.passedLevels.checkLevels()) {
       this.winMessage();
-      return;
+      // return;
     }
     const nextLevel = this.passedLevels.nextLevel(level);
-
     setTimeout(() => {
       this.eventEmitter.emit('levelChanged', `${nextLevel}`);
     }, 500);
@@ -115,15 +123,20 @@ class Navigation {
 
   private saveElementToPassed(colorClass: string, level: number) {
     this.passedLevels.addLevel(level, colorClass);
+    if (this.passedLevels.checkLevels()) {
+      this.winMessage();
+    }
   }
 
   private winMessage() {
+    // this.wrapper.append(this.winningMessage);
     this.wrapper.append(this.winningMessage);
+    this.winningMessage.classList.add('!block');
   }
 
   private resetLevels() {
     this.passedLevels.removeFromLocalStorage();
-
+    this.winningMessage.classList.remove('!block');
     setTimeout(() => {
       this.eventEmitter.emit('levelChanged', 'reset');
     }, 500);

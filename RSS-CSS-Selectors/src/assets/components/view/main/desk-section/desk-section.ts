@@ -10,8 +10,10 @@ class DeskSection {
   private elementsContainer: HTMLElement;
   private array: HTMLElement[];
   private eventEmitter: EventEmitter;
+  private isListener: boolean;
 
   constructor(array: HTMLElement[]) {
+    this.isListener = false;
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
     this.array = array;
@@ -35,11 +37,18 @@ class DeskSection {
     return this.container;
   }
   private handleAnswer(): void {
-    if (this.eventEmitter) {
-      this.eventEmitter.addEventListener('moveToNextLevel', () => {
-        this.elementsContainer.classList.add('animate-moveUpElements');
-      });
-    }
+    const listener = () => {
+      this.elementsContainer.classList.add('animate-moveUpElements');
+    };
+
+    // if (this.eventEmitter && !this.isListener) {
+    //   this.eventEmitter.addEventListener('moveToNextLevel', () => {
+    //     this.elementsContainer.classList.add('animate-moveUpElements');
+    //   });
+    //   this.isListener = true;
+    // }
+    // this.eventEmitter.filterListeners('moveToNextLevel', listener);
+    this.eventEmitter.addEventListener('moveToNextLevel', listener);
   }
 }
 

@@ -76,7 +76,7 @@ const navigationData = {
   },
   messageWin: {
     element: 'p',
-    classes: ['text-green-300', 'text-center', 'py-2'],
+    classes: ['text-green-300', 'text-center', 'py-2', 'hidden'],
     textContent: 'You passed all levels 🥳',
   },
 };

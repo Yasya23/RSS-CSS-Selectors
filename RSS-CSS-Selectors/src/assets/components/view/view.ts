@@ -59,15 +59,14 @@ class View {
   private updateLevel(level: string) {
     if (level === 'reset') this.updateNav(0);
     this.level = parseInt(level, 10) || 0;
+    this.updateMainElements();
     localStorage.setItem('levelActive', JSON.stringify(this.level));
     this.navInstance.colorActiveElement(this.level);
-    this.updateMainElements();
   }
 
   private updateMainElements(): void {
-    const newMain = new Main(this.level).getElement();
-    this.wrapper.replaceChild(newMain, this.wrapper.children[1]);
-    this.main = newMain;
+    this.main = new Main(this.level).getElement();
+    this.wrapper.replaceChild(this.main, this.wrapper.children[1]);
   }
 
   private updateNav(level: number) {

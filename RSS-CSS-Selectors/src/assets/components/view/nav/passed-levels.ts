@@ -12,6 +12,8 @@ class PassedLevels {
 
   addLevel(level: number, value: string): void {
     this.levels[level] = value;
+    console.log(level);
+    console.log(this.levels);
     this.addToLocalStorage();
   }
 
@@ -32,8 +34,10 @@ class PassedLevels {
     const index = arr.indexOf('no');
     if (index !== -1) {
       return index + currentLevel + 1;
-    } else {
+    } else if (this.levels.includes('no')) {
       return this.levels.indexOf('no');
+    } else {
+      return currentLevel;
     }
   }
 

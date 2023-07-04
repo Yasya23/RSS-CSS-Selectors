@@ -26,9 +26,9 @@ class NavList {
       const historyArray = new PassedLevels().getLevels();
       if (historyArray) {
         element.classList.add(historyArray[index]);
+        const usedHelpClass = '!text-red-300';
+        if (historyArray[index] === usedHelpClass) sign.textContent = '?';
       }
-      const usedHelpClass = '!text-red-300';
-      if (historyArray[index] === usedHelpClass) sign.textContent = '?';
       if (index === activeLevel) element.classList.add('!text-orange-300');
 
       wrapper.append(sign, number);

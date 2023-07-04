@@ -6,20 +6,29 @@ class EventEmitter {
   }
 
   addEventListener(event: string, listener: (...args: string[]) => void) {
+    const maxListeners = 150;
+
     if (!this.events.has(event)) {
       this.events.set(event, []);
     }
+
     const listeners = this.events.get(event);
 
-    if (listeners && listeners.length >= 5) {
-      listeners.pop();
+    if (listeners && listeners?.length >= maxListeners) {
+      listeners?.pop();
     }
 
     listeners?.unshift(listener);
+    // console.log(this.events);
   }
 
-  removeAllListeners() {
-    this.events.clear();
+  removeListeners(event: string, listener: (...args: string[]) => void) {
+    const listeners = this.events.get(event);
+
+    if (listeners) {
+      const filteredListeners = [...listeners].filter((el) => el === listener);
+      this.events.set(event, filteredListeners);
+    }
   }
 
   emit(event: string, ...args: string[]) {
