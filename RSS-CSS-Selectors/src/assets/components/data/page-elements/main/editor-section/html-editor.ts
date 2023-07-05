@@ -61,19 +61,19 @@ const htmlEditorData = {
 
   codeWrapper: {
     element: 'div',
-    classes: ['pl-3', 'm-0', 'select-none'],
+    classes: ['pl-3', 'm-0'],
   },
 
   codeOpen: {
     element: 'div',
     classes: ['text-slate-500'],
-    textContent: `<div class="table">`,
+    textContent: `<table>`,
   },
 
   codeClose: {
     element: 'div',
     classes: ['text-slate-500'],
-    textContent: `</div>`,
+    textContent: `</table>`,
   },
 };
 
