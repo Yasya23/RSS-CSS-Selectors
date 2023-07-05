@@ -45,7 +45,7 @@ class View {
     this.handleLevelChange();
   }
 
-  getContainer() {
+  getContainer(): HTMLElement {
     return this.container;
   }
 

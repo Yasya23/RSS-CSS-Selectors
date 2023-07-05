@@ -5,16 +5,6 @@ class PassedLevels {
     this.levels = history;
   }
 
-  // addLevel(level: number, value: string): void {
-  //   // console.log(value, this.levels[level], level, this.levels);
-  //   // this.levels[level] = value;
-  //   this.levels.push(value);
-  //   // console.log(this.levels[level]); //Ok
-  //   console.log(this.levels); ///array is a meth
-
-  //   this.addToLocalStorage();
-  // }
-
   setArray(array: string[]): void {
     this.levels = array;
   }
