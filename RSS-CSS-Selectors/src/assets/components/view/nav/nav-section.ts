@@ -32,6 +32,7 @@ class Navigation {
       elementLevelNumber,
       resetButton,
       messageWin,
+      levelsDescription,
     } = navigationData;
     this.history = History.getArray();
     this.passedLevels = new PassedLevels(this.history);
@@ -52,6 +53,7 @@ class Navigation {
       elementWrapper,
       elementSign,
       elementLevelNumber,
+      levelsDescription,
       this.level
     ).getElementsArray();
 

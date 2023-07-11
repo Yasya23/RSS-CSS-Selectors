@@ -78,19 +78,31 @@ const navigationData = {
     element: 'p',
     classes: ['text-green-300', 'text-center', 'py-2'],
   },
+  levelsDescription: [
+    '(tag)',
+    '(.class)',
+    '(#id)',
+    '(:first-child)',
+    '(:last-child)',
+    '(:nth-child)',
+    '(:nth-of-type)',
+    '(:only-child)',
+    '(:empty)',
+    '(:has)',
+  ],
 };
 
-const levelsDescription = [
-  '(tag)',
-  '(.class)',
-  '(#id)',
-  '(:first-child)',
-  '(:last-child)',
-  '(:nth-child)',
-  '(:nth-of-type)',
-  '(:only-child)',
-  '(:empty)',
-  '(:has)',
-];
+// const levelsDescription = [
+//   '(tag)',
+//   '(.class)',
+//   '(#id)',
+//   '(:first-child)',
+//   '(:last-child)',
+//   '(:nth-child)',
+//   '(:nth-of-type)',
+//   '(:only-child)',
+//   '(:empty)',
+//   '(:has)',
+// ];
 
-export { navigationData, levelsDescription };
+export { navigationData };

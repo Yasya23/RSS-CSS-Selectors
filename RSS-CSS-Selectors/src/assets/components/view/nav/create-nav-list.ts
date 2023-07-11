@@ -1,6 +1,5 @@
 import { ElementStructure } from '../../types/page-elements-structure';
 import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
-import { levelsDescription } from '../../data/page-elements/nav';
 import { History } from './game-history';
 
 class NavList {
@@ -11,6 +10,7 @@ class NavList {
     elementWrapper: ElementStructure,
     elementSign: ElementStructure,
     elementLevelNumber: ElementStructure,
+    levelsDescription: string[],
     level: number
   ) {
     const activeLevel = level;
