@@ -1,4 +1,3 @@
-import { body } from '../data/page-elements/body';
 import { Header } from './header/header';
 import { Main } from './main/main';
 import { Navigation } from './nav/nav-section';
@@ -7,6 +6,7 @@ import { CreateHTMLElement } from './elements-actions/createHTMLelement';
 import { EventManager } from './event-emitter/event-manager';
 import { EventEmitter } from './event-emitter/event-emitter';
 import { NavClassName } from './nav/nav-color-elements';
+import { data } from '../data/page-elements/page-elements';
 class View {
   private container: HTMLElement;
   private wrapper: HTMLElement;
@@ -19,6 +19,8 @@ class View {
   private navInstance: NavClassName;
 
   constructor() {
+    const { container, wrapper } = data.body;
+
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
 
@@ -26,7 +28,6 @@ class View {
 
     this.level = savedLevel ? +JSON.parse(savedLevel) : 0;
 
-    const { container, wrapper } = body;
     document.body.classList.add('font-sans', 'bg-gray-800');
     this.container = new CreateHTMLElement(container).getElement();
     this.wrapper = new CreateHTMLElement(wrapper).getElement();

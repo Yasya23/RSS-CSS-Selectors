@@ -1,4 +1,4 @@
-import { cssEditorData } from '../../../../data/page-elements/main/editor-section/css-editor';
+import { data } from '../../../../data/page-elements/page-elements';
 import { CreateHTMLElement } from '../../../elements-actions/createHTMLelement';
 import { answers } from '../../../../data/dynamic-data/input-answers';
 import { EventEmitter } from '../../../event-emitter/event-emitter';
@@ -23,7 +23,7 @@ class EditorCss {
       cssEditorForm,
       cssEditorInput,
       cssEnterButton,
-    } = cssEditorData;
+    } = data.cssEditorData;
 
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();

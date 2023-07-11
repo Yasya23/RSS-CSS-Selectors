@@ -1,5 +1,5 @@
 import { levels } from '../../data/dynamic-data/elements-levels-data';
-import { MainData } from '../../data/page-elements/main/main';
+import { data } from '../../data/page-elements/page-elements';
 import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 import { DeskElements } from './desk-section/create-desk-elements';
 import { DeskSection } from './desk-section/desk-section';
@@ -15,7 +15,7 @@ class Main {
 
   constructor(level: number) {
     this.level = level;
-    const { main, wrapper } = MainData;
+    const { main, wrapper } = data.main;
 
     this.container = new CreateHTMLElement(main).getElement();
     this.mainWrapper = new CreateHTMLElement(wrapper).getElement();

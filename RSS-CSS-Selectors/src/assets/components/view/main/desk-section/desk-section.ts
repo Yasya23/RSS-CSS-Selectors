@@ -1,4 +1,4 @@
-import { sectionDesk } from '../../../data/page-elements/main/desk-section';
+import { data } from '../../../data/page-elements/page-elements';
 
 import { CreateHTMLElement } from '../../elements-actions/createHTMLelement';
 
@@ -15,7 +15,7 @@ class DeskSection {
     const eventManager = EventManager.getInstance();
     this.eventEmitter = eventManager.getEventEmitter();
     this.array = array;
-    const { section, desk, wrapperElements } = sectionDesk;
+    const { section, desk, wrapperElements } = data.sectionDesk;
     const { container, heading, wrapper } = section;
     this.container = new CreateHTMLElement(
       Object.values({ container, heading })

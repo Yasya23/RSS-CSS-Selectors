@@ -1,9 +1,9 @@
-import { headerData } from '../../data/page-elements/header';
+import { data } from '../../data/page-elements/page-elements';
 import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 
 class Header {
   static initialize(): HTMLElement {
-    const { container, title, titleSpan } = headerData;
+    const { container, title, titleSpan } = data.header;
     const headerContainer = new CreateHTMLElement(container).getElement();
     const headerTitle = new CreateHTMLElement(
       Object.values({ title, titleSpan })

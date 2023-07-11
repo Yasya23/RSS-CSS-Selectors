@@ -1,7 +1,6 @@
-import { navigationData } from '../../data/page-elements/nav';
+import { data } from '../../data/page-elements/page-elements';
 import { CreateHTMLElement } from '../elements-actions/createHTMLelement';
 import { EventEmitter } from '../event-emitter/event-emitter';
-
 import { EventManager } from '../event-emitter/event-manager';
 import { NavList } from './create-nav-list';
 import { NavClassName } from './nav-color-elements';
@@ -33,7 +32,7 @@ class Navigation {
       resetButton,
       messageWin,
       levelsDescription,
-    } = navigationData;
+    } = data.navigation;
     this.history = History.getArray();
     this.passedLevels = new PassedLevels(this.history);
     this.level = level;

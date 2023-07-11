@@ -1,4 +1,4 @@
-import { htmlEditorData } from '../../../../data/page-elements/main/editor-section/html-editor';
+import { data } from '../../../../data/page-elements/page-elements';
 import { CreateHTMLElement } from '../../../elements-actions/createHTMLelement';
 
 class Code {
@@ -7,7 +7,8 @@ class Code {
   constructor(codeArray: HTMLElement[]) {
     this.codeArray = codeArray;
 
-    const { htmlViewerCode, codeWrapper, codeOpen, codeClose } = htmlEditorData;
+    const { htmlViewerCode, codeWrapper, codeOpen, codeClose } =
+      data.htmlEditorData;
     this.wrapper = new CreateHTMLElement(htmlViewerCode).getElement();
     const codeOpenTag = new CreateHTMLElement(codeOpen).getElement();
     const wrapperCode = new CreateHTMLElement(codeWrapper).getElement();

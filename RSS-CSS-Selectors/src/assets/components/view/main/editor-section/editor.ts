@@ -1,8 +1,6 @@
-import { containerData } from '../../../data/page-elements/main/editor-section/editor';
+import { data } from '../../../data/page-elements/page-elements';
 import { CreateHTMLElement } from '../../elements-actions/createHTMLelement';
 import { EditorCss } from './css-editor/css-editor-field';
-import { cssEditorData } from '../../../data/page-elements/main/editor-section/css-editor';
-import { htmlEditorData } from '../../../data/page-elements/main/editor-section/html-editor';
 import { Code } from './html-viewer/code';
 import { ElementStructure } from '../../../types/page-elements-structure';
 import { EventManager } from '../../event-emitter/event-manager';
@@ -21,14 +19,14 @@ class EditorSection {
     this.eventEmitter = eventManager.getEventEmitter();
 
     const { container, heading, wrapper, menuWrapper, editorWrapper } =
-      containerData;
+      data.editor;
     const {
       menuCss,
       titleCss,
       subtitleCss,
       cssEditorContainer,
       editorNumbersCss,
-    } = cssEditorData;
+    } = data.cssEditorData;
 
     const {
       wrapperHTML,
@@ -36,7 +34,7 @@ class EditorSection {
       titleHtml,
       subtitleHtml,
       editorNumbersHTML,
-    } = htmlEditorData;
+    } = data.htmlEditorData;
 
     this.container = new CreateHTMLElement(container).getElement();
     const header = new CreateHTMLElement(heading).getElement();
