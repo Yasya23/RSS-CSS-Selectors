@@ -126,19 +126,19 @@ class Navigation {
     setTimeout(() => this.moveToNextLevel(level), 500);
   }
 
-  private colorHelpElement(level: number) {
+  private colorHelpElement(level: number): void {
     this.navInstance.colorHelpElement(level);
   }
 
-  private colorWinElement(level: number) {
+  private colorWinElement(level: number): void {
     this.navInstance.colorWinElement(level);
   }
 
-  private winMessage() {
+  private winMessage(): void {
     this.winningMessage.textContent = 'You passed all levels 🥳';
   }
 
-  private resetLevels() {
+  private resetLevels(): void {
     this.winningMessage.textContent = '';
     this.passedLevels.removeFromLocalStorage();
     this.eventEmitter.emit('levelChanged', 'reset');

@@ -23,11 +23,11 @@ class PassedLevels {
     }
   }
 
-  addToLocalStorage() {
+  addToLocalStorage(): void {
     localStorage.setItem('history', JSON.stringify(this.levels));
   }
 
-  removeFromLocalStorage() {
+  removeFromLocalStorage(): void {
     localStorage.removeItem('history');
   }
 }

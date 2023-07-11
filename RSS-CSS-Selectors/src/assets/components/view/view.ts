@@ -57,7 +57,7 @@ class View {
     }
   }
 
-  private updateLevel(level: string) {
+  private updateLevel(level: string): void {
     if (level === 'reset') this.updateNav(0);
     if (level === 'levelsPassed') {
       this.updateNav(this.level);
@@ -73,7 +73,7 @@ class View {
     this.wrapper.replaceChild(this.main, this.wrapper.children[1]);
   }
 
-  private updateNav(level: number) {
+  private updateNav(level: number): void {
     const newNav = new Navigation(level).getElement();
     this.container.replaceChild(newNav, this.nav);
     this.nav = newNav;
