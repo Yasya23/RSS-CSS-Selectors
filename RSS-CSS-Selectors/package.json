@@ -1,7 +1,6 @@
 {
   "name": "rss-css-selectors",
   "version": "1.0.0",
-  "description": "",
   "private": "true",
   "scripts": {
     "start": "webpack-dev-server --mode=development --open",
@@ -29,5 +28,7 @@
     "webpack": "^5.87.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  }
+  },
+  "main": "postcss.config.js",
+  "description": ""
 }

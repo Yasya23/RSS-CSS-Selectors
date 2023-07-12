@@ -25,7 +25,7 @@ class Highlight {
     });
   }
 
-  private highlightClassToggle(dataId: string): void {
+  private highlightClassToggle<Type>(dataId: Type): void {
     const codeElements = document.querySelectorAll(
       `[data-id="code-${dataId}"]`
     );
