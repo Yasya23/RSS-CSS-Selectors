@@ -2,6 +2,7 @@ import { PassedLevels } from '../src/assets/components/view/nav/passed-levels';
 import { History } from '../src/assets/components/view/nav/game-history';
 import { ElementsIds } from '../src/assets/components/view/elements-actions/add-data-id';
 import { View } from '../src/assets/components/view/view';
+import { NavClassName } from '../src/assets/components/view/nav/nav-color-elements';
 import 'jest-localstorage-mock';
 
 // Jest test for the PassedLevels method
@@ -117,7 +118,7 @@ describe('Return level number less or equal 9', () => {
 
 // Jest test for checking if ids assign to elements in ElementsIds class
 
-describe('assignUniqueIds to each element', () => {
+describe('AssignUniqueIds to each element', () => {
   test('Should assign unique ids to elements', () => {
     const elementsArray = [
       document.createElement('div'),
@@ -133,5 +134,56 @@ describe('assignUniqueIds to each element', () => {
     elementsArray.forEach((element, index) => {
       expect(element.getAttribute('data-id')).toBe(`${code}-${id[index]}`);
     });
+  });
+});
+
+// Jest test for NavClassName class for adding color to active menu element
+
+describe('Active navigation element is colored', () => {
+  let navClassName: NavClassName;
+
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div id="level-1"></div>
+      <div id="level-2"></div>
+    `;
+
+    navClassName = new NavClassName();
+  });
+
+  test('colorActiveElement should add the correct class to the active element and remove the class from the previous active element if it exists', () => {
+    const level = 2;
+    const previousActiveElement = document.getElementById('level-1');
+    const activeElement = document.getElementById('level-2');
+
+    navClassName.colorActiveElement(level);
+
+    expect(
+      previousActiveElement?.classList.contains('!text-orange-300')
+    ).toBeFalsy();
+    expect(activeElement?.classList.contains('!text-orange-300')).toBeTruthy();
+    expect(navClassName['previousActiveElement']).toBe(activeElement);
+  });
+});
+
+// Jest test for NavClassName class for adding color to passed level menu element
+
+describe('Passed level navigation element is colored', () => {
+  let navClassName: NavClassName;
+
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div id="level-1"></div>
+      <div id="level-2"></div>
+    `;
+
+    navClassName = new NavClassName();
+  });
+
+  test('colorWinlement should add the correct class to the passed element', () => {
+    const level = 2;
+    const winElement = document.getElementById('level-2');
+    navClassName.colorWinElement(level);
+    expect(winElement?.classList.contains('!text-green-300')).toBeTruthy();
   });
 });
