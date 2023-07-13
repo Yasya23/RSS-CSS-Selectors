@@ -1,6 +1,7 @@
 import { PassedLevels } from '../src/assets/components/view/nav/passed-levels';
 import { History } from '../src/assets/components/view/nav/game-history';
 import { ElementsIds } from '../src/assets/components/view/elements-actions/add-data-id';
+import { View } from '../src/assets/components/view/view';
 import 'jest-localstorage-mock';
 
 // Jest test for the PassedLevels method
@@ -39,25 +40,72 @@ describe('Object is an instance of PassedLevels class', () => {
   });
 });
 
-// Jest test for checking if ids assign to elements
+// Jest test for checking if ids assign to elements in ElementsIds class
 
-describe('ElementsIds', () => {
-  describe('assignUniqueIds', () => {
-    test('Should assign unique ids to elements', () => {
-      const elementsArray = [
-        document.createElement('div'),
-        document.createElement('a'),
-        document.createElement('img'),
-      ];
+describe('assignUniqueIds to each element', () => {
+  test('Should assign unique ids to elements', () => {
+    const elementsArray = [
+      document.createElement('div'),
+      document.createElement('a'),
+      document.createElement('img'),
+    ];
 
-      const id = ['1', '2', '3'];
-      const code = 'code';
+    const id = ['1', '2', '3'];
+    const code = 'code';
 
-      ElementsIds.assignUniqueIds(elementsArray, id, code);
+    ElementsIds.assignUniqueIds(elementsArray, id, code);
 
-      elementsArray.forEach((element, index) => {
-        expect(element.getAttribute('data-id')).toBe(`${code}-${id[index]}`);
-      });
+    elementsArray.forEach((element, index) => {
+      expect(element.getAttribute('data-id')).toBe(`${code}-${id[index]}`);
     });
+  });
+});
+
+// Jest test for checking that levels number is less or equal 9
+
+describe('Return level number less or equal 9', () => {
+  const level = new View().getLevel();
+  test('Return true or false', () => {
+    expect(level).toBeLessThanOrEqual(9);
+  });
+});
+
+// Jest test for the PassedLevels method to check if classes added to LocalStorage
+
+describe('Elements added to LocalStorage', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  test('addToLocalStorage should save levels to localStorage', () => {
+    const levels = ['apple', 'banana', 'kiwi'];
+    const passedLevels = new PassedLevels(levels);
+
+    passedLevels.addToLocalStorage();
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      'history',
+      JSON.stringify(levels)
+    );
+  });
+});
+
+// Jest test for the PassedLevels method to check if classes removed from LocalStorage
+
+describe('Elements removed from LocalStorage', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  test('removeFromLocalStorage should remove levels from localStorage', () => {
+    localStorage.setItem(
+      'history',
+      JSON.stringify(['apple', 'banana', 'kiwi'])
+    );
+    const passedLevels = new PassedLevels([]);
+
+    passedLevels.removeFromLocalStorage();
+
+    expect(localStorage.removeItem).toHaveBeenCalledWith('history');
   });
 });
