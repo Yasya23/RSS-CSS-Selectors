@@ -173,7 +173,6 @@ describe('Passed level navigation element is colored', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <div id="level-1"></div>
       <div id="level-2"></div>
     `;
 
