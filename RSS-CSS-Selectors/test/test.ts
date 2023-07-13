@@ -22,15 +22,6 @@ describe('All Levels are passed', () => {
   });
 });
 
-// Jest test for the History class
-
-describe('Array with classes exist', () => {
-  const history = History.getArray();
-  test('Return array from LocalStorage or create new with length equal to 10', () => {
-    expect(history.length).toEqual(10);
-  });
-});
-
 // Jest test for checking if the given object is an instance of PassedLevels class
 
 describe('Object is an instance of PassedLevels class', () => {
@@ -40,33 +31,29 @@ describe('Object is an instance of PassedLevels class', () => {
   });
 });
 
-// Jest test for checking if ids assign to elements in ElementsIds class
+// Jest test for the PassedLevels method to check if level is not passed (element 'no') an return number
 
-describe('assignUniqueIds to each element', () => {
-  test('Should assign unique ids to elements', () => {
-    const elementsArray = [
-      document.createElement('div'),
-      document.createElement('a'),
-      document.createElement('img'),
-    ];
-
-    const id = ['1', '2', '3'];
-    const code = 'code';
-
-    ElementsIds.assignUniqueIds(elementsArray, id, code);
-
-    elementsArray.forEach((element, index) => {
-      expect(element.getAttribute('data-id')).toBe(`${code}-${id[index]}`);
-    });
-  });
-});
-
-// Jest test for checking that levels number is less or equal 9
-
-describe('Return level number less or equal 9', () => {
-  const level = new View().getLevel();
-  test('Return true or false', () => {
-    expect(level).toBeLessThanOrEqual(9);
+describe('Return level that is not passed', () => {
+  const array = [
+    'passed',
+    'passed',
+    'passed',
+    'passed',
+    'passed',
+    'no',
+    'passed',
+    'passed',
+    'no',
+    'passed',
+  ];
+  const passedLevels = new PassedLevels(array);
+  const currentLevel1 = 4;
+  const currentLevel2 = 6;
+  const currentLevel3 = 9;
+  test('should return next "no" element index after currentLevel', () => {
+    expect(passedLevels.nextLevel(currentLevel1)).toBe(5);
+    expect(passedLevels.nextLevel(currentLevel2)).toBe(8);
+    expect(passedLevels.nextLevel(currentLevel3)).toBe(5);
   });
 });
 
@@ -107,5 +94,44 @@ describe('Elements removed from LocalStorage', () => {
     passedLevels.removeFromLocalStorage();
 
     expect(localStorage.removeItem).toHaveBeenCalledWith('history');
+  });
+});
+
+// Jest test for the History class
+
+describe('Array with classes exist', () => {
+  const history = History.getArray();
+  test('Return array from LocalStorage or create new with length equal to 10', () => {
+    expect(history.length).toEqual(10);
+  });
+});
+
+// Jest test for checking that levels number is less or equal 9 in the View class
+
+describe('Return level number less or equal 9', () => {
+  const level = new View().getLevel();
+  test('Return true or false', () => {
+    expect(level).toBeLessThanOrEqual(9);
+  });
+});
+
+// Jest test for checking if ids assign to elements in ElementsIds class
+
+describe('assignUniqueIds to each element', () => {
+  test('Should assign unique ids to elements', () => {
+    const elementsArray = [
+      document.createElement('div'),
+      document.createElement('a'),
+      document.createElement('img'),
+    ];
+
+    const id = ['1', '2', '3'];
+    const code = 'code';
+
+    ElementsIds.assignUniqueIds(elementsArray, id, code);
+
+    elementsArray.forEach((element, index) => {
+      expect(element.getAttribute('data-id')).toBe(`${code}-${id[index]}`);
+    });
   });
 });
